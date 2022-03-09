@@ -1,0 +1,70 @@
+.root-container {
+	display: flex;
+	flex-direction: column;
+}
+
+.info {
+	margin-right: 50%;
+	&__contact {
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+		align-items: center;
+		&__header {
+			padding: 4rem;
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			align-items: center;
+			gap: 1rem;
+
+			&--round {
+				border-radius: 50%;
+				border: 2px solid black;
+			}
+
+			&--welcome {
+				font-size: 4rem;
+			}
+	
+			&--name {
+				font-size: 1.5rem;
+			}
+		}
+
+		&__personal-links {
+			padding: 6rem;
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			align-items: center;
+			&--blockchain-info {
+				display: flex;
+			}
+	
+			&--links {
+				display: flex;
+				justify-content: space-between;
+			}
+		}
+	}
+}
+
+.project-container {
+	&__content {
+		display: flex;
+		flex-direction: column;
+
+		&__line {
+			border-top: 1px solid black;
+		}
+	
+		&__body {
+			display: flex;
+			flex-direction: row;
+			justify-content: space-between;
+			margin: 10%;
+		}
+	}
+}
+
