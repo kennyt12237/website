@@ -1,5 +1,6 @@
 import React from 'react';
 import './App.scss';
+import Media from './MediaModule/Components/Media';
 
 function App() {
   return (
@@ -42,8 +43,7 @@ function App() {
 							</ul>
 						</div>
 						<div className="project-container__content__body__media">
-							<div>MEDIA</div>
-							
+							<Media srcs={["leaf.png","cabin.png", "trees.png","walkway.png"]}/>
 						</div>
 					</div>
 
