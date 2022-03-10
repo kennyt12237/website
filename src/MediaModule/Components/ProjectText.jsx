@@ -27,7 +27,7 @@ export default function ProjectText(props) {
 			<ul className="project-text-container__list">
 			{
 				list ? list.map((point, index) => {
-					return <li style={computeStyles(index)} onClick={() => onPointClicked(index)} key={index}> {point}</li>
+					return <li style={computeStyles(index)} onClick={() => onPointClicked(index)} key={index}> {point} </li>
 				}) : <div> NONE </div>
 			}
 			</ul>

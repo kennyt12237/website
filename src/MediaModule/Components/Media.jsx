@@ -27,7 +27,7 @@ export default function Media(props) {
     }
 
     const bringToFront = (index) => {
-        setMedia([
+		    setMedia([
             media[index],
             ...media.slice(0, index),
             ...media.slice(index + 1, media.length)
@@ -37,7 +37,7 @@ export default function Media(props) {
     return (
         <div className='media-container'>
             {media ? media.map((m, index) => {
-                return <img className="media-container__media" onClick={e => bringToFront(index)} src={m} style={computeStyles(media.length, index)} alt={m} key={index} />
+                return <img className="media-container__media" onClick={() => bringToFront(index)} src={m} style={computeStyles(media.length, index)} alt={m} key={index} />
             }): <div> NONE </div>}
         </div>
     );

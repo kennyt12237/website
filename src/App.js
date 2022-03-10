@@ -2,6 +2,7 @@ import React from 'react';
 import './App.scss';
 import Media from './MediaModule/Components/Media';
 import ProjectText from './MediaModule/Components/ProjectText';
+import HOC from './MediaModule/Context/HOC';
 
 function App() {
   return (
@@ -26,15 +27,7 @@ function App() {
 				</div>
 			</div>
 
-			
-			<div className="project-container">
-				<div className="project-container__summary"> 
-					<ProjectText title="Project" list={["Point One", "Point Two", "Point Three", "Point Four"]}/>
-				</div>
-				<div className="project-container__media">
-					<Media srcs={["leaf.png","cabin.png", "trees.png","walkway.png"]}/>
-				</div>
-			</div>
+		<HOC title="Project" list={["Point One", "Point Two", "Point Three", "Point Four"]} srcs={["leaf.png","cabin.png", "trees.png","walkway.png"]}/>
 	</div>
 	
   );
