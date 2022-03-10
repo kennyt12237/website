@@ -51,20 +51,25 @@
 }
 
 .project-container {
-	&__content {
+	border-top: 2px solid black;
+	border-bottom: 2px solid black;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	padding: 5%;
+
+	&__summary {
 		display: flex;
 		flex-direction: column;
 
-		&__line {
-			border-top: 1px solid black;
-		}
-	
-		&__body {
-			display: flex;
-			flex-direction: row;
-			justify-content: space-between;
-			margin: 10%;
+		&--title {
+			font-size: 3rem;
 		}
 	}
-}
 
+	&__media {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+}

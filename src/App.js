@@ -27,29 +27,18 @@ function App() {
 
 			
 			<div className="project-container">
-				<div className="project-container__content">
-					<div className="project-container__content__line">
+				<div className="project-container__summary"> 
+					<p className="project-container__summary--title"> Project </p>
+					<ul>
+						<li>Point One</li>
+						<li>Point Two</li>
+						<li>Point Three</li>
+						<li>Point Four</li>
+					</ul>
+				</div>
+				<div className="project-container__media">
+					<Media srcs={["leaf.png","cabin.png", "trees.png","walkway.png"]}/>
 					
-					</div>
-					
-					<div className="project-container__content__body">
-						<div className="project-container__content__body__summary"> 
-							Project
-							<ul>
-								<li>Point One</li>
-								<li>Point Two</li>
-								<li>Point Three</li>
-								<li>Point Four</li>
-							</ul>
-						</div>
-						<div className="project-container__content__body__media">
-							<Media srcs={["leaf.png","cabin.png", "trees.png","walkway.png"]}/>
-						</div>
-					</div>
-
-					<div className="project-container__content__line">
-					
-					</div>
 				</div>
 			</div>
 	</div>
