@@ -22,8 +22,17 @@ export default function ProjectComponent(props) {
 				}
 			}
 		}
-	},[media, setSelectedText, srcs])
+	},[media])
 
+
+	useEffect(() => {
+		setMedia([
+			srcs[selectedText],
+			...srcs.slice(0, selectedText),
+			...srcs.slice(selectedText + 1, selectedText.length)
+		])
+	}, [selectedText])
+	
 	return (
 		<div className='project-container'>
 			<ProjectText title={title} list={list} state={[selectedText, setSelectedText]}/>
