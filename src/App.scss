@@ -55,21 +55,7 @@
 	border-bottom: 2px solid black;
 	display: flex;
 	flex-direction: row;
+	background-color: white;
 	justify-content: space-between;
 	padding: 5%;
-
-	&__summary {
-		display: flex;
-		flex-direction: column;
-
-		&--title {
-			font-size: 3rem;
-		}
-	}
-
-	&__media {
-		display: flex;
-		justify-content: center;
-		align-items: center;
-	}
 }

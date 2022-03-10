@@ -1,6 +1,7 @@
 import React from 'react';
 import './App.scss';
 import Media from './MediaModule/Components/Media';
+import ProjectText from './MediaModule/Components/ProjectText';
 
 function App() {
   return (
@@ -28,17 +29,10 @@ function App() {
 			
 			<div className="project-container">
 				<div className="project-container__summary"> 
-					<p className="project-container__summary--title"> Project </p>
-					<ul>
-						<li>Point One</li>
-						<li>Point Two</li>
-						<li>Point Three</li>
-						<li>Point Four</li>
-					</ul>
+					<ProjectText title="Project" list={["Point One", "Point Two", "Point Three", "Point Four"]}/>
 				</div>
 				<div className="project-container__media">
 					<Media srcs={["leaf.png","cabin.png", "trees.png","walkway.png"]}/>
-					
 				</div>
 			</div>
 	</div>
