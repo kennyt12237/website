@@ -9,6 +9,5 @@ export default function HOC(props) {
 		<ProjectContextProvider list={list} srcs={srcs}>
 			<ProjectComponent title={title} list={list} srcs={srcs} />
 		</ProjectContextProvider>
-
 	)
 }

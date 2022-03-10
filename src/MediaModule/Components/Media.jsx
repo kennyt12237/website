@@ -40,23 +40,28 @@ export default function Media(props) {
         ])
     }
     
+    const rotateMediaInOrder = () => {
+        setMedia([
+            ...media.slice(1, media.length),
+            media[0]
+        ])
+    }
+
     useEffect(() => {
+        let interval;
         if (inViewpoint) {
-            const rotateMediaInOrder = () => {
-                setMedia([
-                    ...media.slice(1, media.length),
-                    media[0]
-                ])
-            }
-            rotateMediaInOrder();
+            interval = setInterval(rotateMediaInOrder, 3000);
+        } else {
+            clearInterval(interval);
         }
-    },[inViewpoint])
+        return () => clearInterval(interval);
+    },[inViewpoint, media])
   
 
     return (
         <div ref={innerRef} className='media-container'>
             {media ? media.map((m, index) => {
-                return <img className="media-container__media" onClick={e => bringToFront(index)} src={m} style={computeStyles(media.length, index)} alt={m} key={index} />
+                return <img className="media-container__media" src={m} style={computeStyles(media.length, index)} alt={m} key={index} />
             }): <div> NONE </div>}
         </div>
     );

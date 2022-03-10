@@ -3,7 +3,7 @@ import ProjectText from './ProjectText.jsx';
 import Media from './Media.jsx';
 import  { ProjectTextContext } from '../Context/ProjectTextContextProvider';
 import { MediaContext } from '../Context/MediaContextProvider';
-import useIntersection from './Helper/useIntersection.jsx';
+import useIntersection from '../Helper/useIntersection.jsx';
 
 export default function ProjectComponent(props) {
 
