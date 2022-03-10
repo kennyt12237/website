@@ -1,6 +1,6 @@
 import React from 'react';
-import ProjectContextProvider from './Context/ProjectContextProvider';
-import ProjectComponent from './Components/ProjectComponent';
+import ProjectContextProvider from './ProjectContextProvider';
+import ProjectComponent from '../Components/ProjectComponent';
 export default function HOC(props) {
 
 	const { title, list, srcs } = props;
