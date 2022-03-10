@@ -1,10 +1,16 @@
-import React, { useState } from 'react';
+import React, { useEffect } from 'react';
 import '../scss/Media.scss';
 
 export default function Media(props) {
 
-    const { srcs } = props;
-    const [ media, setMedia ] = useState(srcs);
+    const {
+        innerRef,
+        inViewpoint,
+        state : [
+            media,
+            setMedia
+        ]
+    } = props;
 
     const computeStyles = (numOfImages, index) => {
 
@@ -27,17 +33,30 @@ export default function Media(props) {
     }
 
     const bringToFront = (index) => {
-		    setMedia([
+        setMedia([
             media[index],
             ...media.slice(0, index),
             ...media.slice(index + 1, media.length)
         ])
     }
+    
+    useEffect(() => {
+        if (inViewpoint) {
+            const rotateMediaInOrder = () => {
+                setMedia([
+                    ...media.slice(1, media.length),
+                    media[0]
+                ])
+            }
+            rotateMediaInOrder();
+        }
+    },[inViewpoint])
+  
 
     return (
-        <div className='media-container'>
+        <div ref={innerRef} className='media-container'>
             {media ? media.map((m, index) => {
-                return <img className="media-container__media" onClick={() => bringToFront(index)} src={m} style={computeStyles(media.length, index)} alt={m} key={index} />
+                return <img className="media-container__media" onClick={e => bringToFront(index)} src={m} style={computeStyles(media.length, index)} alt={m} key={index} />
             }): <div> NONE </div>}
         </div>
     );

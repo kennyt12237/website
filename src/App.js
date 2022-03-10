@@ -1,7 +1,5 @@
 import React from 'react';
 import './App.scss';
-import Media from './MediaModule/Components/Media';
-import ProjectText from './MediaModule/Components/ProjectText';
 import HOC from './MediaModule/Context/HOC';
 
 function App() {

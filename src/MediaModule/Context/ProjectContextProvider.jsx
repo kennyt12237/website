@@ -4,11 +4,11 @@ import { MediaContextProvider } from './MediaContextProvider';
 
 export default function ProjectContextProvider(props) {
 
-	const { children } = props;
+	const { srcs, children } = props;
 
 	return (
 		<ProjectTextContextProvider>
-			<MediaContextProvider>
+			<MediaContextProvider srcs={srcs}>
 				{ children }
 			</MediaContextProvider>
 		</ProjectTextContextProvider>

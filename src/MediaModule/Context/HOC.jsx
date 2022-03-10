@@ -6,7 +6,7 @@ export default function HOC(props) {
 	const { title, list, srcs } = props;
 
 	return (
-		<ProjectContextProvider>
+		<ProjectContextProvider list={list} srcs={srcs}>
 			<ProjectComponent title={title} list={list} srcs={srcs} />
 		</ProjectContextProvider>
 

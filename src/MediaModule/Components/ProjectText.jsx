@@ -1,18 +1,17 @@
-import React, { useState } from 'react';
+import React from 'react';
 import '../scss/ProjectText.scss';
 
 export default function ProjectText(props) {
 
-	const { title, list } = props;
-	const [ selected, setSelected ] = useState(0);
+	const { title, list, state : [selectedText, setSelectedText] } = props;
 
 	const onPointClicked = (index) => {
-		setSelected(index);
+		setSelectedText(index);
 	}
 
 	const computeStyles = (index) => {
 		let opacity = 1;
-		if (selected !== index) {
+		if (selectedText !== index) {
 			opacity = 0.5;
 		} 
 		
