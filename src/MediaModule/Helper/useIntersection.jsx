@@ -6,7 +6,6 @@ export default function useIntersection(element, rootMargin, threshold) {
     
     useEffect(() => {
         const setVisibleCallBack = ([entry]) => {
-            console.log("SET");
             setIsVisible(entry.isIntersecting);
         } 
 
