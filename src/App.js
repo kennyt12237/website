@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.scss';
-import HOC from './MediaModule/Context/HOC';
+import ProjectDisplayer from './MediaModule/ProjectDisplayer';
 
 function App() {
   return (
@@ -25,7 +25,7 @@ function App() {
 				</div>
 			</div>
 
-		<HOC title="Project" list={["Point One", "Point Two", "Point Three", "Point Four"]} srcs={["leaf.png","cabin.png", "trees.png","walkway.png"]}/>
+		<ProjectDisplayer title="Project" list={["Point One", "Point Two", "Point Three", "Point Four"]} srcs={["leaf.png","cabin.png", "trees.png","walkway.png"]}/>
 	</div>
 	
   );
