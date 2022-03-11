@@ -5,3 +5,9 @@
         cursor: pointer;
     }
 }
+
+@keyframes bringToFront {
+    50% {
+        transform: translate(-20px);
+    }
+}

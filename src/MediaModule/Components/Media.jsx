@@ -1,5 +1,6 @@
-import React, { useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import useIntervalTimer from '../Helper/useIntervalTimer';
+import useSetStyles from '../Helper/useSetStyles';
 import '../scss/Media.scss';
 
 export default function Media(props) {
@@ -13,26 +14,6 @@ export default function Media(props) {
         ]
     } = props;
 
-    const computeStyles = (numOfImages, index) => {
-
-        const decrement = 1 / numOfImages;
-
-        const opacity = 1 - (decrement * index);
-        const translateX = 20 * index;
-        const translateY = -20 * index;
-        const zIndex = numOfImages - index;
-
-        return { 
-            width: `400px`,
-            height: `400px`,
-            opacity: `${opacity}`,
-            transform: `translate(${translateX}px, ${translateY}px)`,
-            gridColumn: `1`,
-            gridRow: `1`,
-            zIndex: `${zIndex}`
-        }
-    }
-
     const bringToFront = (index) => {
 
         setMedia([
@@ -41,7 +22,6 @@ export default function Media(props) {
             ...media.slice(index + 1, media.length)
         ])
     }
-    
 
     const rotateMediaInOrder = () => {
         setMedia([
@@ -84,7 +64,8 @@ export default function Media(props) {
 	//   }
 
 	const { start, stop } = useIntervalTimer(rotateMediaInOrder, 3000);
-
+    const mediaStyles = useSetStyles(media);
+    
     useEffect(() => {
         if (inViewpoint) {
           start();
@@ -97,7 +78,7 @@ export default function Media(props) {
     return (
         <div ref={innerRef} className='media-container' >
             {media ? media.map((m, index) => {
-                return <img className="media-container__media" src={m} style={computeStyles(media.length, index)} alt={m} key={index} />
+                return <img className="media-container__media" style={mediaStyles[index]} src={m} alt={m} key={index} />
             }): <div> NONE </div>}
         </div>
     );
