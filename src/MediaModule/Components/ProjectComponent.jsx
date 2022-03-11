@@ -4,6 +4,7 @@ import Media from './Media.jsx';
 import  { ProjectTextContext } from '../Context/ProjectTextContextProvider';
 import { MediaContext } from '../Context/MediaContextProvider';
 import useIntersection from '../Helper/useIntersection.jsx';
+import '../scss/ProjectComponent.scss';
 
 export default function ProjectComponent(props) {
 

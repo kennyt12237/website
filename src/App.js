@@ -1,6 +1,7 @@
 import React from 'react';
 import './App.scss';
 import ProjectDisplayer from './MediaModule/ProjectDisplayer';
+import { projects } from './MediaModule/DummyProject/dummyProjectsOne';
 
 function App() {
   return (
@@ -24,8 +25,7 @@ function App() {
 					</div>
 				</div>
 			</div>
-
-		<ProjectDisplayer title="Project" list={["Point One", "Point Two", "Point Three", "Point Four"]} srcs={["leaf.png","cabin.png", "trees.png","walkway.png"]}/>
+		<ProjectDisplayer  projects={projects} />
 	</div>
 	
   );

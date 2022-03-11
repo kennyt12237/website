@@ -34,6 +34,7 @@ export default function Media(props) {
     }
 
     const bringToFront = (index) => {
+
         setMedia([
             media[index],
             ...media.slice(0, index),
