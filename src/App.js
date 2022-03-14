@@ -15,26 +15,37 @@ function App() {
 			<div className='wallet-container' >
 				Connect Wallet
 			</div>
-			<div className="info">
-				<div className="info__contact">
-					<div className="info__contact__header">
-						<img className="info__contact__header--round" src="/logo192.png" alt="Kenny Tang"/>
-						<div className="info__contact__header--name"> Kenny Tang </div>
+			<div className='info-container'>
+				<div className='info-container__image'>
+
+				</div>
+				<div className='info-container__content'>
+					<div className='info-container__content__greeting'>
+						Hello!
 					</div>
-					<div className="info__contact__personal-links"> 
-						<div className="info__contact__personal-links--blockchain-info"> 
-							{/* image and address */}
-							<p>HEHE</p>
+					<div className='info-container__content__statement'>
+						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. </p> 
+
+						<p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+					</div>
+					<div className='info-container__content__contact'>
+						<div className='info-container__content__contact__wallet-address'>
+							<p> Wallet address: </p>
+							<p> ***REMOVED*** </p>
 						</div>
-						<div className="info__contact__personal-links--links">
-							<a href="https://www.twitter.com"> Twitter </a>
-							<p></p>
+						<div className='info-container__content__contact__social'>
+							<img src={"./linkedin.svg"} alt="linkedIn" />
+							<img src={"./twitter.svg"} alt="twitter" />
+							<img src={"./telegram.svg"} alt="telegram" />
+							<img src={"./medium.svg"} alt="medium" />
 						</div>
 					</div>
+					
 				</div>
 			</div>
-			<ProjectDisplayer  projects={projects} />
+			{/* <ProjectDisplayer  projects={projects} /> */}
 		</div>
+
 	</div>
   );
 }
