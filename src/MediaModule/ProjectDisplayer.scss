@@ -1,5 +1,6 @@
 .project-list-container {
 	display: flex;
+	height: 100%;
 	flex-direction: column;
 	border-top: 2px solid black;
 	border-bottom: 2px solid black;
@@ -8,6 +9,7 @@
 
 	&__navigation {
 		display: flex;
+		height: 100%;
 		flex-direction: row;
 		justify-content: center;
 		align-items: center;
