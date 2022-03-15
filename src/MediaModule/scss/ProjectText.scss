@@ -1,0 +1,20 @@
+.project-text-container {
+	display: flex;
+	flex-direction: column;
+	height: 60vh;
+	&__title {
+		margin: 0;
+		font-size: 48px;
+	}
+
+	&__list {
+		margin-top: 100px;
+		padding-left: 0;
+		list-style-type: square;
+		list-style-position: inside;
+		
+		> * {
+			margin-bottom: 2rem;
+		}
+	}
+}
