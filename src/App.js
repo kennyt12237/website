@@ -13,7 +13,8 @@ function App() {
 				<div className='logo-container__name'> </div>
 			</div>
 			<div className='wallet-container' >
-				Connect Wallet
+				<img className="wallet-container__image" src="metamask.png" alt="Metamask Logo" />
+				<p>Connect Wallet </p>
 			</div>
 			<div className='info-container'>
 				<div className='info-container__image'>
@@ -29,9 +30,12 @@ function App() {
 						<p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
 					</div>
 					<div className='info-container__content__contact'>
-						<div className='info-container__content__contact__wallet-address'>
-							<p> Wallet address: </p>
-							<p> E9873D79C6D87DC0FB6A5778633389F445 </p>
+						<div className='info-container__content__contact__wallet'>
+							<img className="info-container__content__contact__wallet__image" src="metamask.png" alt="Metamask Logo" />
+							<div className="info-container__content__contact__wallet__address">
+								<p> Wallet address: </p>
+								<p> E9873D79C6D87DC0FB6A5778633389F445 </p>
+							</div>
 						</div>
 						<div className='info-container__content__contact__social'>
 							<img src={"./linkedin.svg"} alt="linkedIn" />
