@@ -1,0 +1,26 @@
+.project-content-container {
+	display: flex;
+	flex-direction: row;
+	position: absolute;
+	height: 60%;
+	top: 20%;
+	padding: 48px 72px;
+	justify-content: space-between;
+	background-color: #092E50;
+	color: white;
+	border-top: 4px solid black;
+	border-bottom: 4px solid black;
+
+	&__text {
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+		width: 35%;
+		height: 100%;
+	}
+
+	&__media {
+		width: 50%;
+		height: 100%;
+	}
+}
