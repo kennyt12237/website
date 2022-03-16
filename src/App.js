@@ -18,7 +18,8 @@ function App() {
 				<p>Connect Wallet </p>
 			</div>
 		</div>
-		<ProjectContentList projects={projects}/>
+		<HomeContent />
+		{/* <ProjectContentList projects={projects}/> */}
 	</div>
   );
 }
