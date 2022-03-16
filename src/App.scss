@@ -19,7 +19,7 @@
     background:-ms-linear-gradient(147deg, rgba(255, 255, 255, 1) 0%, rgba(71, 243, 254, 1) 100%);
 
     /* global 94%+ browsers support */
-    background:linear-gradient(147deg, rgba(255, 255, 255, 1) 0%, rgba(71, 243, 254, 1) 100%);
+    background:#051728;
 }
 
 .root-container {
@@ -28,8 +28,6 @@
 	flex-direction: column;
 	width: 100%;
 	height: 100%;
-	// overflow: scroll;
-  
 }
 
 .logo-container {
