@@ -1,8 +1,8 @@
 import React from 'react';
 import './App.scss';
 import HomeContent from './HomePage/Components/HomeContent';
-import ProjectContent from './Media/Components/ProjectContent';
-import { data } from './Media/DummyData/dummyTextOne';
+import ProjectContentList from './Media/Components/ProjectContentList';
+import { projects } from './Media/DummyData/dummyTextOne';
 
 function App() {
   return (
@@ -18,7 +18,7 @@ function App() {
 				<p>Connect Wallet </p>
 			</div>
 		</div>
-		<ProjectContent projectContent={data.projectContent} web3Message={data.web3Message} mediaSrc={data.mediaSrc}/>
+		<ProjectContentList projects={projects}/>
 	</div>
   );
 }
