@@ -4,7 +4,7 @@ import HomeContent from './HomePage/Components/HomeContent';
 import MetamaskButton from './HomePage/Components/MetamaskButton';
 import ProjectContentList from './Media/Components/ProjectContentList';
 import { projects } from './Media/DummyData/dummyTextOne';
-import MetamaskHOC from './Web3/HigherOrderComponents/MetamaskHOC';
+import WithMetamask from './Web3/HigherOrderComponents/WithMetamask';
 
 function App() {
   return (
@@ -15,9 +15,9 @@ function App() {
 				<div className='logo-container__logo'> </div>
 				<div className='logo-container__name'> </div>
 			</div>
-			<MetamaskHOC>
+			<WithMetamask>
 				<MetamaskButton />
-			</MetamaskHOC>
+			</WithMetamask>
 		</div>
 		<ProjectContentList projects={projects}/>
 	</div>
