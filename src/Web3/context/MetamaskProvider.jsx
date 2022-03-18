@@ -1,20 +1,22 @@
-import React, { useState, createContext, useEffect } from 'react';
+import React, { useState, createContext, useEffect, useContext } from 'react';
 import Metamask from '../MetamaskAPI/Metamask';
 import detectEthereumProvider from '@metamask/detect-provider';
-import Web3 from 'web3';
+import { WalletContext } from '../context/WalletCoxtentProvider';
+import { Web3Context } from '../context/Web3ContextProvider';
 
 const MetamaskContext = createContext();
 
 function MetamaskProvider({children}) {
 
-	const [walletAddress, setWalletAddress] = useState();
 	const [ provider, setProvider ] = useState();
-	const [ web3, setWeb3 ] = useState();
-	
+	const { setWalletAddress, clearWalletAddress, getWalletAddress } = useContext(WalletContext);
+	const { setWeb3, getWeb3 } = useContext(Web3Context);
+
 	const { checkProvider, connectToMetamask, setHandleAccountsChanged, setHandleChainChanged } = Metamask();
+
 	useEffect(() => {
 		if (provider) {
-			setWeb3(new Web3(provider));
+			setWeb3(provider);
 		}
 	}, [provider]);
 
@@ -27,23 +29,31 @@ function MetamaskProvider({children}) {
 		EthProvider();
 	}, []);
 
-	const connectToMetamaskAndSetBasicFunc = async (providerIsNull, providerNotEthereum, handleAccountChanged, handleAccountFailed, handleChainChanged) => {
-		const validProvider = checkProvider(providerIsNull, providerNotEthereum, provider);
+	const connectToMetamaskAndSetBasicFunc = async (alertProviderNotDetected, alertProviderNotEthereum, alertAccountChanged, alertHandleConnectFailure, alertHandleChainChanged) => {
+		const validProvider = checkProvider(alertProviderNotDetected, alertProviderNotEthereum, provider);
+
 		const handleWalletConnected = address => {
 			setWalletAddress(address);
 		}
 
 		if (validProvider) {
-			await connectToMetamask(handleWalletConnected, handleAccountFailed);
-			setHandleAccountsChanged(handleAccountChanged);
-			setHandleChainChanged(handleChainChanged);
+			await connectToMetamask(handleWalletConnected, alertHandleConnectFailure);
+			setHandleAccountsChanged(alertAccountChanged);
+			setHandleChainChanged(alertHandleChainChanged);
 		}
 
+		console.log(getWalletAddress());
+		console.log(provider);
+		console.log(getWeb3());
 		return true;
 	}
 
+	const getProvider = () => {
+		return provider;
+	}
+	
 	return (
-		<MetamaskContext.Provider value={{ provider, web3, walletAddress, connectToMetamaskAndSetBasicFunc }}>
+		<MetamaskContext.Provider value={{ getProvider, connectToMetamaskAndSetBasicFunc }}>
 			{children}
 		</MetamaskContext.Provider>
 	);
