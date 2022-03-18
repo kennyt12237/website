@@ -1,8 +1,10 @@
 import React from 'react';
 import './App.scss';
 import HomeContent from './HomePage/Components/HomeContent';
+import MetamaskButton from './HomePage/Components/MetamaskButton';
 import ProjectContentList from './Media/Components/ProjectContentList';
 import { projects } from './Media/DummyData/dummyTextOne';
+import MetamaskHOC from './Web3/HigherOrderComponents/MetamaskHOC';
 
 function App() {
   return (
@@ -13,10 +15,9 @@ function App() {
 				<div className='logo-container__logo'> </div>
 				<div className='logo-container__name'> </div>
 			</div>
-			<div className='wallet-container' >
-				<img className="wallet-container__image" src="metamask.png" alt="Metamask Logo" />
-				<p>Connect Wallet </p>
-			</div>
+			<MetamaskHOC>
+				<MetamaskButton />
+			</MetamaskHOC>
 		</div>
 		<ProjectContentList projects={projects}/>
 	</div>
