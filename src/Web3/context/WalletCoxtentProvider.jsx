@@ -1,4 +1,4 @@
-import React, { useState, createContext } from 'react';
+import React, { useState, createContext, useEffect } from 'react';
 
 
 const WalletContext = createContext();
@@ -8,6 +8,7 @@ function WalletContextProvider(props) {
 	const { children } = props;
 
 	const [ walletAddr, setWalletAddr ] = useState();
+	const [ walletConnected, setWalletConnected ] = useState(false);
 	
 	const setWalletAddress = (address) => {
 		setWalletAddr(address);
@@ -21,8 +22,20 @@ function WalletContextProvider(props) {
 		return walletAddr;
 	}
 
+	const getConnectedStatus = () => {
+		return walletConnected;
+	}
+
+	useEffect(() => {
+		if (walletAddr) {
+			setWalletConnected(true);
+		} else {
+			setWalletConnected(false);
+		}
+	}, [walletAddr])
+
 	return (
-		<WalletContext.Provider value={{ setWalletAddress, clearWalletAddress, getWalletAddress }} >
+		<WalletContext.Provider value={{ setWalletAddress, clearWalletAddress, getWalletAddress, getConnectedStatus }} >
 			{ children }
 		</WalletContext.Provider>
 	)

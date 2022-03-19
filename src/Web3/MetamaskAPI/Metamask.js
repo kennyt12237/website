@@ -2,6 +2,8 @@ export default function Metamask() {
 	
 	const ACCOUNTS_CHANGED = 'accountsChanged';
 	const CHAIN_CHANGED = 'chainChanged';
+	const CONNECT = 'connect';
+	const DISCONNECT = 'disconnect';
 
 	const ethereum = window.ethereum;
 
@@ -51,11 +53,21 @@ export default function Metamask() {
 		ethereum.on(CHAIN_CHANGED, handleChainChanged);
 	}
 
+	const setHandleRPCConnected = (handleRPCConnected) => {
+		ethereum.on(CONNECT, handleRPCConnected);
+	}
+
+	const setHandleRPCDisconnect = (setHandleRPCDisconnect) => {
+		ethereum.on(DISCONNECT, setHandleRPCDisconnect);
+	}
+
 	return {
 		ethereum,
 		checkProvider,
 		connectToMetamask,
 		setHandleAccountsChanged,
-		setHandleChainChanged
+		setHandleChainChanged,
+		setHandleRPCConnected,
+		setHandleRPCDisconnect
 	}
 }
