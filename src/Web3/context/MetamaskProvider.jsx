@@ -9,10 +9,11 @@ const MetamaskContext = createContext();
 function MetamaskProvider({children}) {
 
 	const [ provider, setProvider ] = useState();
-	const { setWalletAddress, clearWalletAddress, getWalletAddress } = useContext(WalletContext);
-	const { setWeb3, getWeb3 } = useContext(Web3Context);
+	const { setWalletAddress, getConnectedStatus } = useContext(WalletContext);
+	const { setWeb3 } = useContext(Web3Context);
 
-	const { checkProvider, connectToMetamask, setHandleAccountsChanged, setHandleChainChanged } = Metamask();
+	const { checkProvider, connectToMetamask, setHandleAccountsChanged, setHandleChainChanged, setHandleRPCConnected,
+		setHandleRPCDisconnect } = Metamask();
 
 	useEffect(() => {
 		if (provider) {
@@ -29,23 +30,33 @@ function MetamaskProvider({children}) {
 		EthProvider();
 	}, []);
 
-	const connectToMetamaskAndSetBasicFunc = async (alertProviderNotDetected, alertProviderNotEthereum, alertAccountChanged, alertHandleConnectFailure, alertHandleChainChanged) => {
-		const validProvider = checkProvider(alertProviderNotDetected, alertProviderNotEthereum, provider);
+	const connectToMetamaskAndSetBasicFunc = async (providerNotDetected, providerNotEthereum, handleAccountChanged, handleConnectFailure, handleChainChanged) => {
+		const validProvider = checkProvider(providerNotDetected, providerNotEthereum, provider);
 
-		const handleWalletConnected = address => {
-			setWalletAddress(address);
+		const cbHandleConnectFailure = (error) => {
+			handleConnectFailure(error);
+		}
+
+		const cbHandleAccountChanged = (account) => {
+			setWalletAddress(account[0]);
+			handleAccountChanged(account[0]);
+		}
+
+		const cbHandleChainChanged = (chain) => {
+			handleChainChanged(chain);
 		}
 
 		if (validProvider) {
-			await connectToMetamask(handleWalletConnected, alertHandleConnectFailure);
-			setHandleAccountsChanged(alertAccountChanged);
-			setHandleChainChanged(alertHandleChainChanged);
+			await connectToMetamask(cbHandleAccountChanged, cbHandleConnectFailure);
+			setHandleAccountsChanged(cbHandleAccountChanged);
+			setHandleChainChanged(cbHandleChainChanged);
 		}
 
-		console.log(getWalletAddress());
-		console.log(provider);
-		console.log(getWeb3());
-		return true;
+		return getConnectedStatus();
+	}
+
+	const disconnectFromMetamask = () => {
+		setWalletAddress(null);
 	}
 
 	const getProvider = () => {
@@ -53,7 +64,7 @@ function MetamaskProvider({children}) {
 	}
 	
 	return (
-		<MetamaskContext.Provider value={{ getProvider, connectToMetamaskAndSetBasicFunc }}>
+		<MetamaskContext.Provider value={{ getProvider, connectToMetamaskAndSetBasicFunc, disconnectFromMetamask }}>
 			{children}
 		</MetamaskContext.Provider>
 	);
