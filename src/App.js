@@ -1,27 +1,33 @@
 import React from 'react';
 import './App.scss';
+import { BrowserRouter as Router, Routes, Route, Outlet } from 'react-router-dom';
 import HomeContent from './HomePage/Components/HomeContent';
-import MetamaskButton from './HomePage/Components/MetamaskButton';
 import ProjectContentList from './Media/Components/ProjectContentList';
+import Header from './HomePage/Components/Header'
 import { projects } from './Media/DummyData/dummyTextOne';
-import WithMetamask from './Web3/HigherOrderComponents/WithMetamask';
 
 function App() {
   return (
-	<div className='background'>
-		<div className='root-container'>
-			<div className='logo-container'>
-				{/* Image logo here */}
-				<div className='logo-container__logo'> </div>
-				<div className='logo-container__name'> </div>
-			</div>
-			<WithMetamask>
-				<MetamaskButton />
-			</WithMetamask>
+		<Router>
+			<Routes>
+				<Route path="/" element={<Layout />} >
+					<Route index element={<HomeContent />} />
+					<Route path='/projects' element={<ProjectContentList projects={projects}/>} />
+				</Route>
+			</Routes>
+		</Router>
+  	);
+}
+
+function Layout() {
+	return (
+		<div className='background'>
+			<Header />
+			<main>
+				<Outlet />
+			</main>
 		</div>
-		<ProjectContentList projects={projects}/>
-	</div>
-  );
+	)
 }
 
 export default App;
