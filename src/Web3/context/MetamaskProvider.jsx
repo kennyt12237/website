@@ -1,7 +1,7 @@
 import React, { useState, createContext, useEffect, useContext } from 'react';
 import Metamask from '../MetamaskAPI/Metamask';
 import detectEthereumProvider from '@metamask/detect-provider';
-import { WalletContext } from '../context/WalletCoxtentProvider';
+import { WalletContext } from './WalletContextProvider';
 import { Web3Context } from '../context/Web3ContextProvider';
 
 const MetamaskContext = createContext();
