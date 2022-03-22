@@ -10,8 +10,6 @@ function NotificationContextProvider(props) {
     const [ timer, setTimer ] = useState();
 
     useEffect(() => {
-        console.log(isVisible); 
-        console.log(timer)
         if (isVisible) {
             const start = setTimeout(() => {
                 setIsVisible(false)
@@ -25,8 +23,12 @@ function NotificationContextProvider(props) {
         return isVisible;
     }
 
+    const getMessage = () => {
+        return message;
+    }
+
     return (
-        <NotificationContext.Provider value={{setIsVisible, getIsVisible, setMessage, setTimer}}>
+        <NotificationContext.Provider value={{setIsVisible, getIsVisible, setMessage, getMessage, setTimer}}>
             { children }
         </NotificationContext.Provider>
     )
