@@ -2,10 +2,13 @@ import React, { useContext, useEffect } from 'react';
 import { MetamaskContext } from '../../Web3/context/MetamaskProvider';
 import { WalletContext } from '../../Web3/context/WalletContextProvider';
 import { useNavigate } from 'react-router-dom';
+import { NotificationContext } from '../context/NotificationContextProvider';
 export default function MetamaskButton(props) {
 
 	const { connectToMetamaskAndSetBasicFunc, disconnectFromMetamask } = useContext(MetamaskContext);
 	const { getWalletAddress, getConnectedStatus } = useContext(WalletContext);
+	const { setIsVisible, setMessage } = useContext(NotificationContext);
+
 	const navigate = useNavigate();
 
 	const providerNotDetected = (result) => {
@@ -19,6 +22,8 @@ export default function MetamaskButton(props) {
 
 	const handleAccountChanged = (account) => {
 		console.log("Account connected or changed");
+		setMessage("Account connected or changed");
+		setIsVisible(true);
 	};
 
 	const handleAccountFailed = (error) => {
