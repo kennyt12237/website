@@ -1,11 +1,12 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect } from 'react';
 import { MetamaskContext } from '../../Web3/context/MetamaskProvider';
 import { WalletContext } from '../../Web3/context/WalletContextProvider';
-
+import { useNavigate } from 'react-router-dom';
 export default function MetamaskButton(props) {
 
 	const { connectToMetamaskAndSetBasicFunc, disconnectFromMetamask } = useContext(MetamaskContext);
 	const { getWalletAddress, getConnectedStatus } = useContext(WalletContext);
+	const navigate = useNavigate();
 
 	const providerNotDetected = (result) => {
 		console.log(result);
@@ -39,6 +40,11 @@ export default function MetamaskButton(props) {
 		console.log("Disconnected");
 	}
 
+	useEffect(() => {
+		if (getConnectedStatus()) {
+			navigate("/projects");
+		}
+	}, [getConnectedStatus])
 
 	return (
 		<div>

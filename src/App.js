@@ -5,8 +5,8 @@ import HomeContent from './HomePage/Components/HomeContent';
 import ProjectContentList from './Media/Components/ProjectContentList';
 import Header from './HomePage/Components/Header'
 import { projects } from './Media/DummyData/dummyTextOne';
-import ProtectedRoute from './ClientRoute/ProtectedRoute';
-import WithWalletContextProvider from './Web3/HigherOrderComponents/WithWalletContextProvider';
+import LoginRoute from './ClientRoute/LoginRoute';
+import ErrorPage from './ErrorPage';
 
 function App() {
   return (
@@ -14,13 +14,11 @@ function App() {
 			<Routes>
 				<Route path="/" element={<Layout />} >
 					<Route index element={<HomeContent />} />
-					<Route path='/projects' element={
-						<WithWalletContextProvider>
-							<ProtectedRoute redirectTo="/">
-								<ProjectContentList projects={projects} />
-							</ProtectedRoute>
-						</WithWalletContextProvider>} />
+					<Route element={<LoginRoute />} >
+						<Route path='/projects' element={<ProjectContentList projects={projects}/>}/>
 					</Route>
+					<Route path='/error' element={<ErrorPage errMsg={"Connect to metamask"}/>}/>
+				</Route>
 			</Routes>
 		</Router>
   	);
