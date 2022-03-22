@@ -1,6 +1,6 @@
 import React from 'react';
 import { MetamaskProvider } from '../context/MetamaskProvider';
-import { WalletContextProvider } from '../context/WalletCoxtentProvider';
+import { WalletContextProvider } from '../context/WalletContextProvider';
 import { Web3ContextProvider } from '../context/Web3ContextProvider';
 
 export default function WithMetamask(props) {
