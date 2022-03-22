@@ -1,6 +1,5 @@
 import React, { useState, createContext, useEffect } from 'react';
 
-
 const WalletContext = createContext();
 
 function WalletContextProvider(props) {

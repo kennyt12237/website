@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import { MetamaskContext } from '../../Web3/context/MetamaskProvider';
-import { WalletContext } from '../../Web3/context/WalletCoxtentProvider';
+import { WalletContext } from '../../Web3/context/WalletContextProvider';
 
 export default function MetamaskButton(props) {
 
