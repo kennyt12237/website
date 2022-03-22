@@ -4,11 +4,14 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import WithMetamask from './Web3/HigherOrderComponents/WithMetamask';
+import WithNotificationContextProvider from './HomePage/context/WithNotificationContextProvider';
 
 ReactDOM.render(
   <React.StrictMode>
 	  <WithMetamask>
-    	<App />
+      <WithNotificationContextProvider>
+    	  <App />
+      </WithNotificationContextProvider>
 	</WithMetamask>
   </React.StrictMode>,
   document.getElementById('root')
