@@ -12,9 +12,7 @@ export default function Header(props) {
 					<div className='logo-container__logo'> </div>
 					<div className='logo-container__name'> </div>
 				</div>
-					<WithMetamask>
-						<MetamaskButton />
-					</WithMetamask>
+					<MetamaskButton />
 			</div>
     )
 }
