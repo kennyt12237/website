@@ -6,7 +6,7 @@ import { NotificationContext } from '../context/NotificationContextProvider';
 export default function NotificationAlert(props) {
 
     const { timer } = props;
-    const { getIsVisible, setTimer } = useContext(NotificationContext);
+    const { getIsVisible, setTimer, getMessage } = useContext(NotificationContext);
 
     useEffect(() => {
         setTimer(timer);
@@ -15,7 +15,7 @@ export default function NotificationAlert(props) {
     return (
         getIsVisible() && ReactDOM.createPortal(
             <div className='notification-container'>
-                <p> Hello </p>
+                <p> {getMessage()} </p>
             </div>, document.getElementById('notification-root')
         )
     )
