@@ -1,5 +1,5 @@
 import React, { createContext, useEffect, useState } from 'react';
-import Notification from '../Components/Notification';
+import Notification from '../components/Notification';
 const NotificationContext = createContext();
 
 function NotificationContextProvider(props) {
