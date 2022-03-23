@@ -2,7 +2,7 @@ import React from 'react';
 import WithMetamask from '../../Web3/HigherOrderComponents/WithMetamask';
 import MetamaskButton from './MetamaskButton';
 import '../scss/Header.scss';
-
+import WithNotificationContextProvider from '../context/WithNotificationContextProvider';
 export default function Header(props) {
 
     return (

@@ -5,7 +5,7 @@ const NotificationContext = createContext();
 function NotificationContextProvider(props) {
 
 	const COLOR_GREEN = 'green';
-	const COLOR_RED = 'red';
+	const COLOR_RED = '#f04444';
 
     const { children } = props;
 
@@ -16,12 +16,12 @@ function NotificationContextProvider(props) {
 		setAlertNum(alertNum + 1);
 	},[notificationAlert]);
 
-	const successAlert = (message) => {
-		setNotificationAlert(<Notification message={message} color={COLOR_GREEN} key={alertNum}/>)
+	const successAlert = (message, duration = 8000) => {
+		setNotificationAlert(<Notification duration={duration} message={message} color={COLOR_GREEN} key={alertNum}/>)
 	}
 
-	const failedAlert = (message) => {
-		setNotificationAlert(<Notification message={message} color={COLOR_RED} key={alertNum}/>)
+	const failedAlert = (message, duration = 8000) => {
+		setNotificationAlert(<Notification duration={duration} message={message} color={COLOR_RED} key={alertNum}/>)
 	}
 
 	const getNotificationAlert = () => {

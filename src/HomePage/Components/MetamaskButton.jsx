@@ -3,37 +3,35 @@ import { MetamaskContext } from '../../Web3/context/MetamaskProvider';
 import { WalletContext } from '../../Web3/context/WalletContextProvider';
 import { useNavigate } from 'react-router-dom';
 import { NotificationContext } from '../context/NotificationContextProvider';
-export default function MetamaskButton(props) {
+export default function MetamaskButton() {
 
 	const { connectToMetamaskAndSetBasicFunc, disconnectFromMetamask } = useContext(MetamaskContext);
-	const { getWalletAddress, getConnectedStatus } = useContext(WalletContext);
+	const { getConnectedStatus } = useContext(WalletContext);
 	const { successAlert, failedAlert } = useContext(NotificationContext);
 
 	const navigate = useNavigate();
 
-	const providerNotDetected = (result) => {
-		console.log(result);
-		alert("No Provider detected")
-	};
-	const providerNotEthereum = (result) => {
-		console.log(result);
-		alert("Provider is not Ethereum");
-	};
-
-	const handleAccountChanged = (account) => {
-		successAlert("Account connected or changed");
-	};
-
-	const handleAccountFailed = (error) => {
-		failedAlert("Account failed to connect");
-	};
-
-	const handleChainChanged = (chain) => {
-		console.log(chain);
-		successAlert("Connected to " + chain);
-	};
-
 	const handleMetamaskButtonClicked = () => {
+		const providerNotDetected = () => {
+			failedAlert("Please install Metamask");
+		};
+	
+		const providerNotEthereum = (result) => {
+			alert("Provider is not Ethereum");
+		};
+	
+		const handleAccountChanged = (account) => {
+			successAlert("Account connected or changed");
+		};
+	
+		const handleAccountFailed = (error) => {
+			failedAlert("Account failed to connect");
+		};
+	
+		const handleChainChanged = (chain) => {
+			successAlert("Connected to " + chain);
+		};
+	
 		connectToMetamaskAndSetBasicFunc(providerNotDetected, providerNotEthereum, handleAccountChanged, handleAccountFailed, handleChainChanged);
 	}
 
