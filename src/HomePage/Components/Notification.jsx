@@ -1,17 +1,20 @@
-import React, { useContext, useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import '../scss/NotificationAlert.scss'
-import { NotificationContext } from '../context/NotificationContextProvider';
 
 export default function Notification(props) {
 
-    const { color, message } = props;
+    const { duration, color, message } = props;
+    const [ display, setDisplay ] = useState('block');
 
     useEffect(() => {
-        console.log("Just Created")
+        const timer = setTimeout(() => {
+            setDisplay('none');
+        }, duration)
+        return () => clearTimeout(timer);
     },[])
 
     return (
-        <div className='notification-container' style={{'backgroundColor' : `${color}`}}>
+        <div className='notification-container' style={{'backgroundColor' : `${color}`, 'display' : `${display}`}}>
             <p className='notification-container--message'> {message} </p>
         </div>
     )
