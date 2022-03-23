@@ -1,12 +1,10 @@
 import React, { useContext, useEffect } from 'react';
 import  ReactDOM  from 'react-dom';
 import '../scss/NotificationAlert.scss'
-import { NotificationContext, NotificationContextProvider } from '../context/NotificationContextProvider';
+import { NotificationContext } from '../context/NotificationContextProvider';
 
-export default function NotificationAlert(props) {
+export default function NotificationOverlay() {
 
-
-    const { duration } = props;
     const { getNotificationAlert } = useContext(NotificationContext);
 
     return (

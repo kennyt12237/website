@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import './App.scss';
 import { BrowserRouter as Router, Routes, Route, Outlet } from 'react-router-dom';
 import HomeContent from './HomePage/Components/HomeContent';
@@ -7,11 +7,9 @@ import Header from './HomePage/Components/Header'
 import { projects } from './Media/DummyData/dummyTextOne';
 import LoginRoute from './ClientRoute/LoginRoute';
 import ErrorPage from './ErrorPage';
-import { isVisible } from '@testing-library/user-event/dist/utils';
-import NotificationAlert from './HomePage/Components/NotificationAlert';
+import NotificationOverlay from './HomePage/Components/NotificationOverlay';
 
 function App() {
-
 
   return (
 		<Router>
@@ -32,8 +30,7 @@ function Layout() {
 	return (
 		<div className='background'>
 			<Header />
-			<NotificationAlert duration={8000}>
-			</NotificationAlert>
+			<NotificationOverlay />
 			<main>
 				<Outlet />
 			</main>
