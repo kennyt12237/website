@@ -7,7 +7,7 @@ export default function MetamaskButton(props) {
 
 	const { connectToMetamaskAndSetBasicFunc, disconnectFromMetamask } = useContext(MetamaskContext);
 	const { getWalletAddress, getConnectedStatus } = useContext(WalletContext);
-	const { setIsVisible, setMessage } = useContext(NotificationContext);
+	const { successAlert, failedAlert } = useContext(NotificationContext);
 
 	const navigate = useNavigate();
 
@@ -21,19 +21,17 @@ export default function MetamaskButton(props) {
 	};
 
 	const handleAccountChanged = (account) => {
-		console.log("Account connected or changed");
-		setMessage("Account connected or changed");
-		setIsVisible(true);
+		console.log(account);
+		successAlert("Account connected or changed");
 	};
 
 	const handleAccountFailed = (error) => {
-		console.log(error);
-		alert("Account failed to connect");
+		failedAlert("Account failed to connect");
 	};
 
 	const handleChainChanged = (chain) => {
 		console.log(chain);
-		alert("Switched chain to " + chain);
+		successAlert("Connected to " + chain);
 	};
 
 	const handleMetamaskButtonClicked = () => {
@@ -42,7 +40,7 @@ export default function MetamaskButton(props) {
 
 	const handleDisconnectButtonClicked = () => {
 		disconnectFromMetamask();
-		console.log("Disconnected");
+		successAlert("Disconnected Successfully");
 	}
 
 	useEffect(() => {
