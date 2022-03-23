@@ -61,6 +61,15 @@ export default function Metamask() {
 		ethereum.on(DISCONNECT, setHandleRPCDisconnect);
 	}
 
+	const removeAccountsChanged = (handleAccountChanged) => {
+		ethereum.removeListener(ACCOUNTS_CHANGED, handleAccountChanged);
+	}
+
+	const removeChainChanged = (handleChainChanged) => {
+		ethereum.removeListener(CHAIN_CHANGED, handleChainChanged);
+	}
+
+
 	return {
 		ethereum,
 		checkProvider,
@@ -68,6 +77,8 @@ export default function Metamask() {
 		setHandleAccountsChanged,
 		setHandleChainChanged,
 		setHandleRPCConnected,
-		setHandleRPCDisconnect
+		setHandleRPCDisconnect,
+		removeAccountsChanged,
+		removeChainChanged,
 	}
 }
