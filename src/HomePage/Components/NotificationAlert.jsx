@@ -1,23 +1,15 @@
 import React, { useContext, useEffect } from 'react';
 import  ReactDOM  from 'react-dom';
 import '../scss/NotificationAlert.scss'
-import { NotificationContext } from '../context/NotificationContextProvider';
+import { NotificationContext, NotificationContextProvider } from '../context/NotificationContextProvider';
 
 export default function NotificationAlert(props) {
 
 
-    const { timer } = props;
-    const { getIsVisible, setTimer, getMessage, getColor } = useContext(NotificationContext);
-
-    useEffect(() => {
-        setTimer(timer);
-    },[])
+    const { duration } = props;
+    const { getNotificationAlert } = useContext(NotificationContext);
 
     return (
-        getIsVisible() && ReactDOM.createPortal(
-            <div className='notification-container' style={{'backgroundColor' : `${getColor()}`}}>
-                <p className='notification-container--message'> {getMessage()} </p>
-            </div>, document.getElementById('notification-root')
-        )
+        ReactDOM.createPortal(getNotificationAlert(), document.getElementById('notification-root'))
     )
 }
