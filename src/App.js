@@ -32,7 +32,7 @@ function Layout() {
 	return (
 		<div className='background'>
 			<Header />
-			<NotificationAlert timer={3000}>
+			<NotificationAlert timer={8000}>
 			</NotificationAlert>
 			<main>
 				<Outlet />

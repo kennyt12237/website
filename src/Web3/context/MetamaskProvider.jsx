@@ -9,11 +9,11 @@ const MetamaskContext = createContext();
 function MetamaskProvider({children}) {
 
 	const [ provider, setProvider ] = useState();
-	const { setWalletAddress, getConnectedStatus } = useContext(WalletContext);
+	const { setWalletAddress, getWalletAddress, getConnectedStatus } = useContext(WalletContext);
 	const { setWeb3 } = useContext(Web3Context);
 
-	const { checkProvider, connectToMetamask, setHandleAccountsChanged, setHandleChainChanged, setHandleRPCConnected,
-		setHandleRPCDisconnect } = Metamask();
+	const { checkProvider, connectToMetamask, setHandleAccountsChanged, setHandleChainChanged, removeAccountsChanged,
+		removeChainChanged } = Metamask();
 
 	useEffect(() => {
 		if (provider) {
