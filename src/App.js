@@ -30,7 +30,7 @@ function Layout() {
 	return (
 		<div className='background'>
 			<Header />
-			<NotificationOverlay />
+			<NotificationOverlay element={document.getElementById('notification-root')}/>
 			<main>
 				<Outlet />
 			</main>
