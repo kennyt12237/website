@@ -1,5 +1,5 @@
 import React, { createContext, useEffect, useState } from 'react';
-
+import Notification from '../Components/Notification';
 const NotificationContext = createContext();
 
 function NotificationContextProvider(props) {
@@ -8,51 +8,28 @@ function NotificationContextProvider(props) {
 	const COLOR_RED = 'red';
 
     const { children } = props;
-    const [ isVisible, setIsVisible ] = useState(false);
-    const [ message, setMessage ] = useState();
-    const [ timer, setTimer ] = useState();
-	const [ color, setColor ] = useState();
 
-	const start = () => setTimeout(() => {
-		setIsVisible(false)
-	},timer);
+    const [ notificationAlert, setNotificationAlert ] = useState();
+	const [ alertNum, setAlertNum ] = useState(0);
 
-    useEffect(() => {
-        if (isVisible) {
-			console.log("Starting");
-			const newTimer = start();
-            return () => { console.log("Clearing: " + newTimer ); clearTimeout(newTimer)}; 
-        }
-    }, [isVisible])
-
-    const getIsVisible = () => {
-        return isVisible;
-    }
-
-    const getMessage = () => {
-        return message;
-    }
-
-	const getColor = () => {
-		return color;
-	}
+	useEffect(() => {
+		setAlertNum(alertNum + 1);
+	},[notificationAlert]);
 
 	const successAlert = (message) => {
-		setIsVisible(false);
-		setMessage(message);
-		setColor(COLOR_GREEN);
-		setIsVisible(true);
+		setNotificationAlert(<Notification message={message} color={COLOR_GREEN} key={alertNum}/>)
 	}
 
 	const failedAlert = (message) => {
-		setIsVisible(false);
-		setMessage(message);
-		setColor(COLOR_RED);
-		setIsVisible(true)
+		setNotificationAlert(<Notification message={message} color={COLOR_RED} key={alertNum}/>)
+	}
+
+	const getNotificationAlert = () => {
+		return notificationAlert;
 	}
 
     return (
-        <NotificationContext.Provider value={{setIsVisible, getIsVisible, setMessage, getMessage, setTimer, getColor, successAlert, failedAlert}}>
+        <NotificationContext.Provider value={{ getNotificationAlert, setNotificationAlert, successAlert, failedAlert}}>
             { children }
         </NotificationContext.Provider>
     )
