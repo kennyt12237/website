@@ -7,7 +7,7 @@ import Header from './HomePage/Components/Header'
 import { projects } from './Media/DummyData/dummyTextOne';
 import LoginRoute from './ClientRoute/LoginRoute';
 import ErrorPage from './ErrorPage';
-import NotificationOverlay from './HomePage/Components/NotificationOverlay';
+import NotificationOverlay from './Notification/components/NotificationOverlay';
 
 function App() {
 

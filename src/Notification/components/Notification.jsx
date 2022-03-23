@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import '../scss/NotificationAlert.scss'
+import '../scss/Notification.scss'
 
 export default function Notification(props) {
 

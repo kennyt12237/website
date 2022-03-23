@@ -4,7 +4,7 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import WithMetamask from './Web3/HigherOrderComponents/WithMetamask';
-import WithNotificationContextProvider from './HomePage/context/WithNotificationContextProvider';
+import WithNotificationContextProvider from './Notification/context/WithNotificationContextProvider';
 
 ReactDOM.render(
   <React.StrictMode>
