@@ -21,7 +21,6 @@ export default function MetamaskButton(props) {
 	};
 
 	const handleAccountChanged = (account) => {
-		console.log(account);
 		successAlert("Account connected or changed");
 	};
 
