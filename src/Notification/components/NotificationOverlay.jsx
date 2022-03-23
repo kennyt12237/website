@@ -1,6 +1,5 @@
-import React, { useContext, useEffect } from 'react';
+import { useContext } from 'react';
 import  ReactDOM  from 'react-dom';
-import '../scss/NotificationAlert.scss'
 import { NotificationContext } from '../context/NotificationContextProvider';
 
 export default function NotificationOverlay() {
