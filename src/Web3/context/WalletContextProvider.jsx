@@ -1,46 +1,49 @@
-import React, { useState, createContext, useEffect } from 'react';
+import React, { useState, createContext, useEffect } from "react";
 
 const WalletContext = createContext();
 
 function WalletContextProvider(props) {
+  const { children } = props;
 
-	const { children } = props;
+  const [walletAddr, setWalletAddr] = useState();
+  const [walletConnected, setWalletConnected] = useState(false);
 
-	const [ walletAddr, setWalletAddr ] = useState();
-	const [ walletConnected, setWalletConnected ] = useState(false);
-	
-	const setWalletAddress = (address) => {
-		setWalletAddr(address);
-	}
+  const setWalletAddress = (address) => {
+    setWalletAddr(address);
+  };
 
-	const clearWalletAddress = () => {
-		setWalletAddr(0);
-	}
+  const clearWalletAddress = () => {
+    setWalletAddr(0);
+  };
 
-	const getWalletAddress = () => {
-		return walletAddr;
-	}
+  const getWalletAddress = () => {
+    return walletAddr;
+  };
 
-	const getConnectedStatus = () => {
-		return walletConnected;
-	}
+  const getConnectedStatus = () => {
+    return walletConnected;
+  };
 
-	useEffect(() => {
-		if (walletAddr) {
-			setWalletConnected(true);
-		} else {
-			setWalletConnected(false);
-		}
-	}, [walletAddr])
+  useEffect(() => {
+    if (walletAddr) {
+      setWalletConnected(true);
+    } else {
+      setWalletConnected(false);
+    }
+  }, [walletAddr]);
 
-	return (
-		<WalletContext.Provider value={{ setWalletAddress, clearWalletAddress, getWalletAddress, getConnectedStatus }} >
-			{ children }
-		</WalletContext.Provider>
-	)
+  return (
+    <WalletContext.Provider
+      value={{
+        setWalletAddress,
+        clearWalletAddress,
+        getWalletAddress,
+        getConnectedStatus,
+      }}
+    >
+      {children}
+    </WalletContext.Provider>
+  );
 }
 
-export {
-	WalletContext,
-	WalletContextProvider
-}
+export { WalletContext, WalletContextProvider };
