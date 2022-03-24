@@ -1,20 +1,20 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
-import WithMetamask from './Web3/HigherOrderComponents/WithMetamask';
-import WithNotificationContextProvider from './Notification/context/WithNotificationContextProvider';
+import React from "react";
+import ReactDOM from "react-dom";
+import "./index.css";
+import App from "./App";
+import reportWebVitals from "./reportWebVitals";
+import WithMetamask from "./Web3/HigherOrderComponents/WithMetamask";
+import WithNotificationContextProvider from "./Notification/context/WithNotificationContextProvider";
 
 ReactDOM.render(
   <React.StrictMode>
-	  <WithMetamask>
+    <WithMetamask>
       <WithNotificationContextProvider>
-    	  <App />
+        <App />
       </WithNotificationContextProvider>
-	</WithMetamask>
+    </WithMetamask>
   </React.StrictMode>,
-  document.getElementById('root')
+  document.getElementById("root")
 );
 
 // If you want to start measuring performance in your app, pass a function
