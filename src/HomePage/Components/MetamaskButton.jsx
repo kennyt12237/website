@@ -8,8 +8,12 @@ export default function MetamaskButton() {
   const {
     connectToMetamask,
     disconnectFromMetamask,
+    setOnAccountsChanged,
     setOnAccountConnectedSuccess,
     setOnAccountConnectedFailure,
+    setOnChainChanged,
+    setOnProviderNotDetected,
+    setOnEthereumNotDetected,
   } = useContext(MetamaskContext);
   const { getConnectedStatus } = useContext(WalletContext);
   const { successAlert, failedAlert } = useContext(NotificationContext);
@@ -52,6 +56,10 @@ export default function MetamaskButton() {
   useEffect(() => {
     setOnAccountConnectedSuccess(() => handleAccountConnected);
     setOnAccountConnectedFailure(() => handleAccountFailed);
+    setOnAccountsChanged(() => handleAccountChanged);
+    setOnChainChanged(() => handleChainChanged);
+    setOnProviderNotDetected(() => providerNotDetected);
+    setOnEthereumNotDetected(() => providerNotEthereum);
   }, []);
 
   useEffect(() => {
