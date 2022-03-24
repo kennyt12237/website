@@ -5,8 +5,12 @@ import { useNavigate } from "react-router-dom";
 import { NotificationContext } from "../../Notification/context/NotificationContextProvider";
 
 export default function MetamaskButton() {
-  const { connectToMetamaskAndSetBasicFunc, disconnectFromMetamask } =
-    useContext(MetamaskContext);
+  const {
+    connectToMetamask,
+    disconnectFromMetamask,
+    setOnAccountConnectedSuccess,
+    setOnAccountConnectedFailure,
+  } = useContext(MetamaskContext);
   const { getConnectedStatus } = useContext(WalletContext);
   const { successAlert, failedAlert } = useContext(NotificationContext);
 
@@ -37,20 +41,18 @@ export default function MetamaskButton() {
   };
 
   const handleMetamaskButtonClicked = () => {
-    connectToMetamaskAndSetBasicFunc(
-      providerNotDetected,
-      providerNotEthereum,
-      handleAccountConnected,
-      handleAccountChanged,
-      handleAccountFailed,
-      handleChainChanged
-    );
+    connectToMetamask();
   };
 
   const handleDisconnectButtonClicked = () => {
     disconnectFromMetamask();
     successAlert("Disconnected Successfully");
   };
+
+  useEffect(() => {
+    setOnAccountConnectedSuccess(() => handleAccountConnected);
+    setOnAccountConnectedFailure(() => handleAccountFailed);
+  }, []);
 
   useEffect(() => {
     if (getConnectedStatus()) {
