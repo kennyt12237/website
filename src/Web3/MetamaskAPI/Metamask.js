@@ -1,3 +1,6 @@
+/*
+    A Metamask API providing generic functionalities
+*/
 export default function Metamask() {
   const ACCOUNTS_CHANGED = "accountsChanged";
   const CHAIN_CHANGED = "chainChanged";
