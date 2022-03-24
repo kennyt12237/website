@@ -1,17 +1,17 @@
 .error-page {
-	width: 80%;
-	height: 60%;
-	position: absolute;
-	top: 25%;
-	left: 10%;
-	display: flex;
-	flex-direction: column;
-	color: white;
-	&--title {
-		font-size: 4rem;
-	}
+  width: 80%;
+  height: 60%;
+  position: absolute;
+  top: 25%;
+  left: 10%;
+  display: flex;
+  flex-direction: column;
+  color: white;
+  &--title {
+    font-size: 4rem;
+  }
 
-	&--msg {
-		font-size: 1.5rem;
-	}
+  &--msg {
+    font-size: 1.5rem;
+  }
 }
