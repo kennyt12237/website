@@ -12,6 +12,9 @@ import { Web3Context } from "../context/Web3ContextProvider";
 
 const MetamaskContext = createContext();
 
+/*
+    Maintains a global state of all callback functions and providers that links with the Metamask API
+*/
 function MetamaskProvider({ children }) {
   const [provider, setProvider] = useState();
   const [onAccountConnectedSuccess, setOnAccountConnectedSuccess] = useState(
