@@ -1,13 +1,13 @@
 .project-text-container {
-	display: flex;
-	flex-direction: column;
-	
-	&__title {
-		margin: 0;
-		font-size: 5rem;
-	}
+  display: flex;
+  flex-direction: column;
 
-	&__text {
-		font-size: 1.3rem;
-	}
+  &__title {
+    margin: 0;
+    font-size: 5rem;
+  }
+
+  &__text {
+    font-size: 1.3rem;
+  }
 }
