@@ -32,7 +32,7 @@ export default function Metamask() {
 		- handleAccountFailed(): called when connection failure, passing the error object as an argument.
 		- provider: an object representing the provider. 
 	*/
-  const connectToMetamask = async (
+  const connectAndRequestToMetamask = async (
     handleAccountConnected,
     handleAccountFailed
   ) => {
@@ -52,24 +52,36 @@ export default function Metamask() {
   };
 
   /*
-		A callback function invoked when chain has changed
-	*/
+        A callback function invoked when chain has changed
+    */
   const setHandleChainChanged = (handleChainChanged) => {
     ethereum.on(CHAIN_CHANGED, handleChainChanged);
   };
 
+  /*
+        A callback function invoked when RPC has been connected
+    */
   const setHandleRPCConnected = (handleRPCConnected) => {
     ethereum.on(CONNECT, handleRPCConnected);
   };
 
+  /*
+        A callback function invoked when RPC has been disconnected
+    */
   const setHandleRPCDisconnect = (setHandleRPCDisconnect) => {
     ethereum.on(DISCONNECT, setHandleRPCDisconnect);
   };
 
+  /*
+        A callback function invoked to remove listener when account has changed
+    */
   const removeAccountsChanged = (handleAccountChanged) => {
     ethereum.removeListener(ACCOUNTS_CHANGED, handleAccountChanged);
   };
 
+  /*
+        A callback function invoked to remove listener when chain has changed
+    */
   const removeChainChanged = (handleChainChanged) => {
     ethereum.removeListener(CHAIN_CHANGED, handleChainChanged);
   };
@@ -77,7 +89,7 @@ export default function Metamask() {
   return {
     ethereum,
     checkProvider,
-    connectToMetamask,
+    connectAndRequestToMetamask,
     setHandleAccountsChanged,
     setHandleChainChanged,
     setHandleRPCConnected,
