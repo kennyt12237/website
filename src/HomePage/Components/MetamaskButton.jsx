@@ -2,7 +2,7 @@ import React, { useContext, useEffect } from "react";
 import { MetamaskContext } from "../../Web3/context/MetamaskProvider";
 import { WalletContext } from "../../Web3/context/WalletContextProvider";
 import { useNavigate } from "react-router-dom";
-import { NotificationContext } from "../../Notification/context/NotificationContextProvider";
+import useNotification from "../../Notification/hook/useNotification";
 
 export default function MetamaskButton() {
   const {
@@ -16,7 +16,7 @@ export default function MetamaskButton() {
     setOnEthereumNotDetected,
   } = useContext(MetamaskContext);
   const { getConnectedStatus } = useContext(WalletContext);
-  const { successAlert, failedAlert } = useContext(NotificationContext);
+  const { failedAlert, successAlert } = useNotification();
 
   const navigate = useNavigate();
 
@@ -28,21 +28,30 @@ export default function MetamaskButton() {
     alert("Provider is not Ethereum");
   };
 
-  const handleAccountConnected = (account) => {
-    successAlert("Account connected successfully");
-  };
-
   const handleAccountChanged = (account) => {
-    successAlert("Account connected or changed");
+    successAlert("Account changed successfully");
   };
 
-  const handleAccountFailed = (error) => {
+  const handleSuccessConnection = (account) => {
+    successAlert("Connected Successfully");
+  };
+
+  const handleFailedConnection = (error) => {
     failedAlert("Account failed to connect");
   };
 
   const handleChainChanged = (chain) => {
     successAlert("Connected to " + chain);
   };
+
+  useEffect(() => {
+    setOnAccountsChanged(() => handleAccountChanged);
+    setOnAccountConnectedSuccess(() => handleSuccessConnection);
+    setOnAccountConnectedFailure(() => handleFailedConnection);
+    setOnChainChanged(() => handleChainChanged);
+    setOnProviderNotDetected(() => providerNotDetected);
+    setOnEthereumNotDetected(() => providerNotEthereum);
+  }, []);
 
   const handleMetamaskButtonClicked = () => {
     connectToMetamask();
@@ -52,15 +61,6 @@ export default function MetamaskButton() {
     disconnectFromMetamask();
     successAlert("Disconnected Successfully");
   };
-
-  useEffect(() => {
-    setOnAccountConnectedSuccess(() => handleAccountConnected);
-    setOnAccountConnectedFailure(() => handleAccountFailed);
-    setOnAccountsChanged(() => handleAccountChanged);
-    setOnChainChanged(() => handleChainChanged);
-    setOnProviderNotDetected(() => providerNotDetected);
-    setOnEthereumNotDetected(() => providerNotEthereum);
-  }, []);
 
   useEffect(() => {
     if (getConnectedStatus()) {
