@@ -7,7 +7,10 @@ export default function ProjectText(props) {
   return (
     <div className="project-text-container">
       <p className="project-text-container__title"> {title} </p>
-      <p className="project-text-container__text"> {texts} </p>
+      {texts && texts.map((text, index) => {
+          return <p className="project-text-container__text" key={index}> {text} </p>
+      }) }
+
     </div>
   );
 }
