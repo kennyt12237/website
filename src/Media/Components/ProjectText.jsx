@@ -6,11 +6,12 @@ export default function ProjectText(props) {
 
   return (
     <div className="project-text-container">
-      <p className="project-text-container__title"> {title} </p>
+      <div className="project-text-container__title"> {title} </div>
+      <div className="project-text-container__text">
       {texts && texts.map((text, index) => {
-          return <p className="project-text-container__text" key={index}> {text} </p>
+          return <p className="project-text-container__text__point" key={index}> {text} </p>
       }) }
-
+      </div>
     </div>
   );
 }

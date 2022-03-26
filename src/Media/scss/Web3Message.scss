@@ -2,8 +2,6 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  width: 100%;
-  height: 20%;
 
   &__title {
     height: auto;
@@ -11,6 +9,7 @@
     text-align: center;
     background-clip: text;
     color: transparent;
+    margin-bottom: 0.4rem;
     /* ff 3.6+ */
     background-image: -moz-linear-gradient(
       90deg,
@@ -53,14 +52,12 @@
   &__interactive {
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
-    height: auto;
+    justify-content: space-evenly;
     align-items: center;
 
     &__write {
       font-size: 1rem;
-      width: 50%;
-      height: 35%;
+      margin-right: 1rem;
     }
 
     &__button {
@@ -68,8 +65,6 @@
       flex-direction: row;
       justify-content: space-around;
       align-items: center;
-      width: 40%;
-      height: 100%;
       border-radius: 4px;
 
       /* ff 3.6+ */
@@ -115,9 +110,25 @@
         color: #f6d1af;
       }
 
+      &__image {
+        width: 20%;
+      }
+
       &:hover {
         cursor: pointer;
         box-shadow: inset 0 0 0 2px black;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 900px) {
+  .web3-message-container {
+    &__interactive {
+      &__button {
+        &__image {
+          width: 10%;
+        }
       }
     }
   }
