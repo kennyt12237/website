@@ -1,7 +1,7 @@
 .project-content-container {
   display: flex;
   flex-direction: row;
-  padding: 48px 72px;
+  padding: 1rem 3rem;
   justify-content: space-between;
   background-color: #092e50;
   color: white;
@@ -13,11 +13,26 @@
     flex-direction: column;
     justify-content: space-between;
     width: 35%;
-    height: 100%;
+    height: auto;
   }
 
   &__media {
     width: 50%;
     height: 100%;
   }
+}
+
+@media screen and (max-width: 900px) {
+    .project-content-container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        overflow-y: scroll;
+        height: 100%;
+
+        &__text {
+            width: 100%;
+        }
+    }
 }
