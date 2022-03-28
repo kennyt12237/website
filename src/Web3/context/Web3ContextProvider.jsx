@@ -7,7 +7,7 @@ function Web3ContextProvider(props) {
   const { children } = props;
 
   const [web3Object, setWeb3Object] = useState();
-  const [contracts, setContracts] = useState();
+  const [smartContract, setSmartContract ] = useState();
 
   const setWeb3 = (provider) => {
     setWeb3Object(new Web3(provider));
@@ -17,8 +17,12 @@ function Web3ContextProvider(props) {
     return web3Object;
   };
 
+  const getSmartContract = () => {
+      return smartContract;
+  }
+
   return (
-    <Web3Context.Provider value={{ setWeb3, getWeb3 }}>
+    <Web3Context.Provider value={{ setWeb3, getWeb3, setSmartContract, getSmartContract }}>
       {children}
     </Web3Context.Provider>
   );
