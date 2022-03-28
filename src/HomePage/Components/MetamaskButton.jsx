@@ -41,6 +41,7 @@ export default function MetamaskButton() {
   };
 
   const handleChainChanged = (chain) => {
+    console.log("Chain called")
     successAlert("Connected to " + chain);
   };
 
