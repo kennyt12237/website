@@ -1,20 +1,41 @@
-export default function WebsiteApprovalAPI(contract) {
+import { useState, useEffect } from "react";
 
-    const addUserApproval = async (projectNum, message) => {
-        return await contract.methods.addUserApproval(projectNum, message).call();
-    }
-    
-    const getNumberOfProjectApproval = async (projectNum) => {
-        return await contract.methods.getNumberOfProjectApproval(projectNum).call();
-    }
+export default function WebsiteApprovalAPI(contracts, walletAddress) {
+  const [projectContract, setProjectContract] = useState();
+  const [allowance, setAllowance] = useState();
 
-    const getUserApprovalForProject = async (projectNum) => {
-        return await contract.methods.getUserApprovalForProject(projectNum).call();
+  useEffect(() => {
+    if (contracts) {
+      setProjectContract(contracts[0]);
     }
+  }, [contracts]);
 
-    return {
-        addUserApproval,
-        getNumberOfProjectApproval,
-        getUserApprovalForProject,
-    }
+  const addUserApproval = async (projectNum, message) => {
+    return await projectContract.methods
+      .addUserApproval(projectNum, message)
+      .send({ from: walletAddress }, (promise) => {
+        return promise;
+      });
+  };
+
+  const getNumberOfProjectApproval = async (projectNum) => {
+    return await projectContract.methods
+      .getNumberOfProjectApproval(projectNum)
+      .call((promise) => {
+        return promise;
+      });
+  };
+
+  const getUserApprovalForProject = async (projectNum) => {
+    console.log(projectContract);
+    return await projectContract.methods
+      .getUserApprovalForProject(projectNum)
+      .call();
+  };
+
+  return {
+    addUserApproval,
+    getNumberOfProjectApproval,
+    getUserApprovalForProject,
+  };
 }
