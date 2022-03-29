@@ -20,6 +20,7 @@ export default function ProjectContentList(props) {
         projectContent={projects[projectNum].projectContent}
         web3Message={projects[projectNum].web3Message}
         mediaSrc={projects[projectNum].mediaSrc}
+        projectNumber={projectNum}
       />
       <div className="project-list-container__navigation">
         <div
