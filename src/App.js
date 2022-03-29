@@ -9,7 +9,7 @@ import {
 import HomeContent from "./HomePage/Components/HomeContent";
 import ProjectContentList from "./Media/Components/ProjectContentList";
 import Header from "./HomePage/Components/Header";
-import { projects } from "./Project";
+import { projects } from "./Contracts/Project";
 import LoginRoute from "./ClientRoute/LoginRoute";
 import ErrorPage from "./ErrorPage";
 import NotificationOverlay from "./Notification/components/NotificationOverlay";
