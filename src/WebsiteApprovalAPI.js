@@ -1,36 +1,23 @@
-import { useState, useEffect } from "react";
-
-export default function WebsiteApprovalAPI(contracts, walletAddress) {
-  const [projectContract, setProjectContract] = useState();
-  const [allowance, setAllowance] = useState();
-
-  useEffect(() => {
-    if (contracts) {
-      setProjectContract(contracts[0]);
-    }
-  }, [contracts]);
+export default function WebsiteApprovalAPI(contract, walletAddress) {
 
   const addUserApproval = async (projectNum, message) => {
-    return await projectContract.methods
+    return await contract.methods
       .addUserApproval(projectNum, message)
-      .send({ from: walletAddress }, (promise) => {
+      .send({ from: walletAddress }, promise => {
         return promise;
       });
   };
 
   const getNumberOfProjectApproval = async (projectNum) => {
-    return await projectContract.methods
+    return await contract.methods
       .getNumberOfProjectApproval(projectNum)
-      .call((promise) => {
-        return promise;
-      });
+      .call();
   };
 
   const getUserApprovalForProject = async (projectNum) => {
-    console.log(projectContract);
-    return await projectContract.methods
+    return await contract.methods
       .getUserApprovalForProject(projectNum)
-      .call();
+      .call({ from : walletAddress });
   };
 
   return {

@@ -1,20 +1,16 @@
-import { useContext, useEffect } from 'react';
-import { Web3Context } from '../context/Web3ContextProvider';
+import { useContext, useEffect, useState } from "react";
+import { Web3Context } from "../context/Web3ContextProvider";
 
-export default function useSmartContract(contracts) {
+export default function useSmartContract(contract) {
+  const { getWeb3 } = useContext(Web3Context);
+  const [smartContract, setSmartContract] = useState();
 
-    const { getWeb3, getSmartContract, setSmartContract } = useContext(Web3Context);
+  useEffect(() => {
+    const web3 = getWeb3();
+    if (contract) {
+      setSmartContract(new web3.eth.Contract(contract.abi, contract.address));
+    }
+  }, [getWeb3]);
 
-    useEffect(() => {
-        const web3 = getWeb3();
-        if (contracts) {
-            const allContracts = [];
-			contracts.forEach(contract => {
-				allContracts.push(new web3.eth.Contract(contract.abi, contract.address));
-			});
-			setSmartContract(allContracts);
-        }
-    }, [])
-
-    return getSmartContract();
+  return smartContract;
 }
