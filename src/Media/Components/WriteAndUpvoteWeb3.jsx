@@ -1,8 +1,8 @@
 import React, { useContext, useEffect, useState } from "react";
 import "../scss/WriteAndUpvoteWeb3.scss";
 import useSmartContract from "../../Web3/hooks/useSmartContract";
-import WebsiteApprovalAPI from "../../WebsiteApprovalAPI";
-import { websiteApprovalContract } from "../../smartContract";
+import WebsiteApprovalAPI from "../../Contracts/WebsiteApprovalAPI";
+import { websiteApprovalContract } from "../../Contracts/smartContract";
 import { WalletContext } from "../../Web3/context/WalletContextProvider";
 import useNotification from "../../Notification/hook/useNotification";
 
@@ -29,18 +29,18 @@ export default function WriteAndUpvoteWeb3(props) {
       });
   };
 
-    useEffect(() => {
-      if (smartContract) {
-        const getUserApprovalForProjectAPI = async (projectNum) => {
-          return await getUserApprovalForProject(projectNum).then((result) => {
-            if (result.upVoted) {
-              setUserApproval(result.message);
-            }
-          });
-        };
-        getUserApprovalForProjectAPI(projectNumber);
-      }
-    }, [smartContract]);
+  useEffect(() => {
+    if (smartContract) {
+      const getUserApprovalForProjectAPI = async (projectNum) => {
+        return await getUserApprovalForProject(projectNum).then((result) => {
+          if (result.upVoted) {
+            setUserApproval(result.message);
+          }
+        });
+      };
+      getUserApprovalForProjectAPI(projectNumber);
+    }
+  }, [smartContract]);
 
   return userApproval && userApproval.length > 0 ? (
     <div className="web3-message-container">
@@ -59,7 +59,7 @@ export default function WriteAndUpvoteWeb3(props) {
         />
         <div
           className="web3-message-container__interactive__button"
-          onClick={() => addUserApprovalAPI(4, textInput)}
+          onClick={() => addUserApprovalAPI(projectNumber, textInput)}
         >
           <img
             className="web3-message-container__interactive__button__image"
