@@ -1,6 +1,5 @@
 import { useContext } from "react";
 import { NotificationContext } from "../context/NotificationContextProvider";
-import Notification from "../components/Notification";
 
 export default function useNotification() {
   const COLOR_GREEN = "green";
