@@ -4,12 +4,14 @@ import useSmartContract from "../../Web3/hooks/useSmartContract";
 import WebsiteApprovalAPI from "../../WebsiteApprovalAPI";
 import { websiteApprovalContract } from "../../smartContract";
 import { WalletContext } from "../../Web3/context/WalletContextProvider";
+import useNotification from "../../Notification/hook/useNotification";
 
 export default function WriteAndUpvoteWeb3(props) {
   const { title, defaultText, imageUrl, projectNumber } = props;
 
   const [userApproval, setUserApproval] = useState();
   const [textInput, setTextInput] = useState();
+  const { successAlert, failedAlert } = useNotification();
   const smartContract = useSmartContract(websiteApprovalContract);
   const { getWalletAddress } = useContext(WalletContext);
   const { addUserApproval, getUserApprovalForProject } = WebsiteApprovalAPI(
@@ -18,26 +20,30 @@ export default function WriteAndUpvoteWeb3(props) {
   );
 
   const addUserApprovalAPI = async (projectNum, message) => {
-    const result = await addUserApproval(projectNum, message);
-    console.log(result);
+    await addUserApproval(projectNum, message)
+      .then((value) => {
+        successAlert(value);
+      })
+      .catch((err) => {
+        failedAlert(err.message);
+      });
   };
 
-  useEffect(() => {
-    if (smartContract) {
-      const getUserApprovalForProjectAPI = async (projectNum) => {
-        return await getUserApprovalForProject(projectNum).then((res) => {
-          if (res.upVoted) {
-            setUserApproval(res.message);
-          }
-        });
-      };
-      getUserApprovalForProjectAPI(projectNumber);
-    }
-  }, [smartContract]);
+    useEffect(() => {
+      if (smartContract) {
+        const getUserApprovalForProjectAPI = async (projectNum) => {
+          return await getUserApprovalForProject(projectNum).then((result) => {
+            if (result.upVoted) {
+              setUserApproval(result.message);
+            }
+          });
+        };
+        getUserApprovalForProjectAPI(projectNumber);
+      }
+    }, [smartContract]);
 
-  return (userApproval && userApproval.length > 0 ) ? (
+  return userApproval && userApproval.length > 0 ? (
     <div className="web3-message-container">
-              {console.log("SET")}
       <div className="web3-message-container__title"> {title} </div>
       <div> {userApproval} </div>
     </div>
@@ -53,7 +59,7 @@ export default function WriteAndUpvoteWeb3(props) {
         />
         <div
           className="web3-message-container__interactive__button"
-          onClick={() => addUserApprovalAPI(projectNumber, textInput)}
+          onClick={() => addUserApprovalAPI(4, textInput)}
         >
           <img
             className="web3-message-container__interactive__button__image"
