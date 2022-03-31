@@ -53,7 +53,7 @@ export default function WriteAndUpvoteWeb3(props) {
       getUserApprovalForProjectAPI(projectNumber);
       getProjectApprovalAPI(projectNumber);
     }
-  }, [smartContract]);
+  }, [smartContract, projectNumber]);
 
   return userApproval && userApproval.length > 0 ? (
     <div className="web3-message-container">
