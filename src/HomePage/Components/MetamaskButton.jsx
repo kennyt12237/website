@@ -1,11 +1,14 @@
-import React, { useContext, useEffect } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { MetamaskContext } from "../../Web3/context/MetamaskProvider";
 import { WalletContext } from "../../Web3/context/WalletContextProvider";
 import { useNavigate } from "react-router-dom";
 import useNotification from "../../Notification/hook/useNotification";
+import { checkSupportedChain } from "../../Web3/ChainList/chainList";
 
 export default function MetamaskButton() {
+  const [validNetwork, setValidNetwork] = useState();
   const {
+    getChainId,
     connectToMetamask,
     disconnectFromMetamask,
     setOnAccountsChanged,
@@ -53,8 +56,8 @@ export default function MetamaskButton() {
     setOnEthereumNotDetected(() => providerNotEthereum);
   }, []);
 
-  const handleMetamaskButtonClicked = () => {
-    connectToMetamask();
+  const handleMetamaskButtonClicked = async () => {
+    await connectToMetamask();
   };
 
   const handleDisconnectButtonClicked = () => {
@@ -68,20 +71,40 @@ export default function MetamaskButton() {
     }
   }, [getConnectedStatus]);
 
+  useEffect(() => {
+    if (getConnectedStatus() && getChainId()) {
+      const chainId = getChainId();
+      if (checkSupportedChain(chainId.substr(2))) {
+        setValidNetwork(true);
+      } else {
+        setValidNetwork(false);
+      }
+    }
+  }, [getConnectedStatus, getChainId]);
   return (
     <div>
       {getConnectedStatus() ? (
-        <div
-          className="wallet-container"
-          onClick={() => handleDisconnectButtonClicked()}
-        >
-          <img
-            className="wallet-container__image"
-            src="metamask.png"
-            alt="Metamask Logo"
-          />
-          <p> Disconnect </p>
-        </div>
+        validNetwork ? (
+          <div>
+            <div>Ropsten Testnet</div>
+            <div
+              className="wallet-container"
+              onClick={() => handleDisconnectButtonClicked()}
+            >
+              <p> Disconnect </p>
+            </div>
+          </div>
+        ) : (
+          <div>
+            <div>Wrong Network</div>
+            <div
+              className="wallet-container"
+              onClick={() => handleDisconnectButtonClicked()}
+            >
+              <p> Disconnect </p>
+            </div>
+          </div>
+        )
       ) : (
         <div
           className="wallet-container"
