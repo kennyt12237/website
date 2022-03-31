@@ -36,6 +36,7 @@ function MetamaskProvider({ children }) {
     () => () => alert("Ethereum dot detected")
   );
 
+  const [chainId, setChainId] = useState();
   const { setWalletAddress } = useContext(WalletContext);
   const { setWeb3 } = useContext(Web3Context);
 
@@ -64,6 +65,7 @@ function MetamaskProvider({ children }) {
 
   const onChainChangedCB = useCallback(
     (chainId) => {
+      setChainId(chainId);
       onChainChanged(chainId);
     },
     [onChainChanged]
@@ -84,6 +86,7 @@ function MetamaskProvider({ children }) {
   );
 
   const {
+    getChainIdEthereum,
     checkProvider,
     connectAndRequestToMetamask,
     setHandleAccountsChanged,
@@ -115,6 +118,7 @@ function MetamaskProvider({ children }) {
     );
 
     if (validProvider) {
+      setChainId(await getChainIdEthereum());
       await connectAndRequestToMetamask(
         onAccountConnectedSuccessCB,
         onAccountConnectedFailureCB
@@ -136,10 +140,15 @@ function MetamaskProvider({ children }) {
     return provider;
   };
 
+  const getChainId = () => {
+    return chainId;
+  };
+
   return (
     <MetamaskContext.Provider
       value={{
         getProvider,
+        getChainId,
         setOnAccountsChanged,
         setOnAccountConnectedSuccess,
         setOnAccountConnectedFailure,
