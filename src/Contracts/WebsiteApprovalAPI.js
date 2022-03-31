@@ -1,9 +1,8 @@
 export default function WebsiteApprovalAPI(contract, walletAddress) {
-
   const addUserApproval = async (projectNum, message) => {
     return await contract.methods
       .addUserApproval(projectNum, message)
-      .send({ from: walletAddress }, promise => {
+      .send({ from: walletAddress }, (promise) => {
         return promise;
       });
   };
@@ -11,13 +10,13 @@ export default function WebsiteApprovalAPI(contract, walletAddress) {
   const getNumberOfProjectApproval = async (projectNum) => {
     return await contract.methods
       .getNumberOfProjectApproval(projectNum)
-      .call();
+      .call()
   };
 
   const getUserApprovalForProject = async (projectNum) => {
     return await contract.methods
       .getUserApprovalForProject(projectNum)
-      .call({ from : walletAddress });
+      .call({ from: walletAddress });
   };
 
   return {
