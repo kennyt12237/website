@@ -9,6 +9,7 @@ import useNotification from "../../Notification/hook/useNotification";
 export default function WriteAndUpvoteWeb3(props) {
   const { title, defaultText, imageUrl, projectNumber } = props;
 
+  const [loading, setLoading] = useState(true);
   const [userApproval, setUserApproval] = useState();
   const [totalUpvote, setTotalUpvote] = useState();
   const [textInput, setTextInput] = useState();
@@ -55,10 +56,22 @@ export default function WriteAndUpvoteWeb3(props) {
     }
   }, [smartContract, projectNumber]);
 
-  return userApproval && userApproval.length > 0 ? (
+  useEffect(() => {
+      if (userApproval && totalUpvote) {
+          setLoading(false);
+      }
+  }, [userApproval, totalUpvote])
+
+  return loading ? (
+    <div className="web3-message-container__loading"> Loading... </div>
+  ) : userApproval && userApproval.length > 0 ? (
     <div className="web3-message-container">
       <div className="web3-message-container__title">
-        <img className="web3-message-container__title__image" src="./check.svg" alt="Checkmark" />
+        <img
+          className="web3-message-container__title__image"
+          src="./check.svg"
+          alt="Checkmark"
+        />
         Thanks for upvoting!
       </div>
       <div className="web3-message-container__upvoted">
