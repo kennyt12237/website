@@ -47,6 +47,11 @@ export default function Metamask() {
       });
   };
 
+  const getChainIdEthereum = async () => {
+    return ethereum.request({ method: "eth_chainId" }).then((result) => {
+      return result;
+    });
+  };
   /*
 		A callback function invoked when account has changed
 	*/
@@ -91,6 +96,7 @@ export default function Metamask() {
 
   return {
     ethereum,
+    getChainIdEthereum,
     checkProvider,
     connectAndRequestToMetamask,
     setHandleAccountsChanged,
