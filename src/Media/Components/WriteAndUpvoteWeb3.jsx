@@ -10,14 +10,16 @@ export default function WriteAndUpvoteWeb3(props) {
   const { title, defaultText, imageUrl, projectNumber } = props;
 
   const [userApproval, setUserApproval] = useState();
+  const [totalUpvote, setTotalUpvote] = useState();
   const [textInput, setTextInput] = useState();
   const { successAlert, failedAlert } = useNotification();
   const smartContract = useSmartContract(websiteApprovalContract);
   const { getWalletAddress } = useContext(WalletContext);
-  const { addUserApproval, getUserApprovalForProject } = WebsiteApprovalAPI(
-    smartContract,
-    getWalletAddress()
-  );
+  const {
+    addUserApproval,
+    getNumberOfProjectApproval,
+    getUserApprovalForProject,
+  } = WebsiteApprovalAPI(smartContract, getWalletAddress());
 
   const addUserApprovalAPI = async (projectNum, message) => {
     await addUserApproval(projectNum, message)
@@ -38,14 +40,31 @@ export default function WriteAndUpvoteWeb3(props) {
           }
         });
       };
+
+      const getProjectApprovalAPI = async (projectNum) => {
+        return await getNumberOfProjectApproval(projectNum)
+          .then((result) => {
+            setTotalUpvote(result);
+          })
+          .catch((error) => {
+            failedAlert(error.message);
+          });
+      };
       getUserApprovalForProjectAPI(projectNumber);
+      getProjectApprovalAPI(projectNumber);
     }
   }, [smartContract]);
 
   return userApproval && userApproval.length > 0 ? (
     <div className="web3-message-container">
-      <div className="web3-message-container__title"> {title} </div>
-      <div> {userApproval} </div>
+      <div className="web3-message-container__title">
+        <img className="web3-message-container__title__image" src="./check.svg" alt="Checkmark" />
+        Thanks for upvoting!
+      </div>
+      <div className="web3-message-container__upvoted">
+        <div> You Wrote: {userApproval} </div>
+        <div> Total Upvotes: {totalUpvote} </div>
+      </div>
     </div>
   ) : (
     <div className="web3-message-container">
