@@ -12,7 +12,7 @@ export default function HomeContent(props) {
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
             eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
             ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-            aliquip ex ea commodo consequat.{" "}
+            aliquip ex ea commodo consequat.
           </p>
 
           <p>
@@ -30,8 +30,7 @@ export default function HomeContent(props) {
               alt="Metamask Logo"
             />
             <div className="info-container__content__contact__wallet__address">
-              <p> Wallet address: </p>
-              <p> E9873D79C6D87DC0FB6A5778633389F445 </p>
+              Wallet address: E9873D79C6D87DC0FB6A5778633389F445
             </div>
           </div>
           <div className="info-container__content__contact__social">
