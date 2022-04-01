@@ -16,7 +16,6 @@ export default function WriteAndUpvoteWeb3(props) {
   const { successAlert, failedAlert } = useNotification();
   const smartContract = useSmartContract(websiteApprovalContract);
   const { getWalletAddress } = useContext(WalletContext);
-  
   const {
     addUserApproval,
     getNumberOfProjectApproval,
@@ -36,15 +35,13 @@ export default function WriteAndUpvoteWeb3(props) {
   useEffect(() => {
     if (smartContract) {
       const getUserApprovalForProjectAPI = async (projectNum) => {
-        return await getUserApprovalForProject(projectNum)
-          .then((result) => {
-            if (result.upVoted) {
-              setUserApproval(result.message);
-            }
-          })
-          .catch((error) => {
-            console.log(error.message);
-          });
+        return await getUserApprovalForProject(projectNum).then((result) => {
+          if (result.upVoted) {
+            setUserApproval(result.message);
+          }
+        }).catch(error => {
+            console.log(error.message)
+        });
       };
 
       const getProjectApprovalAPI = async (projectNum) => {
@@ -62,8 +59,10 @@ export default function WriteAndUpvoteWeb3(props) {
   }, [smartContract, projectNumber]);
 
   useEffect(() => {
-    setLoading(false);
-  }, [userApproval, totalUpvote]);
+      if (userApproval && totalUpvote) {
+          setLoading(false);
+      }
+  }, [userApproval, totalUpvote])
 
   return loading ? (
     <div className="web3-message-container__loading"> Loading... </div>
