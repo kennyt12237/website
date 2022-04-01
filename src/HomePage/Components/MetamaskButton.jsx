@@ -5,7 +5,6 @@ import { useNavigate } from "react-router-dom";
 import useNotification from "../../Notification/hook/useNotification";
 
 export default function MetamaskButton() {
-
   const {
     getValidNetwork,
     connectToMetamask,
@@ -73,27 +72,17 @@ export default function MetamaskButton() {
   return (
     <div>
       {getConnectedStatus() ? (
-        getValidNetwork() ? (
-          <div>
-            <div>Ropsten Testnet</div>
-            <div
-              className="wallet-container"
-              onClick={() => handleDisconnectButtonClicked()}
-            >
-              <p> Disconnect </p>
-            </div>
-          </div>
-        ) : (
-          <div>
-            <div>Wrong Network</div>
-            <div
-              className="wallet-container"
-              onClick={() => handleDisconnectButtonClicked()}
-            >
-              <p> Disconnect </p>
-            </div>
-          </div>
-        )
+        <div
+          className="wallet-container"
+          onClick={() => handleDisconnectButtonClicked()}
+        >
+          <img
+            className="wallet-container__image"
+            src="metamask.png"
+            alt="Metamask Logo"
+          />
+          <p> Disconnect </p>
+        </div>
       ) : (
         <div
           className="wallet-container"
