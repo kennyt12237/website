@@ -9,6 +9,7 @@ import Metamask from "../MetamaskAPI/Metamask";
 import detectEthereumProvider from "@metamask/detect-provider";
 import { WalletContext } from "./WalletContextProvider";
 import { Web3Context } from "../context/Web3ContextProvider";
+import { checkSupportedChain } from "../ChainList/chainList";
 
 const MetamaskContext = createContext();
 
@@ -37,6 +38,7 @@ function MetamaskProvider({ children }) {
   );
 
   const [chainId, setChainId] = useState();
+  const [validNetwork, setValidNetwork] = useState();
   const { setWalletAddress } = useContext(WalletContext);
   const { setWeb3 } = useContext(Web3Context);
 
@@ -65,7 +67,7 @@ function MetamaskProvider({ children }) {
 
   const onChainChangedCB = useCallback(
     (chainId) => {
-      setChainId(chainId);
+      setChainId(chainId.substr(2));
       onChainChanged(chainId);
     },
     [onChainChanged]
@@ -110,6 +112,14 @@ function MetamaskProvider({ children }) {
     EthProvider();
   }, []);
 
+  useEffect(() => {
+    if (checkSupportedChain(chainId)) {
+      setValidNetwork(true);
+    } else {
+      setValidNetwork(false);
+    }
+  }, [chainId]);
+
   const connectToMetamask = async () => {
     const validProvider = checkProvider(
       onProviderNotDetectedCB,
@@ -144,11 +154,16 @@ function MetamaskProvider({ children }) {
     return chainId;
   };
 
+  const getValidNetwork = () => {
+      return validNetwork;
+  }
+
   return (
     <MetamaskContext.Provider
       value={{
         getProvider,
         getChainId,
+        getValidNetwork,
         setOnAccountsChanged,
         setOnAccountConnectedSuccess,
         setOnAccountConnectedFailure,

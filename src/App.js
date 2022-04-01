@@ -13,7 +13,7 @@ import { projects } from "./Contracts/Project";
 import LoginRoute from "./ClientRoute/LoginRoute";
 import ErrorPage from "./ErrorPage";
 import NotificationOverlay from "./Notification/components/NotificationOverlay";
-
+import ChainRoute from "./ClientRoute/ChainRoute";
 function App() {
   return (
     <Router>
@@ -21,10 +21,12 @@ function App() {
         <Route path="/" element={<Layout />}>
           <Route index element={<HomeContent />} />
           <Route element={<LoginRoute />}>
-            <Route
-              path="/projects"
-              element={<ProjectContentList projects={projects} />}
-            />
+            <Route element={<ChainRoute />}>
+              <Route
+                path="/projects"
+                element={<ProjectContentList projects={projects} />}
+              />
+            </Route>
           </Route>
           <Route
             path="/error"
