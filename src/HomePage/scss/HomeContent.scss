@@ -1,5 +1,4 @@
 .info-container {
-  margin: auto;
   display: grid;
   grid-template-columns: 40% 5% 40%;
   justify-content: center;
@@ -39,24 +38,51 @@
         justify-content: start;
         align-items: center;
         margin-bottom: 2rem;
+        justify-self: center;
+        font-size: 1rem;
+        font-weight: bold;
+        word-wrap: break-word;
 
         &__image {
           width: 100%;
           height: 100%;
         }
 
-        &__address {
-          justify-self: center;
-          font-size: 1rem;
-          font-weight: bold;
-          word-wrap: break-word;
-        }
       }
 
       &__social {
         display: flex;
         flex-direction: row;
         justify-content: space-between;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 900px) {
+  .info-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    margin: 2rem;
+
+    &__content {
+      &__greeting {
+        font-size: 5rem;
+        text-align: center;
+      }
+
+      &__contact {
+        width: 100%;
+        &__wallet {
+          grid-template-columns: auto 75%;
+          justify-content: center;
+          &__image {
+            justify-self: center;
+          }
+        }
       }
     }
   }
