@@ -7,7 +7,7 @@ export default function useSmartContract(contract) {
 
   useEffect(() => {
     const web3 = getWeb3();
-    if (contract) {
+    if (web3 && contract) {
       setSmartContract(new web3.eth.Contract(contract.abi, contract.address));
     }
   }, [getWeb3]);
