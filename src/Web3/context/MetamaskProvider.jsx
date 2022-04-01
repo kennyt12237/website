@@ -67,7 +67,7 @@ function MetamaskProvider({ children }) {
 
   const onChainChangedCB = useCallback(
     (chainId) => {
-      setChainId(chainId.substr(2));
+      setChainId(chainId);
       onChainChanged(chainId);
     },
     [onChainChanged]
