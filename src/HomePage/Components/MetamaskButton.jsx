@@ -3,12 +3,11 @@ import { MetamaskContext } from "../../Web3/context/MetamaskProvider";
 import { WalletContext } from "../../Web3/context/WalletContextProvider";
 import { useNavigate } from "react-router-dom";
 import useNotification from "../../Notification/hook/useNotification";
-import { checkSupportedChain } from "../../Web3/ChainList/chainList";
 
 export default function MetamaskButton() {
-  const [validNetwork, setValidNetwork] = useState();
+
   const {
-    getChainId,
+    getValidNetwork,
     connectToMetamask,
     disconnectFromMetamask,
     setOnAccountsChanged,
@@ -71,20 +70,10 @@ export default function MetamaskButton() {
     }
   }, [getConnectedStatus]);
 
-  useEffect(() => {
-    if (getConnectedStatus() && getChainId()) {
-      const chainId = getChainId();
-      if (checkSupportedChain(chainId.substr(2))) {
-        setValidNetwork(true);
-      } else {
-        setValidNetwork(false);
-      }
-    }
-  }, [getConnectedStatus, getChainId]);
   return (
     <div>
       {getConnectedStatus() ? (
-        validNetwork ? (
+        getValidNetwork() ? (
           <div>
             <div>Ropsten Testnet</div>
             <div
