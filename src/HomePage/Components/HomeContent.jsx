@@ -29,9 +29,7 @@ export default function HomeContent(props) {
               src="metamask.png"
               alt="Metamask Logo"
             />
-            <div className="info-container__content__contact__wallet__address">
-              Wallet address: E9873D79C6D87DC0FB6A5778633389F445
-            </div>
+            Wallet address: E9873D79C6D87DC0FB6A5778633389F445
           </div>
           <div className="info-container__content__contact__social">
             <img src={"./linkedin.svg"} alt="linkedIn" />
