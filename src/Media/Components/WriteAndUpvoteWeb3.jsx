@@ -1,10 +1,9 @@
 import React, { useContext, useEffect, useState } from "react";
-import "../scss/WriteAndUpvoteWeb3.scss";
-import useSmartContract from "../../Web3/hooks/useSmartContract";
+import {useSmartContract, WalletContext }  from "../../Web3";
 import WebsiteApprovalAPI from "../../Contracts/WebsiteApprovalAPI";
 import { websiteApprovalContract } from "../../Contracts/smartContract";
-import { WalletContext } from "../../Web3/context/WalletContextProvider";
-import useNotification from "../../Notification/hook/useNotification";
+import { useNotification } from "../../Notification";
+import "../scss/WriteAndUpvoteWeb3.scss";
 
 export default function WriteAndUpvoteWeb3(props) {
   const { title, defaultText, imageUrl, projectNumber } = props;
