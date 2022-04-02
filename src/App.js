@@ -12,7 +12,7 @@ import Header from "./HomePage/Components/Header";
 import { projects } from "./Contracts/Project";
 import LoginRoute from "./ClientRoute/LoginRoute";
 import ErrorPage from "./ErrorPage";
-import NotificationOverlay from "./Notification/components/NotificationOverlay";
+import { NotificationOverlay } from "./Notification";
 import ChainRoute from "./ClientRoute/ChainRoute";
 function App() {
   return (

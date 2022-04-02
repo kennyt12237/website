@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import "../scss/Notification.scss";
 
-export default function Notification(props) {
+export function Notification(props) {
   const { duration, color, message } = props;
   const [display, setDisplay] = useState("block");
 

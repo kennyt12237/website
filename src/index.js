@@ -3,8 +3,8 @@ import ReactDOM from "react-dom";
 import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
-import WithMetamask from "./Web3/HigherOrderComponents/WithMetamask";
-import WithNotificationContextProvider from "./Notification/context/WithNotificationContextProvider";
+import { WithMetamask } from "./Web3";
+import { WithNotificationContextProvider } from "./Notification";
 
 ReactDOM.render(
   <React.StrictMode>

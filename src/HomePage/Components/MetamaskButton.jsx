@@ -1,12 +1,10 @@
-import React, { useContext, useEffect, useState } from "react";
-import { MetamaskContext } from "../../Web3/context/MetamaskProvider";
-import { WalletContext } from "../../Web3/context/WalletContextProvider";
+import React, { useContext, useEffect } from "react";
+import { MetamaskContext, WalletContext } from "../../Web3";
 import { useNavigate } from "react-router-dom";
-import useNotification from "../../Notification/hook/useNotification";
+import { useNotification } from "../../Notification";
 
 export default function MetamaskButton() {
   const {
-    getValidNetwork,
     connectToMetamask,
     disconnectFromMetamask,
     setOnAccountsChanged,
