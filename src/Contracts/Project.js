@@ -1,7 +1,7 @@
 const projects = [
   {
     projectContent: {
-      title: "Project One",
+      title: "TATWorks",
       texts: [
         "Accomplished creating a modern web application for the product owner using the Scrum framework.",
         "Satisfactory creation of application with new development tools with the team.",
@@ -14,11 +14,11 @@ const projects = [
       defaultText: "This is a message written",
       imageUrl: "hand-thumbs-up-fill.svg",
     },
-    mediaSrc: "cabin.png",
+    mediaSrc: "tatworks_landing_page.png",
   },
   {
     projectContent: {
-      title: "Project Two",
+      title: "Are We There Yet",
       texts: ["Accomplished creating an ambitious web application project with two team members.",
       "Development using modern web development tools; the MERN stack and external APIs.",
       "Successfully handled and extracted appropriate data from external API that linked with multiple components.",
