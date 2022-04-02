@@ -1,7 +1,7 @@
 import { useContext, useEffect, useState } from "react";
 import { Web3Context } from "../context/Web3ContextProvider";
 
-export default function useSmartContract(contract) {
+export function useSmartContract(contract) {
   const { getWeb3 } = useContext(Web3Context);
   const [smartContract, setSmartContract] = useState();
 
