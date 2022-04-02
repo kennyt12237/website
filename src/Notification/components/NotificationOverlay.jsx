@@ -2,7 +2,7 @@ import { useContext } from "react";
 import ReactDOM from "react-dom";
 import { NotificationContext } from "../context/NotificationContextProvider";
 
-export default function NotificationOverlay(props) {
+export function NotificationOverlay(props) {
   const { element } = props;
   const { getNotificationAlert } = useContext(NotificationContext);
 
