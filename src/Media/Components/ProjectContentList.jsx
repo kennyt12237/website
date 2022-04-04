@@ -18,7 +18,6 @@ export default function ProjectContentList(props) {
     <div className="project-list-container">
       <ProjectContent 
         projectContent={projects[projectNum].projectContent}
-        web3Message={projects[projectNum].web3Message}
         mediaSrc={projects[projectNum].mediaSrc}
         projectNumber={projectNum}
       />
