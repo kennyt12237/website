@@ -19,10 +19,12 @@ const projects = [
   {
     projectContent: {
       title: "Are We There Yet",
-      texts: ["Accomplished creating an ambitious web application project with two team members.",
-      "Development using modern web development tools; the MERN stack and external APIs.",
-      "Successfully handled and extracted appropriate data from external API that linked with multiple components.",
-      "Proud accomplishment with a final presentation of the application to an audience."]
+      texts: [
+        "Accomplished creating an ambitious web application project with two team members.",
+        "Development using modern web development tools; the MERN stack and external APIs.",
+        "Successfully handled and extracted appropriate data from external API that linked with multiple components.",
+        "Proud accomplishment with a final presentation of the application to an audience.",
+      ],
     },
     web3Message: {
       title: "Upvote and Write Message (optional)",
@@ -30,6 +32,23 @@ const projects = [
       imageUrl: "hand-thumbs-up-fill.svg",
     },
     mediaSrc: "leaf.png",
+  },
+  {
+    projectContent: {
+      title: "Mello",
+      texts: [
+        "Accomplished creating a team proposed web application with 20 team members in two weeks.",
+        "Development using modern web development tools and frameworks.",
+        "Successful development and integration of a pop-up modal with team members code.",
+        "Extensive use of GitHub utilising the fork and pull request workflow model with over 100+ issues, 140+ pull requests, and a two person code review per pull request.",
+      ],
+    },
+    web3Message: {
+      title: "Upvote and Write Message (optional)",
+      defaultText: "This is a message written",
+      imageUrl: "hand-thumbs-up-fill.svg",
+    },
+    mediaSrc: "mello_homepage.png",
   },
 ];
 
