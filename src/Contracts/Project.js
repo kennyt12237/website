@@ -21,7 +21,7 @@ const projects = [
         "Proud accomplishment with a final presentation of the application to an audience.",
       ],
     },
-    mediaSrc: "leaf.png",
+    mediaSrc: "awty-map.png",
   },
   {
     projectContent: {
