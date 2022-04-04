@@ -9,17 +9,17 @@ export default function HomeContent(props) {
         <div className="info-container__content__greeting">Hello!</div>
         <div className="info-container__content__statement">
           <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-            aliquip ex ea commodo consequat.
+            Welcome to my personal website showcasing my previous projects
+            throughout my Software Engineering journey. I have studied the
+            degree at the University of Auckland for 4 years and now looking for
+            opportunities that triggers my curiosity.
           </p>
 
           <p>
-            Duis aute irure dolor in reprehenderit in voluptate velit esse
-            cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
-            cupidatat non proident, sunt in culpa qui officia deserunt mollit
-            anim id est laborum.
+            What sets my website apart traditionally is that it utilises Web3
+            functionalities as you explore throughout the website, and will be
+            continuously be updated later on. So, connect your wallet using
+            Metamask to begin!
           </p>
         </div>
         <div className="info-container__content__contact">
@@ -32,10 +32,31 @@ export default function HomeContent(props) {
             Wallet address: E9873D79C6D87DC0FB6A5778633389F445
           </div>
           <div className="info-container__content__contact__social">
-            <img src={"./linkedin.svg"} alt="linkedIn" />
-            <img src={"./twitter.svg"} alt="twitter" />
-            <img src={"./telegram.svg"} alt="telegram" />
-            <img src={"./medium.svg"} alt="medium" />
+            <a href="https://www.google.com" target="_blank" rel="noreferrer">
+              <img src={"./linkedin.svg"} alt="linkedIn" />
+            </a>
+            <a
+              href="https://twitter.com/KennyTa06355885"
+              target="_blank"
+              rel="noreferrer"
+            >
+              <img src={"./twitter.svg"} alt="twitter" />
+            </a>
+            <a
+              href="https://twitter.com/KennyTa06355885"
+              target="_blank"
+              rel="noreferrer"
+            >
+              <img src={"./telegram.svg"} alt="telegram" />
+            </a>
+
+            <a
+              href="https://medium.com/@kennytang601"
+              target="_blank"
+              rel="noreferrer"
+            >
+              <img src={"./medium.svg"} alt="medium" />
+            </a>
           </div>
         </div>
       </div>
