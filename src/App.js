@@ -41,7 +41,7 @@ function App() {
 function Layout() {
   return (
     <div className="background">
-      <Header />
+      <Header logo="./logo.png" name="Kenny Tang"/>
       <NotificationOverlay
         element={document.getElementById("notification-root")}
       />
