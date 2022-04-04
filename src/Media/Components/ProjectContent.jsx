@@ -5,7 +5,7 @@ import Media from "./Media.jsx";
 import "../scss/ProjectContent.scss";
 
 export default function ProjectContent(props) {
-  const { projectContent, web3Message, mediaSrc, projectNumber } = props;
+  const { projectContent, mediaSrc, projectNumber } = props;
 
   return (
     <div className="project-content-container">
@@ -15,9 +15,9 @@ export default function ProjectContent(props) {
           texts={projectContent.texts}
         />
         <WriteAndUpvoteWeb3
-          title={web3Message.title}
-          defaultText={web3Message.defaultText}
-          imageUrl={web3Message.imageUrl}
+          title="Upvote and Write Message (optional)"
+          defaultText="Wrtie a Message"
+          imageUrl="./hand-thumbs-up-fill.svg"
           projectNumber={projectNumber}
         />
       </div>

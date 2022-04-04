@@ -9,11 +9,6 @@ const projects = [
         "Extensive use of GitHub utilising the shared repository development model with 30+ branches and 300+ commits.",
       ],
     },
-    web3Message: {
-      title: "Upvote and Write Message (optional)",
-      defaultText: "This is a message written",
-      imageUrl: "hand-thumbs-up-fill.svg",
-    },
     mediaSrc: "tatworks_landing_page.png",
   },
   {
@@ -26,11 +21,6 @@ const projects = [
         "Proud accomplishment with a final presentation of the application to an audience.",
       ],
     },
-    web3Message: {
-      title: "Upvote and Write Message (optional)",
-      defaultText: "This is a message written",
-      imageUrl: "hand-thumbs-up-fill.svg",
-    },
     mediaSrc: "leaf.png",
   },
   {
@@ -42,11 +32,6 @@ const projects = [
         "Successful development and integration of a pop-up modal with team members code.",
         "Extensive use of GitHub utilising the fork and pull request workflow model with over 100+ issues, 140+ pull requests, and a two person code review per pull request.",
       ],
-    },
-    web3Message: {
-      title: "Upvote and Write Message (optional)",
-      defaultText: "This is a message written",
-      imageUrl: "hand-thumbs-up-fill.svg",
     },
     mediaSrc: "mello_homepage.png",
   },
