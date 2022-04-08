@@ -17,8 +17,7 @@ export default function ProjectContentList(props) {
   return (
     <div className="project-list-container">
       <ProjectContent 
-        projectContent={projects[projectNum].projectContent}
-        mediaSrc={projects[projectNum].mediaSrc}
+        projectContent={projects[projectNum]}
         projectNumber={projectNum}
       />
       <div className="project-list-container__navigation">
