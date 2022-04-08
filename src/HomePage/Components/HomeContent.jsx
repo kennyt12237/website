@@ -43,7 +43,7 @@ export default function HomeContent(props) {
               <img src={"./twitter.svg"} alt="twitter" />
             </a>
             <a
-              href="https://twitter.com/KennyTa06355885"
+              href="https://t.me/KennyT12237"
               target="_blank"
               rel="noreferrer"
             >
