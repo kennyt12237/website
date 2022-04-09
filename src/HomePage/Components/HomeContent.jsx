@@ -29,7 +29,7 @@ export default function HomeContent(props) {
               src="metamask.png"
               alt="Metamask Logo"
             />
-            Wallet address: E9873D79C6D87DC0FB6A5778633389F445
+            Wallet address: 0x2cb8666ED4688C06226a00057395C1bFEFebeCE7
           </div>
           <div className="info-container__content__contact__social">
             <a href="https://www.linkedin.com/in/kenny-tang-340431171" target="_blank" rel="noreferrer">
