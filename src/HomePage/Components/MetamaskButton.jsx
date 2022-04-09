@@ -63,7 +63,7 @@ export default function MetamaskButton() {
 
   useEffect(() => {
     if (getConnectedStatus()) {
-      navigate("/projects");
+      navigate("/website/projects");
     }
   }, [getConnectedStatus]);
 
@@ -76,7 +76,7 @@ export default function MetamaskButton() {
         >
           <img
             className="wallet-container__image"
-            src="metamask.png"
+            src={process.env.PUBLIC_URL + "/metamask.png"}
             alt="Metamask Logo"
           />
           <p> Disconnect </p>
