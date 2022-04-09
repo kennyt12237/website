@@ -55,7 +55,7 @@ export default function WriteAndUpvoteWeb3(props) {
       getUserApprovalForProjectAPI(projectNumber);
       getProjectApprovalAPI(projectNumber);
     }
-  }, [smartContract, projectNumber]);
+  }, [getWalletAddress, smartContract, projectNumber]);
 
   useEffect(() => {
     if (totalUpvote) {
