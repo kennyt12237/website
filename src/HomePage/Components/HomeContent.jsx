@@ -32,7 +32,7 @@ export default function HomeContent(props) {
             Wallet address: ***REMOVED***
           </div>
           <div className="info-container__content__contact__social">
-            <a href="https://www.google.com" target="_blank" rel="noreferrer">
+            <a href="https://www.linkedin.com/in/kenny-tang-340431171" target="_blank" rel="noreferrer">
               <img src={"./linkedin.svg"} alt="linkedIn" />
             </a>
             <a
