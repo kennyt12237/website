@@ -26,28 +26,37 @@ export default function HomeContent(props) {
           <div className="info-container__content__contact__wallet">
             <img
               className="info-container__content__contact__wallet__image"
-              src="metamask.png"
+              src={process.env.PUBLIC_URL + "/metamask.png"}
               alt="Metamask Logo"
             />
             Wallet address: ***REMOVED***
           </div>
           <div className="info-container__content__contact__social">
-            <a href="https://www.linkedin.com/in/kenny-tang-340431171" target="_blank" rel="noreferrer">
-              <img src={"linkedin.svg"} alt="linkedIn" />
+            <a
+              href="https://www.linkedin.com/in/kenny-tang-340431171"
+              target="_blank"
+              rel="noreferrer"
+            >
+              <img
+                src={process.env.PUBLIC_URL + "/linkedin.svg"}
+                alt="linkedIn"
+              />
             </a>
             <a
               href="https://twitter.com/KennyTa06355885"
               target="_blank"
               rel="noreferrer"
             >
-              <img src={"twitter.svg"} alt="twitter" />
+              <img
+                src={process.env.PUBLIC_URL + "/twitter.svg"}
+                alt="twitter"
+              />
             </a>
-            <a
-              href="https://t.me/KennyT12237"
-              target="_blank"
-              rel="noreferrer"
-            >
-              <img src={"telegram.svg"} alt="telegram" />
+            <a href="https://t.me/KennyT12237" target="_blank" rel="noreferrer">
+              <img
+                src={process.env.PUBLIC_URL + "/telegram.svg"}
+                alt="telegram"
+              />
             </a>
 
             <a
@@ -55,7 +64,7 @@ export default function HomeContent(props) {
               target="_blank"
               rel="noreferrer"
             >
-              <img src={"medium.svg"} alt="medium" />
+              <img src={process.env.PUBLIC_URL + "/medium.svg"} alt="medium" />
             </a>
           </div>
         </div>
