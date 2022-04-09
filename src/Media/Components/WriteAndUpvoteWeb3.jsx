@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from "react";
-import {useSmartContract, WalletContext }  from "../../Web3";
+import { useSmartContract, WalletContext } from "../../Web3";
 import WebsiteApprovalAPI from "../../Contracts/WebsiteApprovalAPI";
 import { websiteApprovalContract } from "../../Contracts/smartContract";
 import { useNotification } from "../../Notification";
@@ -24,7 +24,7 @@ export default function WriteAndUpvoteWeb3(props) {
   const addUserApprovalAPI = async (projectNum, message) => {
     await addUserApproval(projectNum, message)
       .then((value) => {
-        successAlert(value);
+        successAlert("Message sent to the blockchain successfully!");
       })
       .catch((err) => {
         failedAlert(err.message);
@@ -34,13 +34,13 @@ export default function WriteAndUpvoteWeb3(props) {
   useEffect(() => {
     if (smartContract) {
       const getUserApprovalForProjectAPI = async (projectNum) => {
-        return await getUserApprovalForProject(projectNum).then((result) => {
-          if (result.upVoted) {
+        return await getUserApprovalForProject(projectNum)
+          .then((result) => {
             setUserApproval(result.message);
-          }
-        }).catch(error => {
-            console.log(error.message)
-        });
+          })
+          .catch((error) => {
+            console.log(error.message);
+          });
       };
 
       const getProjectApprovalAPI = async (projectNum) => {
@@ -58,10 +58,10 @@ export default function WriteAndUpvoteWeb3(props) {
   }, [smartContract, projectNumber]);
 
   useEffect(() => {
-      if (userApproval && totalUpvote) {
-          setLoading(false);
-      }
-  }, [userApproval, totalUpvote])
+    if (totalUpvote) {
+      setLoading(false);
+    }
+  }, [totalUpvote]);
 
   return loading ? (
     <div className="web3-message-container__loading"> Loading... </div>
