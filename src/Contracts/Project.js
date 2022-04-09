@@ -1,55 +1,40 @@
 const projects = [
-    {
+  {
+    projectContent: {
       title: "TATWorks",
-      contents: [
-        {
-          text: "A redesigned web application for TatWorks utilising modern software tools",
-          image: "tatworks_landing_page.png",
-        },
-        {
-          text: "Full functionality implemented of the application requirements",
-          image: "tatworks_landing_page.png",
-        },
-        {
-          text: "Modularised code for reusability and maintainability of similar components",
-          image: "tatworks_landing_page.png",
-        },
+      texts: [
+        "Accomplished creating a modern web application for the product owner using the Scrum framework.",
+        "Satisfactory creation of application with new development tools with the team.",
+        "Successful adaptation to changing scenarios.",
+        "Extensive use of GitHub utilising the shared repository development model with 30+ branches and 300+ commits.",
       ],
     },
-    {
+    mediaSrc: "tatworks_landing_page.png",
+  },
+  {
+    projectContent: {
       title: "Are We There Yet",
-      contents: [
-        {
-          text: "An ambitious itinerary trip planner with visualisation at destinations",
-          image: "awty-map.png",
-        },
-        {
-          text: "Successfully handled and extracted data from external API that linked with multiple components.",
-          image: "awty-map.png",
-        },
-        {
-          text: "Development using modern web development tools; the MERN stack and external APIs.",
-          image: "awty-map.png",
-        },
+      texts: [
+        "Accomplished creating an ambitious web application project with two team members.",
+        "Development using modern web development tools; the MERN stack and external APIs.",
+        "Successfully handled and extracted appropriate data from external API that linked with multiple components.",
+        "Proud accomplishment with a final presentation of the application to an audience.",
       ],
     },
-    {
+    mediaSrc: "awty-map.png",
+  },
+  {
+    projectContent: {
       title: "Mello",
-      contents: [
-        {
-          text: "A task management web application catering for students",
-          image: "mello_homepage.png",
-        },
-        {
-          text: "Integration of Spotify API with a Pomodoro Technique Timer mechanism",
-          image: "mello_homepage.png",
-        },
-        {
-          text: "Sofware development using modern web development tools and frameworks.",
-          image: "mello_homepage.png",
-        },
+      texts: [
+        "Accomplished creating a team proposed web application with 20 team members in two weeks.",
+        "Development using modern web development tools and frameworks.",
+        "Successful development and integration of a pop-up modal with team members code.",
+        "Extensive use of GitHub utilising the fork and pull request workflow model with over 100+ issues, 140+ pull requests, and a two person code review per pull request.",
       ],
     },
-  ];
-  
-  export { projects };
+    mediaSrc: "mello_homepage.png",
+  },
+];
+
+export { projects };
