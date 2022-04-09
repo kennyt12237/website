@@ -63,7 +63,7 @@ export default function MetamaskButton() {
 
   useEffect(() => {
     if (getConnectedStatus()) {
-      navigate("/website/projects");
+      navigate("/projects");
     }
   }, [getConnectedStatus]);
 
