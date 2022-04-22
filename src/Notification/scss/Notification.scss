@@ -2,10 +2,10 @@
   position: absolute;
   display: flex;
   top: 15.5%;
-  right: -50%;
+  right: -100%;
   min-width: 200px;
   min-height: 24px;
-  padding: 12px;
+  padding: 0 12px;
   border-radius: 4px;
   justify-content: center;
   align-items: center;
@@ -14,14 +14,16 @@
   animation-duration: 8s;
 
   &--message {
+    text-align: center;
     font-size: 1.5rem;
-    line-height: 0.25;
+    line-height: 1.5;
   }
 }
 
 body {
   overflow-x: hidden;
 }
+
 @keyframes slide-in-slide-out {
   10%,
   80% {
@@ -30,5 +32,46 @@ body {
 
   90% {
     right: -50%;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .notification-container {
+    animation-name: slide-in-slide-out-phone;
+  }
+}
+
+@media screen and (max-width: 720px) {
+    .notification-container {
+        animation-name: slide-in-slide-out-tablet;
+      }
+}
+
+@keyframes slide-in-slide-out-tablet {
+    10%,
+    80% {
+      width: fit-content;
+      margin: auto;
+      right: 16.5%;
+    }
+  
+    90% {
+      right: -100%;
+    }
+  }
+  
+
+
+@keyframes slide-in-slide-out-phone {
+  10%,
+  80% {
+    width: fit-content;
+    margin: auto;
+    left: 0;
+    right: 0;
+  }
+
+  90% {
+    right: -100%;
   }
 }
