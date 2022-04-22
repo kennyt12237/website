@@ -35,17 +35,19 @@ body {
   }
 }
 
+@media screen and (max-width: 720px) {
+    .notification-container {
+        animation-name: slide-in-slide-out-tablet;
+      }
+}
+
 @media screen and (max-width: 600px) {
   .notification-container {
     animation-name: slide-in-slide-out-phone;
   }
 }
 
-@media screen and (max-width: 720px) {
-    .notification-container {
-        animation-name: slide-in-slide-out-tablet;
-      }
-}
+
 
 @keyframes slide-in-slide-out-tablet {
     10%,
@@ -60,8 +62,6 @@ body {
     }
   }
   
-
-
 @keyframes slide-in-slide-out-phone {
   10%,
   80% {
