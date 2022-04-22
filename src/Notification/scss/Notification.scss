@@ -53,7 +53,10 @@ body {
     10%,
     80% {
       width: fit-content;
-      margin: auto;
+      margin-left: auto;
+      margin-right: auto;
+      left: 0;
+      right: 0;
       right: 16.5%;
     }
   
@@ -66,7 +69,8 @@ body {
   10%,
   80% {
     width: fit-content;
-    margin: auto;
+    margin-left: auto;
+    margin-right: auto;
     left: 0;
     right: 0;
   }
