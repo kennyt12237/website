@@ -18,6 +18,7 @@
     flex-direction: column;
     justify-content: space-between;
     grid-column-start: 3;
+    width: 100%;
 
     &__greeting {
       font-size: 5rem;
@@ -53,7 +54,7 @@
       &__social {
         display: flex;
         flex-direction: row;
-        justify-content: space-between;
+        justify-content: space-evenly;
       }
     }
   }
@@ -75,10 +76,9 @@
       }
 
       &__contact {
-        width: 100%;
         &__wallet {
-          grid-template-columns: auto auto;
           justify-content: center;
+          width: 100%;
           &__image {
             justify-self: center;
           }
