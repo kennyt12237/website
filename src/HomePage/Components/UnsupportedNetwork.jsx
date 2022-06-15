@@ -1,7 +1,12 @@
-import React from "react";
+import React, { useContext } from "react";
+import {MetamaskContext, ropstenNetwork } from "../../Web3/";
+import { useNotification } from "../../Notification";
+
 import "../scss/UnsupportedNetwork.scss";
 
 export default function UnsupportedNetwork() {
+  const { switchNetwork } = useContext(MetamaskContext);
+  const { failedAlert } = useNotification();
   return (
     <div className="invalid-network-container">
       <div className="invalid-network-container__title">
@@ -9,7 +14,7 @@ export default function UnsupportedNetwork() {
         Unsupported Network
       </div>
       <div className="invalid-network-container__body">
-        Connect To Ropsten Testnet
+        <button onClick={() => switchNetwork(ropstenNetwork, failedAlert)}> Connect To Ropsten Testnet </button>
       </div>
     </div>
   );
