@@ -95,6 +95,7 @@ function MetamaskProvider({ children }) {
     setHandleChainChanged,
     removeAccountsChanged,
     removeChainChanged,
+    switchChain,
   } = Metamask();
 
   useEffect(() => {
@@ -146,6 +147,10 @@ function MetamaskProvider({ children }) {
     removeChainChanged(onChainChangedCB);
   };
 
+  const switchNetwork = (network, pendingMessage) => {
+    switchChain(network, pendingMessage);
+  };
+
   const getProvider = () => {
     return provider;
   };
@@ -155,8 +160,8 @@ function MetamaskProvider({ children }) {
   };
 
   const getValidNetwork = () => {
-      return validNetwork;
-  }
+    return validNetwork;
+  };
 
   return (
     <MetamaskContext.Provider
@@ -172,6 +177,7 @@ function MetamaskProvider({ children }) {
         setOnEthereumNotDetected,
         connectToMetamask,
         disconnectFromMetamask,
+        switchNetwork,
       }}
     >
       {children}
