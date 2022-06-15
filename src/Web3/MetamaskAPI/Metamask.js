@@ -94,6 +94,10 @@ export default function Metamask() {
     ethereum.removeListener(CHAIN_CHANGED, handleChainChanged);
   };
 
+  const addNewChain = (chainObject) => {
+    ethereum.request(chainObject);
+  }
+  
   return {
     ethereum,
     getChainIdEthereum,
