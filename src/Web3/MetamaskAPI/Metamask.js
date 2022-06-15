@@ -94,10 +94,10 @@ export default function Metamask() {
     ethereum.removeListener(CHAIN_CHANGED, handleChainChanged);
   };
 
-  const addNewChain = (chainObject) => {
-    ethereum.request(chainObject);
-  }
-  
+  const switchChain = (chainObject, pendingMessage) => {
+    ethereum.request(chainObject).then().catch((error) => pendingMessage ? pendingMessage("Please accept metamask request") : console.log(error));
+  };
+
   return {
     ethereum,
     getChainIdEthereum,
@@ -109,5 +109,6 @@ export default function Metamask() {
     setHandleRPCDisconnect,
     removeAccountsChanged,
     removeChainChanged,
+    switchChain,
   };
 }
