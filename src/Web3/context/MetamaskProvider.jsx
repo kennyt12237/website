@@ -3,7 +3,6 @@ import React, {
   createContext,
   useEffect,
   useContext,
-  useCallback,
 } from "react";
 import Metamask from "../MetamaskAPI/Metamask";
 import detectEthereumProvider from "@metamask/detect-provider";
@@ -42,50 +41,32 @@ function MetamaskProvider({ children }) {
   const { setWalletAddress } = useContext(WalletContext);
   const { setWeb3 } = useContext(Web3Context);
 
-  const onAccountChangedCB = useCallback(
-    (account) => {
-      setWalletAddress(account[0]);
-      onAccountChanged(account);
-    },
-    [onAccountChanged]
-  );
+  const onAccountChangedWrapper = (account) => {
+    setWalletAddress(account[0]);
+    onAccountChanged(account);
+  };
 
-  const onAccountConnectedSuccessCB = useCallback(
-    (account) => {
-      setWalletAddress(account[0]);
-      onAccountConnectedSuccess(account);
-    },
-    [onAccountConnectedSuccess]
-  );
+  const onAccountConnectedSuccessWrapper = (account) => {
+    setWalletAddress(account[0]);
+    onAccountConnectedSuccess(account);
+  };
 
-  const onAccountConnectedFailureCB = useCallback(
-    (message) => {
-      onAccountConnectedFailure(message);
-    },
-    [onAccountConnectedFailure]
-  );
+  const onAccountConnectedFailureWrapper = (message) => {
+    onAccountConnectedFailure(message);
+  };
 
-  const onChainChangedCB = useCallback(
-    (chainId) => {
-      setChainId(chainId);
-      onChainChanged(chainId);
-    },
-    [onChainChanged]
-  );
+  const onChainChangedWrapper = (chainId) => {
+    setChainId(chainId);
+    onChainChanged(chainId);
+  };
 
-  const onProviderNotDetectedCB = useCallback(
-    (error) => {
-      onProviderNotDetected(error);
-    },
-    [onProviderNotDetected]
-  );
+  const onProviderNotDetectedWrapper = (error) => {
+    onProviderNotDetected(error);
+  };
 
-  const onEthereumNotDetectedCB = useCallback(
-    (error) => {
-      onEthereumNotDetected(error);
-    },
-    [onEthereumNotDetected]
-  );
+  const onEthereumNotDetectedWrapper = (error) => {
+    onEthereumNotDetected(error);
+  };
 
   const {
     getChainIdEthereum,
@@ -123,19 +104,19 @@ function MetamaskProvider({ children }) {
 
   const connectToMetamask = async () => {
     const validProvider = checkProvider(
-      onProviderNotDetectedCB,
-      onEthereumNotDetectedCB,
+      onProviderNotDetectedWrapper,
+      onEthereumNotDetectedWrapper,
       provider
     );
 
     if (validProvider) {
       setChainId(await getChainIdEthereum());
       await connectAndRequestToMetamask(
-        onAccountConnectedSuccessCB,
-        onAccountConnectedFailureCB
+        onAccountConnectedSuccessWrapper,
+        onAccountConnectedFailureWrapper
       );
-      setHandleAccountsChanged(onAccountChangedCB);
-      setHandleChainChanged(onChainChangedCB);
+      setHandleAccountsChanged(onAccountChangedWrapper);
+      setHandleChainChanged(onChainChangedWrapper);
       return true;
     }
     return false;
@@ -143,8 +124,8 @@ function MetamaskProvider({ children }) {
 
   const disconnectFromMetamask = () => {
     setWalletAddress(null);
-    removeAccountsChanged(onAccountChangedCB);
-    removeChainChanged(onChainChangedCB);
+    removeAccountsChanged(onAccountChangedWrapper);
+    removeChainChanged(onChainChangedWrapper);
   };
 
   const switchNetwork = (network, pendingMessage) => {
