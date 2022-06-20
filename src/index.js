@@ -5,14 +5,18 @@ import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import { WithMetamask } from "./Web3";
 import { WithNotificationContextProvider } from "./Notification";
+import { Provider } from 'react-redux';
+import store from './Store'
 
 ReactDOM.render(
   <React.StrictMode>
+    <Provider store={store} >
     <WithMetamask>
       <WithNotificationContextProvider>
         <App />
       </WithNotificationContextProvider>
     </WithMetamask>
+    </Provider>
   </React.StrictMode>,
   document.getElementById("root")
 );
