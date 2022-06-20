@@ -1,3 +1,2 @@
-export * from './Metamask';
-export * from './SmartContract';
-export * from './useDetectMetamaskProvider';
+export { default as Metamask } from "./Metamask";
+export { default as MetamaskHelper } from "./MetamaskHelper";
