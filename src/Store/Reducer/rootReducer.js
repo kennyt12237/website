@@ -1,8 +1,8 @@
-import providerReducer from "./providerReducer";
+import walletProviderReducer from "./walletProviderSlice";
 
 const rootReducer = {
   reducer: {
-    provider: providerReducer,
+    walletProvider: walletProviderReducer,
   },
 };
 
