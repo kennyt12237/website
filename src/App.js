@@ -4,12 +4,11 @@ import {
   HashRouter as Router,
   Routes,
   Route,
-  Outlet,
   Navigate
 } from "react-router-dom";
 import HomeContent from "./HomePage/Components/HomeContent";
 import ProjectContentList from "./Media/Components/ProjectContentList";
-import Header from "./HomePage/Components/Header";
+import { Layout } from './HomePage';
 import { projects } from "./Contracts/Project";
 import LoginRoute from "./ClientRoute/LoginRoute";
 import { NotificationOverlay } from "./Notification";
@@ -18,7 +17,7 @@ function App() {
   return (
     <Router>
       <Routes>
-        <Route path="/website" element={<Layout />}>
+        <Route path="/website" element={<Layout NotificationOverlay={<NotificationOverlay id={"notification-root"}/>} />}>
           <Route index element={<HomeContent />} />
           <Route element={<LoginRoute />}>
             <Route element={<ChainRoute />}>
@@ -35,20 +34,6 @@ function App() {
           />
       </Routes>
     </Router>
-  );
-}
-
-function Layout() {
-  return (
-    <div className="background">
-      <Header logo={process.env.PUBLIC_URL + "/k-logo.png"} name="Kenny Tang"/>
-      <NotificationOverlay
-        element={document.getElementById("notification-root")}
-      />
-      <main>
-        <Outlet />
-      </main>
-    </div>
   );
 }
 
