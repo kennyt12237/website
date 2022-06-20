@@ -31,7 +31,7 @@ export default function Metamask() {
   /*
 		A function that calls metamask and requests the user to connect.
 		There are two parameters:
-		- handleAccountConnected() : called when the account has been connected/switched.
+		- handleAccountConnected() : called when the account has been connected/switched passing the address as argument.
 		- handleAccountFailed(): called when connection failure, passing the error object as an argument.
 		- provider: an object representing the provider. 
 	*/
@@ -95,7 +95,14 @@ export default function Metamask() {
   };
 
   const switchChain = (chainObject, pendingMessage) => {
-    ethereum.request(chainObject).then().catch((error) => pendingMessage ? pendingMessage("Please accept metamask request") : console.log(error));
+    ethereum
+      .request(chainObject)
+      .then()
+      .catch((error) =>
+        pendingMessage
+          ? pendingMessage("Please accept metamask request")
+          : console.log(error)
+      );
   };
 
   return {
