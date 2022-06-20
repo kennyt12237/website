@@ -1,10 +1,12 @@
-import { useContext } from "react";
+import { useContext, useMemo } from "react";
 import ReactDOM from "react-dom";
 import { NotificationContext } from "../context/NotificationContextProvider";
 
 export function NotificationOverlay(props) {
-  const { element } = props;
+  const { id } = props;
   const { getNotificationAlert } = useContext(NotificationContext);
 
-  return ReactDOM.createPortal(getNotificationAlert(), element);
+  const documentElement = useMemo(() => document.getElementById(id), []);
+
+  return ReactDOM.createPortal(getNotificationAlert(), documentElement);
 }
