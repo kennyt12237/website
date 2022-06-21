@@ -39,12 +39,14 @@ export default function Metamask() {
     handleAccountConnected,
     handleAccountFailed
   ) => {
-    await ethereum
-      .request({ method: "eth_requestAccounts" })
-      .then(handleAccountConnected)
-      .catch((error) => {
-        handleAccountFailed(error);
-      });
+    try {
+      const result = await ethereum.request({ method: "eth_requestAccounts" });
+      handleAccountConnected(result);
+    } catch (error) {
+      handleAccountFailed(error);
+      return false;
+    }
+    return true;
   };
 
   const getChainIdEthereum = async () => {
