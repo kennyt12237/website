@@ -63,11 +63,9 @@ export default function MetamaskHelper(onMetamaskConnected = null, onMetamaskDis
         onMetamaskConnected(provider);
         setHandleAccountsChanged(onAccountChanged);
         setHandleChainChanged(onChainChanged);
-        console.log("Connected Success")
         return true;
       }
     }
-    console.log("Connected Failed")
     return false;
   };
 
