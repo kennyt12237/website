@@ -6,7 +6,7 @@ import detectEthereumProvider from "@metamask/detect-provider";
     Provides default implementation of the Metamask API. 
     User can override methods by calling mutator functions.
 */
-export default function MetamaskHelper(onMetamaskConnected = null) {
+export default function MetamaskHelper(onMetamaskConnected = null, onMetamaskDisconnected = null) {
   const [provider, setProvider] = useState();
   const [onAccountConnectedSuccess, setOnAccountConnectedSuccess] = useState(
     () => () => alert("Successfully Connected")
@@ -63,13 +63,16 @@ export default function MetamaskHelper(onMetamaskConnected = null) {
         onMetamaskConnected(provider);
         setHandleAccountsChanged(onAccountChanged);
         setHandleChainChanged(onChainChanged);
+        console.log("Connected Success")
         return true;
       }
     }
+    console.log("Connected Failed")
     return false;
   };
 
   const disconnectFromMetamask = () => {
+    onMetamaskDisconnected(provider);
     removeAccountsChanged(onAccountChanged);
     removeChainChanged(onChainChanged);
   };
