@@ -6,7 +6,7 @@ import reportWebVitals from "./reportWebVitals";
 import { WithMetamask } from "./Web3";
 import { WithNotificationContextProvider } from "./Notification";
 import { Provider } from 'react-redux';
-import store from './Store'
+import store from './Redux'
 
 ReactDOM.render(
   <React.StrictMode>
