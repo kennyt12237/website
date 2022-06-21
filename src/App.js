@@ -3,6 +3,7 @@ import { AppRoute } from "./ClientRoute";
 import { projects } from "./Contracts/Project";
 import { MetamaskHelper } from "./Web3";
 import { useDispatch } from "react-redux";
+import { setWalletProvider, removeWalletProvider } from './Redux';
 import "./App.scss";
 
 function App() {
