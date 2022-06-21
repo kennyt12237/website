@@ -3,11 +3,17 @@ import { AppRoute } from "./ClientRoute";
 import { projects } from "./Contracts/Project";
 import { MetamaskHelper } from "./Web3";
 import { useDispatch } from "react-redux";
-import { setWalletProvider, removeWalletProvider } from './Redux';
+import { setWalletProvider, removeWalletProvider } from "./Redux";
 import "./App.scss";
 
 function App() {
+  const useMetamaskConnected = (provider) => {
+    useDispatch(setWalletProvider(provider));
+  };
 
+  const useMetamaskDisconnected = (provider) => {
+    useDispatch(removeWalletProvider(provider));
+  };
   const {
     setOnAccountConnectedSuccess,
     setOnAccountConnectedFailure,
@@ -18,7 +24,7 @@ function App() {
     connectToMetamask,
     disconnectFromMetamask,
     switchNetwork,
-  } = MetamaskHelper();
+  } = MetamaskHelper(useMetamaskConnected, useMetamaskDisconnected);
   return <AppRoute projects={projects} />;
 }
 
