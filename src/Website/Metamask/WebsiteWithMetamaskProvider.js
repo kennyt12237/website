@@ -1,6 +1,8 @@
+import { useEffect } from "react";
 import { useNotification } from "../../Notification";
 import { setWalletProvider, removeWalletProvider } from "../../Redux";
 import { MetamaskHelper } from "../../Web3";
+import { useDispatch } from "react-redux";
 import {
   INSTALL_METAMASK,
   INVALID_PROVIDER,
@@ -12,6 +14,7 @@ import {
 
 export default function WebsiteWithMetamaskProvider(props) {
   const { failedAlert, successAlert } = useNotification();
+  const dispatch = useDispatch();
 
   const {
     provider,
@@ -24,7 +27,17 @@ export default function WebsiteWithMetamaskProvider(props) {
     connectToMetamask,
     disconnectFromMetamask,
     switchNetwork,
-  } = MetamaskHelper();
+  } = MetamaskHelper(
+    (provider) =>
+      dispatch(
+        setWalletProvider({
+          name: "Metamask",
+          address: provider.selectedAddress,
+          chainId: provider.chainId,
+        })
+      ),
+    () => dispatch(removeWalletProvider())
+  );
 
   const providerNotDetected = () => {
     failedAlert(INSTALL_METAMASK);
@@ -52,10 +65,11 @@ export default function WebsiteWithMetamaskProvider(props) {
 
   const handleConnectButtonClicked = async () => {
     const isConnected = await connectToMetamask();
-    if (isConnected) {
-      setWalletProvider({ provider: "metamask" });
+    if (!isConnected) {
+      failedAlert("Failed to Connect");
+    } else {
+      successAlert("Connected successfully");
     }
-    failedAlert("Failed to Connect");
   };
 
   const handleDisconnectButtonClicked = () => {
@@ -64,12 +78,14 @@ export default function WebsiteWithMetamaskProvider(props) {
     successAlert(ACCOUNT_DISCONNECTED);
   };
 
-  setOnProviderNotDetected(() => providerNotDetected);
-  setOnEthereumNotDetected(() => providerNotEthereum);
-  setOnAccountsChanged(() => handleAccountChanged);
-  setOnAccountConnectedSuccess(() => handleSuccessConnection);
-  setOnAccountConnectedFailure(() => handleFailedConnection);
-  setOnChainChanged(() => handleChainChanged);
+  useEffect(() => {
+    setOnProviderNotDetected(() => providerNotDetected);
+    setOnEthereumNotDetected(() => providerNotEthereum);
+    setOnAccountsChanged(() => handleAccountChanged);
+    setOnAccountConnectedSuccess(() => handleSuccessConnection);
+    setOnAccountConnectedFailure(() => handleFailedConnection);
+    setOnChainChanged(() => handleChainChanged);
+  }, []);
 
   return { handleConnectButtonClicked, handleDisconnectButtonClicked };
 }
