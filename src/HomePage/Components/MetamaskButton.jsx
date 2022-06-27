@@ -1,12 +1,16 @@
 import React from "react";
-
+import { WebsiteWithMetamaskProvider } from "../../Website";
+import { useSelector } from "react-redux";
 export default function MetamaskButton() {
+  const { handleConnectButtonClicked, handleDisconnectButtonClicked } =
+    WebsiteWithMetamaskProvider();
 
-
-
+  const provider = useSelector((state) => {
+    return state.walletProvider;
+  });
   return (
     <div>
-      {getConnectedStatus() ? (
+      {provider.walletProvider ? (
         <div
           className="wallet-container"
           onClick={() => handleDisconnectButtonClicked()}
@@ -21,7 +25,7 @@ export default function MetamaskButton() {
       ) : (
         <div
           className="wallet-container"
-          onClick={() => handleMetamaskButtonClicked()}
+          onClick={() => handleConnectButtonClicked()}
         >
           <img
             className="wallet-container__image"

@@ -60,7 +60,9 @@ export default function MetamaskHelper(onMetamaskConnected = null, onMetamaskDis
         onAccountConnectedFailure
       );
       if (connected) {
-        onMetamaskConnected(provider);
+        if (onMetamaskConnected) {
+            onMetamaskConnected(provider);
+        }
         setHandleAccountsChanged(onAccountChanged);
         setHandleChainChanged(onChainChanged);
         return true;
@@ -70,7 +72,9 @@ export default function MetamaskHelper(onMetamaskConnected = null, onMetamaskDis
   };
 
   const disconnectFromMetamask = () => {
-    onMetamaskDisconnected(provider);
+    if (onMetamaskDisconnected) {
+        onMetamaskDisconnected(provider);
+    }
     removeAccountsChanged(onAccountChanged);
     removeChainChanged(onChainChanged);
   };

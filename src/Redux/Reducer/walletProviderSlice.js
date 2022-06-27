@@ -3,14 +3,15 @@ import { createSlice } from "@reduxjs/toolkit";
 export const walletProviderSlice = createSlice({
   name: "Wallet Provider",
   initialState: {
-    walletProvider: {},
+    walletProvider: null,
   },
   reducers: {
     setWalletProvider: (state, action) => {
-      state.provider = action.payload;
+        console.log(action)
+      state.walletProvider = action.payload;
     },
     removeWalletProvider: (state) => {
-      state.provider = {};
+      state.walletProvider = null;
     },
   },
 });
