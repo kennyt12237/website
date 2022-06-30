@@ -1,14 +1,20 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { WebsiteWithMetamaskProvider } from "../../Website";
 import { useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
 export default function MetamaskButton() {
   const { handleConnectButtonClicked, handleDisconnectButtonClicked } =
     WebsiteWithMetamaskProvider();
-
+    const navigate = useNavigate();
   const  { walletProvider } = useSelector((state) => {
     return state.walletProvider;
   });
 
+  useEffect(() => {
+    if (walletProvider) {
+        navigate("/website/projects")
+    }
+  },[walletProvider])
 
   return (
     <div>

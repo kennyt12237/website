@@ -7,7 +7,6 @@ export const walletProviderSlice = createSlice({
   },
   reducers: {
     setWalletProvider: (state, action) => {
-        console.log(action)
       state.walletProvider = action.payload;
     },
     removeWalletProvider: (state) => {
@@ -15,6 +14,10 @@ export const walletProviderSlice = createSlice({
     },
   },
 });
+
+export const selectWalletProvider = (state) => {
+  return state.walletProvider ? true : false;
+};
 
 export const { setWalletProvider, removeWalletProvider } =
   walletProviderSlice.actions;
