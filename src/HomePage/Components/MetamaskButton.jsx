@@ -5,12 +5,14 @@ export default function MetamaskButton() {
   const { handleConnectButtonClicked, handleDisconnectButtonClicked } =
     WebsiteWithMetamaskProvider();
 
-  const provider = useSelector((state) => {
+  const  { walletProvider } = useSelector((state) => {
     return state.walletProvider;
   });
+
+
   return (
     <div>
-      {provider.walletProvider ? (
+      {walletProvider ? (
         <div
           className="wallet-container"
           onClick={() => handleDisconnectButtonClicked()}
