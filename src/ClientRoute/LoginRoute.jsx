@@ -1,9 +1,10 @@
-import React, { useContext } from "react";
+import React from "react";
+import { useSelector } from "react-redux";
 import { Navigate, Outlet } from "react-router-dom";
-import { WalletContext } from "../Web3";
+import { selectWalletProvider } from "../Redux";
 
 export default function LoginRoute() {
-  const { getConnectedStatus } = useContext(WalletContext);
+  const isConnected = useSelector(selectWalletProvider);
 
-  return getConnectedStatus() ? <Outlet /> : <Navigate to="/website" />;
+  return isConnected ? <Outlet /> : <Navigate to="/website" />;
 }

@@ -5,7 +5,6 @@ import { useNotification } from "../../Notification";
 import "../scss/UnsupportedNetwork.scss";
 
 export default function UnsupportedNetwork() {
-  const { switchNetwork } = useContext(MetamaskContext);
   const { failedAlert } = useNotification();
   return (
     <div className="invalid-network-container">
@@ -14,7 +13,7 @@ export default function UnsupportedNetwork() {
         Unsupported Network
       </div>
       <div className="invalid-network-container__body">
-        <button onClick={() => switchNetwork(ropstenNetwork, failedAlert)}> Connect To Ropsten Testnet </button>
+        <button> Connect To Ropsten Testnet </button>
       </div>
     </div>
   );
