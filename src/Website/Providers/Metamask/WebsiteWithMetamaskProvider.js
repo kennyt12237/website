@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { useNotification } from "../../../Notification";
-import { setWalletProvider, removeWalletProvider } from "../../../Redux";
+import { setWalletProvider, setChainId, removeWalletProvider } from "../../../Redux";
 import { MetamaskHelper } from "../../../Web3";
 import { useDispatch } from "react-redux";
 import {
@@ -59,8 +59,9 @@ export default function WebsiteWithMetamaskProvider(props) {
     failedAlert(ACCOUNT_CONNECTION_FAILED);
   };
 
-  const handleChainChanged = (chain) => {
-    successAlert(`Connected to ${chain}`);
+  const handleChainChanged = (chainId) => {
+    dispatch(setChainId(chainId))
+    successAlert(`Connected to ${chainId}`);
   };
 
   const handleConnectButtonClicked = async () => {
