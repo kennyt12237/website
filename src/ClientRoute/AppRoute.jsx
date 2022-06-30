@@ -5,7 +5,7 @@ import {
   Route,
   Navigate,
 } from "react-router-dom";
-import ChainRoute from "./ChainRoute/ChainRoute";
+import ChainRoute from "./ChainRoute";
 import LoginRoute from "./LoginRoute";
 import { ProjectContentList } from "../Media";
 import { NotificationOverlay } from "../Notification";
