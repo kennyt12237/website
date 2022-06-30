@@ -17,7 +17,6 @@ export default function WebsiteWithMetamaskProvider(props) {
   const dispatch = useDispatch();
 
   const {
-    provider,
     setOnAccountConnectedSuccess,
     setOnAccountConnectedFailure,
     setOnAccountsChanged,
@@ -34,6 +33,7 @@ export default function WebsiteWithMetamaskProvider(props) {
           name: "Metamask",
           address: provider.selectedAddress,
           chainId: provider.chainId,
+          isConnected : true,
         })
       ),
     () => dispatch(removeWalletProvider())
@@ -87,5 +87,5 @@ export default function WebsiteWithMetamaskProvider(props) {
     setOnChainChanged(() => handleChainChanged);
   }, []);
 
-  return { handleConnectButtonClicked, handleDisconnectButtonClicked };
+  return { switchNetwork, handleConnectButtonClicked, handleDisconnectButtonClicked };
 }

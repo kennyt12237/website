@@ -2,8 +2,12 @@ import walletProviderReducer from "./walletProviderSlice";
 
 const rootReducer = {
   reducer: {
-    walletProvider: walletProviderReducer,
+    walletProvider : walletProviderReducer,
   },
 };
+
+export const selectWalletProvider = (state) => {
+    return state.walletProvider;
+}
 
 export default rootReducer;

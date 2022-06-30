@@ -8,7 +8,6 @@ import Metamask from "../MetamaskAPI/Metamask";
 import detectEthereumProvider from "@metamask/detect-provider";
 import { WalletContext } from "./WalletContextProvider";
 import { Web3Context } from "../context/Web3ContextProvider";
-import { checkSupportedChain } from "../ChainList/chainList";
 
 const MetamaskContext = createContext();
 
@@ -95,7 +94,7 @@ function MetamaskProvider({ children }) {
   }, []);
 
   useEffect(() => {
-    if (checkSupportedChain(chainId)) {
+    if (chainId) {
       setValidNetwork(true);
     } else {
       setValidNetwork(false);

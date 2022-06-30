@@ -1,16 +1,17 @@
-import React, { useContext } from "react";
-import {MetamaskContext, ropstenNetwork } from "../../Web3/";
-import { useNotification } from "../../Notification";
-
+import React from "react";
 import "../scss/UnsupportedNetwork.scss";
 
-export default function UnsupportedNetwork() {
-  const { failedAlert } = useNotification();
+export default function UnsupportedNetwork(props) {
+  const { chainInText } = props;
   return (
     <div className="invalid-network-container">
       <div className="invalid-network-container__title">
-        <img className="invalid-network-container__title__image" src="./exclamation-circle.svg" alt="Exclamation Mark" />
-        Unsupported Network
+        <img
+          className="invalid-network-container__title__image"
+          src="./exclamation-circle.svg"
+          alt="Exclamation Mark"
+        />
+        {`${chainInText} is not supported`}
       </div>
       <div className="invalid-network-container__body">
         <button> Connect To Ropsten Testnet </button>

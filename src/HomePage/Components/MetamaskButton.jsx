@@ -1,24 +1,24 @@
 import React, { useEffect } from "react";
 import { WebsiteWithMetamaskProvider } from "../../Website";
+import { selectWalletProvider } from '../../Redux';
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
+
 export default function MetamaskButton() {
   const { handleConnectButtonClicked, handleDisconnectButtonClicked } =
     WebsiteWithMetamaskProvider();
-    const navigate = useNavigate();
-  const  { walletProvider } = useSelector((state) => {
-    return state.walletProvider;
-  });
+  const navigate = useNavigate();
+  const walletProvider = useSelector(selectWalletProvider);
 
   useEffect(() => {
-    if (walletProvider) {
-        navigate("/website/projects")
+    if (walletProvider.isConnected) {
+      navigate("/website/projects");
     }
-  },[walletProvider])
+  }, [walletProvider]);
 
   return (
     <div>
-      {walletProvider ? (
+      {walletProvider.isConnected ? (
         <div
           className="wallet-container"
           onClick={() => handleDisconnectButtonClicked()}
