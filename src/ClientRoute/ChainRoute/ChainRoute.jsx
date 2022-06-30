@@ -11,8 +11,6 @@ export default function ChainRoute() {
 
   const getChainInText = (chainId) => {
     const chainWithoutHex = chainId.replace("0x", "");
-    console.log(chainWithoutHex);
-    console.log(chainList[chainWithoutHex]);
     if (chainList[chainWithoutHex]) {
       return chainList[chainWithoutHex];
     }

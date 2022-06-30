@@ -22,6 +22,10 @@ export const walletProviderSlice = createSlice({
       state.chainId = null;
       state.isConnected = false;
     },
+    setChainId: (state, action) => {
+        console.log(action.payload)
+        state.chainId = action.payload;
+    }
   },
 });
 
@@ -29,7 +33,7 @@ export const selectWalletProviderChain = (state) => {
   return state.walletProvider.chainId;
 };
 
-export const { setWalletProvider, removeWalletProvider } =
+export const { setWalletProvider, setChainId, removeWalletProvider } =
   walletProviderSlice.actions;
 
 export default walletProviderSlice.reducer;
