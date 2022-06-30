@@ -1,7 +1,7 @@
 import { useEffect } from "react";
-import { useNotification } from "../../Notification";
-import { setWalletProvider, removeWalletProvider } from "../../Redux";
-import { MetamaskHelper } from "../../Web3";
+import { useNotification } from "../../../Notification";
+import { setWalletProvider, removeWalletProvider } from "../../../Redux";
+import { MetamaskHelper } from "../../../Web3";
 import { useDispatch } from "react-redux";
 import {
   INSTALL_METAMASK,
