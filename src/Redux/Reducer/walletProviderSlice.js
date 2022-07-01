@@ -23,7 +23,6 @@ export const walletProviderSlice = createSlice({
       state.isConnected = false;
     },
     setChainId: (state, action) => {
-        console.log(action.payload)
         state.chainId = action.payload;
     }
   },
