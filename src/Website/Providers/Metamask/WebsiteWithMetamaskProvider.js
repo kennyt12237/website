@@ -17,6 +17,7 @@ export default function WebsiteWithMetamaskProvider(props) {
   const dispatch = useDispatch();
 
   const {
+    provider,
     setOnAccountConnectedSuccess,
     setOnAccountConnectedFailure,
     setOnAccountsChanged,
@@ -88,5 +89,5 @@ export default function WebsiteWithMetamaskProvider(props) {
     setOnChainChanged(() => handleChainChanged);
   }, []);
 
-  return { switchNetwork, handleConnectButtonClicked, handleDisconnectButtonClicked };
+  return { provider, switchNetwork, handleConnectButtonClicked, handleDisconnectButtonClicked };
 }
