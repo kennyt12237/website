@@ -1,10 +1,12 @@
 import React from "react";
 import "../scss/HomeContent.scss";
-
+import { WalletProviderSelection } from "../../Web3"
 export default function HomeContent(props) {
   return (
     <div className="info-container">
-      <div className="info-container__image"></div>
+      
+      <div className="info-container__image">
+      </div>
       <div className="info-container__content">
         <div className="info-container__content__greeting">Hello!</div>
         <div className="info-container__content__statement">
@@ -14,7 +16,7 @@ export default function HomeContent(props) {
             degree at the University of Auckland for 4 years and now looking for
             opportunities that triggers my curiosity.
           </p>
-
+          <WalletProviderSelection />
           <p>
             What sets my website apart traditionally is that it utilises Web3
             functionalities as you explore throughout the website, and will be
