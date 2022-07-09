@@ -1,1 +1,2 @@
-export { default as WalletProviderSelection } from "./WalletProviderSelection";
+export * from "./Component";
+export * from "./Utils";
