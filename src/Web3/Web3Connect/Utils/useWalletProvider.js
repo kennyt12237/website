@@ -10,7 +10,7 @@ export default function useWalletProvider(selectedProvider) {
         return injectedProviders[i];
       }
     }
-    throw "Metamask wallet is not installed!";
+    return null;
   };
 
   const getCoinbaseProvider = () => {
@@ -19,7 +19,7 @@ export default function useWalletProvider(selectedProvider) {
         return injectedProviders[i];
       }
     }
-    throw "Coinbase wallet is not installed!";
+    return null;
   };
 
   const provider = useMemo(() => {

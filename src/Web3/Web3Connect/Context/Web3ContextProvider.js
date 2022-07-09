@@ -11,7 +11,7 @@ export function Web3ContectProvider(props) {
   };
 
   return (
-    <Web3Context.Provider value={[provider, setProvider]}>
+    <Web3Context.Provider value={{provider, setProvider}}>
       {children}
     </Web3Context.Provider>
   );
