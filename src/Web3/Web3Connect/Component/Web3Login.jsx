@@ -1,9 +1,9 @@
-import React, { useState, useMemo } from "react";
-import { validProviders, checkValidProvider } from "./ValidProviders";
-import ProviderResource from "./ProviderResource";
-import useWalletProvider from "./useWalletProvider";
-import Ethers from './Ethers';
-import CustomButton from "./CustomButton";
+import React, { useState } from "react";
+import { validProviders, checkValidProvider } from "../Utils/ValidProviders";
+import ProviderResource from "../Utils/ProviderResource";
+import useWalletProvider from "../Utils/useWalletProvider";
+import Ethers from '../Ethers';
+import Web3Button from "./Web3Button";
 
 export default function WalletProviderSelection(props) {
   const { options = null } = props;
@@ -31,7 +31,7 @@ export default function WalletProviderSelection(props) {
       {ProviderResource.map((provider) => {
         if (providerEnabled.includes(provider.name)) {
           return (
-            <CustomButton
+            <Web3Button
               text={provider.name}
               imageSrc={provider.imageSrc}
               onCustomButtonClick={() => onProviderSelected(provider.name)}
