@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import { validProviders, checkValidProvider } from "../Utils/ValidProviders";
 import ProviderResource from "../Utils/ProviderResource";
 import useWalletProvider from "../Utils/useWalletProvider";
-import Ethers from '../Ethers';
 import Web3Button from "./Web3Button";
 
 export default function WalletProviderSelection(props) {
@@ -10,7 +9,6 @@ export default function WalletProviderSelection(props) {
   const [provider, setProvider] = useState();
 
   const providerInstance = useWalletProvider(provider);
-  const ethers = Ethers(providerInstance);
   const onProviderSelected = (selectedProvider) => {
     setProvider(selectedProvider);
   };
