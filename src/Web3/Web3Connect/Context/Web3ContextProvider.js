@@ -2,7 +2,7 @@ import React, { useState, createContext } from "react";
 
 const Web3Context = createContext();
 
-export function Web3ContectProvider(props) {
+function Web3ContextProvider(props) {
   const { children } = props;
   const [provider, setProvider] = useState();
 
@@ -17,4 +17,4 @@ export function Web3ContectProvider(props) {
   );
 }
 
-export { Web3Context, Web3ContectProvider };
+export { Web3Context, Web3ContextProvider };
