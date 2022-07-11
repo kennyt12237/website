@@ -1,6 +1,6 @@
 const validProviders = ["metamask", "coinbase"];
 
-const checkValidProvider = (provider) => {
+const checkSupportedProvider = (provider) => {
   if (validProviders.includes(provider)) {
     return true;
   }
@@ -8,7 +8,4 @@ const checkValidProvider = (provider) => {
   return false;
 };
 
-export {
-    validProviders,
-    checkValidProvider
-}
+export { validProviders, checkSupportedProvider };

@@ -1,6 +1,10 @@
-import React, { useMemo } from "react";
+import {
+  validProviders,
+  checkSupportedProvider,
+} from "../Utils/ValidProviders";
+import ProviderResource from "../Utils/ProviderResource";
 
-export default function useWalletProvider(selectedProvider) {
+function walletProviderMapper(options) {
   const ethereum = window.ethereum;
   const injectedProviders = ethereum.providers;
 
@@ -22,7 +26,7 @@ export default function useWalletProvider(selectedProvider) {
     return null;
   };
 
-  const provider = useMemo(() => {
+  const getProvider = (selectedProvider) => {
     switch (selectedProvider) {
       case "coinbase":
         return getCoinbaseProvider();
@@ -31,7 +35,20 @@ export default function useWalletProvider(selectedProvider) {
       default:
         return null;
     }
-  }, [selectedProvider]);
+  };
 
-  return provider;
+  const providersEnabled = !options ? validProviders : options;
+  const providersMapping = ProviderResource.map((provider) => {
+    if (
+      providersEnabled.includes(provider.name) &&
+      checkSupportedProvider(provider.name)
+    ) {
+      provider.provider = getProvider(provider.name);
+    }
+    return provider;
+  });
+
+  return providersMapping;
 }
+
+export { walletProviderMapper };
