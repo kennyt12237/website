@@ -1,12 +1,12 @@
 export const metamask = {
   name: "metamask",
-  imageSrc: "./metamask.png",
+  imageSrc: "metamask.png",
   provider : null
 };
 
 export const coinbase = {
   name: "coinbase",
-  imageSrc: "./coinbase.svg",
+  imageSrc: "coinbase.svg",
   provider : null
 };
 
