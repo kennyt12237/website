@@ -1,27 +1,33 @@
-import React, { useContext } from "react";
-import { Web3Context } from "../Context";
+import React, { useState } from "react";
+import { useCallback } from "react";
 import { walletProviderMapper } from "../Utils/walletMapper";
 import Web3Button from "./Web3Button";
 
-export default function Web3Login(props) {
-  const { options = null } = props;
-  const { setProvider } = useContext(Web3Context);
+export default function Modal(props) {
+  const { showModal, onModalClose, options } = props;
 
   const walletMapper = walletProviderMapper(options);
 
-  const onProviderSelected = (selectedProvider) => {
-    setProvider(selectedProvider);
-  };
+  const getVisibility = useCallback(() => {
+    if (showModal) {
+      return {
+        display: "block",
+      };
+    }
+    return {
+      display: "none",
+    };
+  }, [showModal]);
 
   return (
-    <div>
+    <div style={getVisibility()}>
       {walletMapper.map((provider, index) => {
         if (provider.provider) {
           return (
             <Web3Button
               text={provider.name}
               imageSrc={provider.imageSrc}
-              onCustomButtonClick={() => onProviderSelected(provider.provider)}
+              onCustomButtonClick={() => console.log(provider.provider)}
               key={index}
             />
           );
