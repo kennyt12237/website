@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { useCallback } from "react";
 import { walletProviderMapper } from "../Utils/walletMapper";
 import Web3Button from "./Web3Button";

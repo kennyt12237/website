@@ -4,19 +4,16 @@ import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import { WithNotificationContextProvider } from "./Notification";
-import { Web3ContextProvider } from "./Web3";
 import { Provider } from "react-redux";
 import store from "./Redux";
 
 ReactDOM.render(
   <React.StrictMode>
-    <Web3ContextProvider>
       <Provider store={store}>
         <WithNotificationContextProvider>
           <App />
         </WithNotificationContextProvider>
       </Provider>
-    </Web3ContextProvider>
   </React.StrictMode>,
   document.getElementById("root")
 );
