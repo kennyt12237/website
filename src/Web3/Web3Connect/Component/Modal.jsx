@@ -2,6 +2,7 @@ import React from "react";
 import { useCallback } from "react";
 import { walletProviderMapper } from "../Utils/walletMapper";
 import Web3Button from "./Web3Button";
+import './scss/Modal.scss'
 
 export default function Modal(props) {
   const { showModal, onModalClose, options } = props;
@@ -11,7 +12,7 @@ export default function Modal(props) {
   const getVisibility = useCallback(() => {
     if (showModal) {
       return {
-        display: "block",
+        display: "flex",
       };
     }
     return {
@@ -20,13 +21,13 @@ export default function Modal(props) {
   }, [showModal]);
 
   return (
-    <div style={getVisibility()}>
+    <div className="modal-container" style={getVisibility()}>
       {walletMapper.map((provider, index) => {
         if (provider.provider) {
           return (
             <Web3Button
               text={provider.name}
-              imageSrc={provider.imageSrc}
+              imageSrc={require(`../Assets/${provider.imageSrc}`)}
               onCustomButtonClick={() => console.log(provider.provider)}
               key={index}
             />
