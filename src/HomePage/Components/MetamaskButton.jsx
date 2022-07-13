@@ -37,7 +37,7 @@ export default function MetamaskButton() {
 
   return (
     <div>
-      <Web3Modal showModal={showModal} />
+      <Web3Modal showModal={showModal} onModalClose={() => setShowModal(false)}/>
       {walletProvider.isConnected ? (
         <div className="wallet-container" onClick={() => setShowModal(false)}>
           <img
