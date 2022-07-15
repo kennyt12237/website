@@ -20,6 +20,17 @@ export default function Modal(props) {
     };
   }, [showModal]);
 
+  const providerPromise = (provider) => new Promise(async (resolve, reject) => {
+    try {
+        await provider.request({ method: "eth_requestAccounts" });
+        console.log("Connected")
+        resolve(provider);
+    } catch (error) {
+        console.log("Error")
+        reject(error);
+    }
+  } )
+
   return (
     <div
       className="modal-background"
@@ -35,7 +46,7 @@ export default function Modal(props) {
                 <Web3Button
                   text={provider.name}
                   imageSrc={require(`../Assets/${provider.imageSrc}`)}
-                  onCustomButtonClick={() => console.log(provider.provider)}
+                  onCustomButtonClick={() => providerPromise(provider.provider)}
                   key={index}
                 />
               );
