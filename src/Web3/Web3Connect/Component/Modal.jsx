@@ -23,10 +23,8 @@ export default function Modal(props) {
   const providerPromise = (provider) => new Promise(async (resolve, reject) => {
     try {
         await provider.request({ method: "eth_requestAccounts" });
-        console.log("Connected")
         resolve(provider);
     } catch (error) {
-        console.log("Error")
         reject(error);
     }
   } )
@@ -37,7 +35,7 @@ export default function Modal(props) {
       style={getVisibility()}
       onClick={onModalClose}
     >
-      <div className="modal-container">
+      <div className="modal-container" onClick={(e) => e.stopPropagation()}>
         <div className="modal-container--text-size">Connect Wallet</div>
         <div className="modal-container__buttons">
           {walletMapper.map((provider, index) => {
@@ -46,7 +44,7 @@ export default function Modal(props) {
                 <Web3Button
                   text={provider.name}
                   imageSrc={require(`../Assets/${provider.imageSrc}`)}
-                  onCustomButtonClick={() => providerPromise(provider.provider)}
+                  onCustomButtonClick={() => onModalClose(providerPromise(provider.provider))}
                   key={index}
                 />
               );
