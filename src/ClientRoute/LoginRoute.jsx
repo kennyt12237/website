@@ -5,7 +5,6 @@ export default function LoginRoute() {
   const { walletProvider } = useContext(WalletContext);
 
   const isConnected = useMemo(() => {
-    console.log(walletProvider);
     if (walletProvider && walletProvider._addresses) {
       return true;
     }
