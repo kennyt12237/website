@@ -4,10 +4,10 @@ const WalletContext = createContext();
 
 function WalletContextProvider(props) {
   const { children } = props;
-  const [provider, setProvider] = useState();
+  const [walletProvider, setWalletProvider] = useState();
 
   return (
-    <WalletContext.Provider value={{ provider, setProvider }}>
+    <WalletContext.Provider value={{ walletProvider, setWalletProvider }}>
       {children}
     </WalletContext.Provider>
   );
