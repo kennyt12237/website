@@ -5,17 +5,13 @@ import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import { WithNotificationContextProvider } from "./Notification";
 import { WalletContextProvider } from "./ContextProvider";
-import { Provider } from "react-redux";
-import store from "./Redux";
 
 ReactDOM.render(
   <React.StrictMode>
     <WalletContextProvider>
-      <Provider store={store}>
         <WithNotificationContextProvider>
           <App />
         </WithNotificationContextProvider>
-      </Provider>
     </WalletContextProvider>
   </React.StrictMode>,
   document.getElementById("root")
