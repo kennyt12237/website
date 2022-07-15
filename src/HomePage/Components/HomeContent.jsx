@@ -1,7 +1,7 @@
 import React from "react";
 import "../scss/HomeContent.scss";
 
-export default function HomeContent(props) {
+export default function HomeContent() {
   return (
     <div className="info-container">
       
