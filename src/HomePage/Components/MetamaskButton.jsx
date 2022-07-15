@@ -16,7 +16,7 @@ export default function MetamaskButton() {
   } = WebsiteWithMetamaskProvider();
   const navigate = useNavigate();
   const walletProvider = useSelector(selectWalletProvider);
-  const [ showModal, setShowModal ] = useState();
+  const [showModal, setShowModal] = useState();
 
   useEffect(() => {
     if (walletProvider.isConnected) {
@@ -37,7 +37,15 @@ export default function MetamaskButton() {
 
   return (
     <div>
-      <Web3Modal showModal={showModal} onModalClose={() => setShowModal(false)}/>
+      <Web3Modal
+        showModal={showModal}
+        onModalClose={(promise) => {
+          promise
+            .then((result) => console.log(result))
+            .catch((error) => console.log(error));
+          setShowModal(false);
+        }}
+      />
       {walletProvider.isConnected ? (
         <div className="wallet-container" onClick={() => setShowModal(false)}>
           <img
