@@ -20,20 +20,24 @@ export default function Modal(props) {
     };
   }, [showModal]);
 
-  const providerPromise = (provider) => new Promise(async (resolve, reject) => {
-    try {
+  const providerPromise = (provider) =>
+    new Promise(async (resolve, reject) => {
+      if (!provider) {
+        reject("No Provider Selected");
+      }
+      try {
         await provider.request({ method: "eth_requestAccounts" });
         resolve(provider);
-    } catch (error) {
+      } catch (error) {
         reject(error);
-    }
-  } )
+      }
+    });
 
   return (
     <div
       className="modal-background"
       style={getVisibility()}
-      onClick={onModalClose}
+      onClick={() => onModalClose(providerPromise(null))}
     >
       <div className="modal-container" onClick={(e) => e.stopPropagation()}>
         <div className="modal-container--text-size">Connect Wallet</div>
@@ -44,7 +48,9 @@ export default function Modal(props) {
                 <Web3Button
                   text={provider.name}
                   imageSrc={require(`../Assets/${provider.imageSrc}`)}
-                  onCustomButtonClick={() => onModalClose(providerPromise(provider.provider))}
+                  onCustomButtonClick={() =>
+                    onModalClose(providerPromise(provider.provider))
+                  }
                   key={index}
                 />
               );
