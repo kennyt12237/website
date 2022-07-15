@@ -21,20 +21,27 @@ export default function Modal(props) {
   }, [showModal]);
 
   return (
-    <div className="modal-background" style={getVisibility()} onClick={onModalClose}>
-      <div className="modal-container" >
-        {walletMapper.map((provider, index) => {
-          if (provider.provider) {
-            return (
-              <Web3Button
-                text={provider.name}
-                imageSrc={require(`../Assets/${provider.imageSrc}`)}
-                onCustomButtonClick={() => console.log(provider.provider)}
-                key={index}
-              />
-            );
-          }
-        })}
+    <div
+      className="modal-background"
+      style={getVisibility()}
+      onClick={onModalClose}
+    >
+      <div className="modal-container">
+        <div className="modal-container--text-size">Connect Wallet</div>
+        <div className="modal-container__buttons">
+          {walletMapper.map((provider, index) => {
+            if (provider.provider) {
+              return (
+                <Web3Button
+                  text={provider.name}
+                  imageSrc={require(`../Assets/${provider.imageSrc}`)}
+                  onCustomButtonClick={() => console.log(provider.provider)}
+                  key={index}
+                />
+              );
+            }
+          })}
+        </div>
       </div>
     </div>
   );
