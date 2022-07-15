@@ -1,14 +1,13 @@
-import React, { useMemo } from "react";
-import { useSelector } from "react-redux";
+import React, { useContext, useMemo } from "react";
 import { Navigate, Outlet } from "react-router-dom";
-import { selectWalletProvider } from "../Redux";
-
+import { WalletContext } from "../ContextProvider";
 export default function LoginRoute() {
-  const walletProvider = useSelector(selectWalletProvider);
+  const { walletProvider } = useContext(WalletContext);
 
   const isConnected = useMemo(() => {
-    if (walletProvider && walletProvider.address) {
-        return true;
+    console.log(walletProvider);
+    if (walletProvider && walletProvider._addresses) {
+      return true;
     }
     return false;
   }, [walletProvider]);

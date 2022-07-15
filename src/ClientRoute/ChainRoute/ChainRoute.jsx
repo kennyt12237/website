@@ -1,13 +1,13 @@
-import React, { useState, useEffect } from "react";
-import { useSelector } from "react-redux";
+import React, { useState, useEffect, useContext } from "react";
 import { Outlet } from "react-router-dom";
 import { chainList } from "./ChainList";
+import { WalletContext } from "../../ContextProvider";
 import UnsupportedNetwork from "../../HomePage/Components/UnsupportedNetwork";
-import { selectWalletProviderChain } from "../../Redux";
+
 export default function ChainRoute() {
   const [validChainId, setValidChainId] = useState();
   const [chainInText, setChainInText] = useState();
-  const chainId = useSelector(selectWalletProviderChain);
+  const { walletProvider } = useContext(WalletContext);
 
   const getChainInText = (chainId) => {
     const chainWithoutHex = chainId.replace("0x", "");
@@ -28,16 +28,18 @@ export default function ChainRoute() {
   };
 
   useEffect(() => {
+    const chainId = walletProvider.chainId;
+    console.log(chainId);
     setChainInText(getChainInText(chainId));
     if (checkSupportedChain(chainId)) {
       setValidChainId(true);
     } else {
       setValidChainId(false);
     }
-  }, [chainId]);
+  }, [walletProvider]);
   return validChainId ? (
     <Outlet />
   ) : (
-    <UnsupportedNetwork selectedNetwork={chainId} chainInText={chainInText} />
+    <UnsupportedNetwork chainInText={chainInText} />
   );
 }

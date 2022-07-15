@@ -1,14 +1,14 @@
-import React from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import { Web3Modal } from "../../Web3";
-import { useState } from "react";
+import { WalletContext } from "../../ContextProvider";
 
 export default function WalletButton(props) {
   const { src } = props;
-  const navigate = useNavigate();
   const [showModal, setShowModal] = useState();
   const [provider, setProvider] = useState();
-
+  const navigate = useNavigate();
+  const { setWalletProvider } = useContext(WalletContext);
   //   useEffect(() => {
   //     if (walletProvider.isConnected) {
   //       const getContract = async () => {
@@ -34,6 +34,13 @@ export default function WalletButton(props) {
       .catch((error) => console.log(error));
     setShowModal(false);
   };
+
+  useEffect(() => {
+    if (provider) {
+      setWalletProvider(provider);
+      navigate("/website/projects");
+    }
+  }, [provider]);
 
   return (
     <div>
