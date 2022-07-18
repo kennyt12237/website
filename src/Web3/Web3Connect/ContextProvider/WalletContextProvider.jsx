@@ -7,11 +7,17 @@ function WalletContextProvider(props) {
   const [walletProvider, setWalletProvider] = useState();
 
   const getAddresses = useCallback(() => {
-    return walletProvider.selectedAddress;
+    if (walletProvider) {
+      return walletProvider.selectedAddress;
+    }
+    return null;
   }, [walletProvider]);
 
   const getChainId = useCallback(() => {
-    return walletProvider.chainId;
+    if (walletProvider) {
+      return walletProvider.chainId;
+    }
+    return null;
   }, [walletProvider]);
 
   return (
