@@ -1,4 +1,4 @@
-import React, { useState, createContext } from "react";
+import React, { useState, createContext, useCallback } from "react";
 
 const WalletContext = createContext();
 
@@ -6,15 +6,18 @@ function WalletContextProvider(props) {
   const { children } = props;
   const [walletProvider, setWalletProvider] = useState();
 
-  const getAddresses = () => {
-    return walletProvider._addresses;
-  }
+  const getAddresses = useCallback(() => {
+    return walletProvider.selectedAddress;
+  }, [walletProvider]);
 
-  const getChainId = () => {
+  const getChainId = useCallback(() => {
     return walletProvider.chainId;
-  }
+  }, [walletProvider]);
+
   return (
-    <WalletContext.Provider value={{ walletProvider, setWalletProvider, getAddresses, getChainId }}>
+    <WalletContext.Provider
+      value={{ walletProvider, setWalletProvider, getAddresses, getChainId }}
+    >
       {children}
     </WalletContext.Provider>
   );

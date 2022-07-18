@@ -7,7 +7,7 @@ import UnsupportedNetwork from "../../HomePage/Components/UnsupportedNetwork";
 export default function ChainRoute() {
   const [validChainId, setValidChainId] = useState();
   const [chainInText, setChainInText] = useState();
-  const { walletProvider } = useContext(WalletContext);
+  const { getChainId } = useContext(WalletContext);
 
   const getChainInText = (chainId) => {
     const chainWithoutHex = chainId.replace("0x", "");
@@ -28,7 +28,7 @@ export default function ChainRoute() {
   };
 
   useEffect(() => {
-    const chainId = walletProvider.chainId;
+    const chainId = getChainId();
     console.log(chainId);
     setChainInText(getChainInText(chainId));
     if (checkSupportedChain(chainId)) {
@@ -36,7 +36,8 @@ export default function ChainRoute() {
     } else {
       setValidChainId(false);
     }
-  }, [walletProvider]);
+  }, [getChainId]);
+  
   return validChainId ? (
     <Outlet />
   ) : (
