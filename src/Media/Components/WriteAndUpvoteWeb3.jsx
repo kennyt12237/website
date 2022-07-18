@@ -1,7 +1,7 @@
 import React, { useContext, useMemo } from "react";
 import { websiteContract } from "../../Contracts/websiteContract";
 import { useNotification } from "../../Notification";
-import { Ethers } from "../../Web3";
+import { Ethers, parseByte32ToString } from "../../Web3";
 import { WalletContext } from "../../Web3";
 import "../scss/WriteAndUpvoteWeb3.scss";
 
@@ -24,29 +24,28 @@ export default function WriteAndUpvoteWeb3(props) {
       return getContract(
         websiteContract.address,
         websiteContract.abi,
-        wrappedProvider
+        wrappedProvider.getSigner()
       );
     }
     return null;
   }, [wrappedProvider]);
 
-//   console.log(wrappedProvider);
-//   console.log(websiteSC);
-
-//   console.log(
-//     websiteSC
-//       .getNumberOfProjectApproval(projectNumber)
-//       .then((res) => console.log(res))
-//       .catch((error) => console.log(error))
-//   );
-
+  console.log(wrappedProvider);
+  console.log(websiteSC);
   
-//   console.log(
-//     websiteSC
-//       .getUserApprovalForProject(projectNumber)
-//       .then((res) => console.log(res))
-//       .catch((error) => console.log(error))
-//   );
+  console.log(
+    websiteSC
+      .getNumberOfProjectApproval(projectNumber)
+      .then((res) => console.log(res))
+      .catch((error) => console.log(error))
+  );
+
+  console.log(
+    websiteSC
+      .getUserApprovalForProject(projectNumber)
+      .then((res) => console.log(res))
+      .catch((error) => console.log(error))
+  );
 
   return (
     //     userApproval && userApproval.length > 0 ? (
