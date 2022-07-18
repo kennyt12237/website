@@ -1,6 +1,6 @@
 import { ethers } from "ethers";
 
-export default function Ethers() {
+function Ethers() {
   const getWrappedProvider = (provider) => {
     return new ethers.providers.Web3Provider(provider);
   };
@@ -13,4 +13,13 @@ export default function Ethers() {
     getWrappedProvider,
     getContract,
   };
+}
+
+const parseByte32ToString = (bytes) => {
+  return ethers.utils.parseBytes32String(bytes);
+}
+
+export {
+  Ethers,
+  parseByte32ToString
 }

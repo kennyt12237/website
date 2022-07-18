@@ -1,1 +1,1 @@
-export {default as Ethers} from './Ethers';
+export * from './Ethers';
