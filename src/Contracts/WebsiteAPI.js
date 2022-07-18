@@ -4,11 +4,11 @@ export default function WebsiteContractAPI(contract) {
   };
 
   const getNumberOfProjectApproval = async (projectNum) => {
-    return contract.getNumberOfProjectApproval(projectNum);
+    return await contract.getNumberOfProjectApproval(projectNum);
   };
 
   const getUserApprovalForProject = async (projectNum) => {
-    return contract.methods.getUserApprovalForProject(projectNum);
+    return await contract.methods.getUserApprovalForProject(projectNum);
   };
 
   return {

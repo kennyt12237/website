@@ -1,5 +1,4 @@
 import React, { useContext, useMemo } from "react";
-import WebsiteAPI from "../../Contracts/WebsiteAPI";
 import { websiteContract } from "../../Contracts/websiteContract";
 import { useNotification } from "../../Notification";
 import { Ethers } from "../../Web3";
@@ -22,13 +21,32 @@ export default function WriteAndUpvoteWeb3(props) {
 
   const websiteSC = useMemo(() => {
     if (wrappedProvider) {
-        return getContract(websiteContract.address, websiteContract.abi, wrappedProvider);
+      return getContract(
+        websiteContract.address,
+        websiteContract.abi,
+        wrappedProvider
+      );
     }
     return null;
   }, [wrappedProvider]);
 
-  console.log(wrappedProvider);
-  console.log(websiteSC);
+//   console.log(wrappedProvider);
+//   console.log(websiteSC);
+
+//   console.log(
+//     websiteSC
+//       .getNumberOfProjectApproval(projectNumber)
+//       .then((res) => console.log(res))
+//       .catch((error) => console.log(error))
+//   );
+
+  
+//   console.log(
+//     websiteSC
+//       .getUserApprovalForProject(projectNumber)
+//       .then((res) => console.log(res))
+//       .catch((error) => console.log(error))
+//   );
 
   return (
     //     userApproval && userApproval.length > 0 ? (
