@@ -1,4 +1,4 @@
-export default function WebsiteApprovalAPI(contract) {
+export default function WebsiteContractAPI(contract) {
   const addUserApproval = (projectNum, message) => {
     return contract.addUserApproval(projectNum, message);
   };
