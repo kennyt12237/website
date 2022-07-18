@@ -4,7 +4,7 @@ import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import { WithNotificationContextProvider } from "./Notification";
-import { WalletContextProvider } from "./ContextProvider";
+import { WalletContextProvider } from "./Web3";
 
 ReactDOM.render(
   <React.StrictMode>

@@ -1,6 +1,6 @@
 import React, { useContext, useMemo } from "react";
 import { Navigate, Outlet } from "react-router-dom";
-import { WalletContext } from "../ContextProvider";
+import { WalletContext } from "../Web3";
 export default function LoginRoute() {
   const { walletProvider } = useContext(WalletContext);
 
