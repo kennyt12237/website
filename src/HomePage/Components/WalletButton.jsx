@@ -6,47 +6,29 @@ import { WalletContext } from "../../Web3";
 export default function WalletButton(props) {
   const { src } = props;
   const [showModal, setShowModal] = useState();
-  const [provider, setProvider] = useState();
   const navigate = useNavigate();
-  const { setWalletProvider } = useContext(WalletContext);
-  //   useEffect(() => {
-  //     if (walletProvider.isConnected) {
-  //       const getContract = async () => {
-  //         const ethersProvider = new ethers.providers.Web3Provider(provider);
-  //         const res = new ethers.Contract(
-  //           websiteContract.address,
-  //           websiteContract.abi,
-  //           ethersProvider
-  //         );
-  //         return res;
-  //       };
-  //       const contract = getContract();
-  //       contract.then((res) => console.log(res));
-  //       navigate("/website/projects");
-  //     }
-  //   }, [walletProvider]);
+  const { walletProvider, setWalletProvider } = useContext(WalletContext);
 
   const onModalClose = (promise) => {
     promise
       .then((result) => {
-        setProvider(result);
+        setWalletProvider(result);
       })
       .catch((error) => console.log(error));
     setShowModal(false);
   };
 
   useEffect(() => {
-    if (provider) {
-      setWalletProvider(provider);
+    if (walletProvider) {
       navigate("/website/projects");
     }
-  }, [provider]);
+  }, [walletProvider]);
 
   return (
     <div>
       <Web3Modal showModal={showModal} onModalClose={onModalClose} />
-      {provider ? (
-        <div className="wallet-container" onClick={() => setProvider(null)}>
+      {walletProvider ? (
+        <div className="wallet-container" onClick={() => setWalletProvider(null)}>
           <img
             className="wallet-container__image"
             src={src}
