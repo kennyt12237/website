@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import { Web3Modal } from "../../Web3";
-import { WalletContext } from "../../ContextProvider";
+import { WalletContext } from "../../Web3";
 
 export default function WalletButton(props) {
   const { src } = props;

@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useContext } from "react";
 import { Outlet } from "react-router-dom";
 import { chainList } from "./ChainList";
-import { WalletContext } from "../../ContextProvider";
+import { WalletContext } from "../../Web3";
 import UnsupportedNetwork from "../../HomePage/Components/UnsupportedNetwork";
 
 export default function ChainRoute() {
