@@ -1,52 +1,10 @@
-import React, { useContext, useMemo } from "react";
-import { websiteContract } from "../../Contracts/websiteContract";
+import React from "react";
 import { useNotification } from "../../Notification";
-import { Ethers } from "../../Web3";
-import { WalletContext } from "../../Web3";
 import "../scss/WriteAndUpvoteWeb3.scss";
 
 export default function WriteAndUpvoteWeb3(props) {
   const { title, defaultText, imageUrl, projectNumber } = props;
   const { successAlert, failedAlert } = useNotification();
-
-  const { walletProvider } = useContext(WalletContext);
-  const { getWrappedProvider, getContract } = Ethers();
-
-  const wrappedProvider = useMemo(() => {
-    if (walletProvider) {
-      return getWrappedProvider(walletProvider);
-    }
-    return null;
-  }, [walletProvider]);
-
-  const websiteSC = useMemo(() => {
-    if (wrappedProvider) {
-      return getContract(
-        websiteContract.address,
-        websiteContract.abi,
-        wrappedProvider
-      );
-    }
-    return null;
-  }, [wrappedProvider]);
-
-//   console.log(wrappedProvider);
-//   console.log(websiteSC);
-
-//   console.log(
-//     websiteSC
-//       .getNumberOfProjectApproval(projectNumber)
-//       .then((res) => console.log(res))
-//       .catch((error) => console.log(error))
-//   );
-
-  
-//   console.log(
-//     websiteSC
-//       .getUserApprovalForProject(projectNumber)
-//       .then((res) => console.log(res))
-//       .catch((error) => console.log(error))
-//   );
 
   return (
     //     userApproval && userApproval.length > 0 ? (
