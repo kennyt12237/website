@@ -48,6 +48,4 @@ function useWebsiteContract(projectNumber) {
   };
 }
 
-export {
-    useWebsiteContract
-}
+export { useWebsiteContract };
