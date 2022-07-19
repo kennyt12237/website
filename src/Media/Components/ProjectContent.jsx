@@ -1,7 +1,6 @@
 import React from "react";
 import ProjectText from "./ProjectText.jsx";
-import Loading from "./Loading.jsx";
-import WriteAndUpvoteWeb3 from "./WriteAndUpvoteWeb3.jsx";
+import ProjectForm from "./BlockchainInteraction/ProjectForm.jsx";
 import Media from "./Media.jsx";
 import "../scss/ProjectContent.scss";
 
@@ -15,14 +14,12 @@ export default function ProjectContent(props) {
           title={projectContent.title}
           texts={projectContent.texts}
         />
-        <Loading projectNumber={projectNumber}>
-          <WriteAndUpvoteWeb3
-            title="Upvote and Write Message (optional)"
-            defaultText="Write a Message"
-            imageUrl="./hand-thumbs-up-fill.svg"
-            projectNumber={projectNumber}
-          />
-        </Loading>
+        <ProjectForm
+          title="Upvote and Write Message (optional)"
+          defaultText="Write a Message"
+          imageUrl="./hand-thumbs-up-fill.svg"
+          projectNumber={projectNumber}
+        />
       </div>
       <div className="project-content-container__media">
         <Media imageUrl={mediaSrc} />
