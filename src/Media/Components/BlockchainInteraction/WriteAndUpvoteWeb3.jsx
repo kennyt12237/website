@@ -1,6 +1,6 @@
 import React from "react";
-import { useNotification } from "../../Notification";
-import "../scss/WriteAndUpvoteWeb3.scss";
+import { useNotification } from "../../../Notification";
+import "./scss/WriteAndUpvoteWeb3.scss";
 
 export default function WriteAndUpvoteWeb3(props) {
   const { title, defaultText, imageUrl, projectNumber } = props;

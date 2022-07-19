@@ -1,27 +1,20 @@
-import React, { useState, useMemo, useContext } from "react";
+import React, { useState, useContext } from "react";
 import { useEffect } from "react";
-import { Ethers, WalletContext } from "../../Web3";
-import { websiteContract } from "../../Contracts/websiteContract";
+import { Ethers, WalletContext } from "../../../Web3";
+import { websiteContract } from "../../../Contracts/websiteContract";
 
-export default function Loading(props) {
-  const { children, projectNumber } = props;
+function useWebsiteContract(projectNumber) {
   const [totalUpvote, setTotalUpvote] = useState();
   const [userResponse, setUserResponse] = useState();
 
   const { walletProvider } = useContext(WalletContext);
   const { getWrappedProvider, getContract } = Ethers();
 
-  const isLoading = useMemo(() => {
-    if (totalUpvote && userResponse) {
-      return false;
-    }
-    return true;
-  }, [totalUpvote, userResponse]);
-
   useEffect(() => {
     setTotalUpvote(null);
     setUserResponse(null);
   }, [projectNumber]);
+
   useEffect(() => {
     if (walletProvider) {
       const wrappedProvider = getWrappedProvider(walletProvider);
@@ -50,5 +43,12 @@ export default function Loading(props) {
     }
   }, [walletProvider, projectNumber]);
 
-  return isLoading ? <div> Loading ... </div> : <div> {children} </div>;
+  return {
+    totalUpvote,
+    userResponse,
+  };
+}
+
+export {
+    useWebsiteContract
 }
