@@ -1,4 +1,5 @@
 import React, { useMemo } from "react";
+import "./scss/Loading.scss";
 
 // A higher order component to display a loading indication for a state variable.
 export default function Loading(props) {
@@ -8,5 +9,11 @@ export default function Loading(props) {
     return loading;
   }, [loading]);
 
-  return isLoading ? <div> Loading ... </div> : <div> {children} </div>;
+  return isLoading ? (
+    <div className="loading-container">
+      <div className="loading-container--text-size">Loading ... </div>
+    </div>
+  ) : (
+    <div> {children} </div>
+  );
 }
