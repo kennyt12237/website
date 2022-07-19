@@ -1,6 +1,6 @@
 import React from "react";
 import ProjectText from "./ProjectText.jsx";
-import WriteAndUpvoteWeb3 from "./WriteAndUpvoteWeb3.jsx";
+import ProjectForm from "./BlockchainInteraction/ProjectForm.jsx";
 import Media from "./Media.jsx";
 import "../scss/ProjectContent.scss";
 
@@ -14,9 +14,9 @@ export default function ProjectContent(props) {
           title={projectContent.title}
           texts={projectContent.texts}
         />
-        <WriteAndUpvoteWeb3
+        <ProjectForm
           title="Upvote and Write Message (optional)"
-          defaultText="Wrtie a Message"
+          defaultText="Write a Message"
           imageUrl="./hand-thumbs-up-fill.svg"
           projectNumber={projectNumber}
         />
