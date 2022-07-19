@@ -18,7 +18,7 @@ export default function ProjectContent(props) {
         <Loading projectNumber={projectNumber}>
           <WriteAndUpvoteWeb3
             title="Upvote and Write Message (optional)"
-            defaultText="Wrtie a Message"
+            defaultText="Write a Message"
             imageUrl="./hand-thumbs-up-fill.svg"
             projectNumber={projectNumber}
           />
