@@ -3,14 +3,7 @@ import { useNotification } from "../../../Notification";
 import "./scss/WriteAndUpvoteWeb3.scss";
 
 export default function WriteAndUpvoteWeb3(props) {
-  const {
-    title,
-    defaultText,
-    imageUrl,
-    projectNumber,
-    totalUpvote,
-    userResponse,
-  } = props;
+  const { title, defaultText, imageUrl, totalUpvote, userResponse } = props;
   const { successAlert, failedAlert } = useNotification();
   const { upVoted, message } = userResponse;
 

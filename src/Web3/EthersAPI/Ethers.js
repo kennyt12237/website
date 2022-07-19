@@ -17,14 +17,10 @@ function Ethers() {
 
 const parseByte32ToString = (text) => {
   return ethers.utils.parseBytes32String(text);
-}
+};
 
 const parseBigNumberToString = (text) => {
   return text.toString();
-}
+};
 
-export {
-  Ethers,
-  parseByte32ToString,
-  parseBigNumberToString
-}
+export { Ethers, parseByte32ToString, parseBigNumberToString };
