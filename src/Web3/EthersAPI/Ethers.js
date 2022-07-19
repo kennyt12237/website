@@ -15,11 +15,16 @@ function Ethers() {
   };
 }
 
-const parseByte32ToString = (bytes) => {
-  return ethers.utils.parseBytes32String(bytes);
+const parseByte32ToString = (text) => {
+  return ethers.utils.parseBytes32String(text);
+}
+
+const parseBigNumberToString = (text) => {
+  return text.toString();
 }
 
 export {
   Ethers,
-  parseByte32ToString
+  parseByte32ToString,
+  parseBigNumberToString
 }

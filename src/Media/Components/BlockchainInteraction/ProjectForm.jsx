@@ -1,7 +1,7 @@
 import React, { useMemo } from "react";
 import Loading from "./Loading";
-import { useWebsiteContract } from "./useWebsiteContract";
 import WriteAndUpvoteWeb3 from "./WriteAndUpvoteWeb3";
+import { useWebsiteContract } from "./useWebsiteContract";
 
 export default function ProjectForm(props) {
   const { title, defaultText, imageUrl, projectNumber } = props;
@@ -21,6 +21,8 @@ export default function ProjectForm(props) {
         defaultText={defaultText}
         imageUrl={imageUrl}
         projectNumber={projectNumber}
+        totalUpvote={totalUpvote}
+        userResponse={userResponse}
       />
     </Loading>
   );
