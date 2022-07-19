@@ -3,26 +3,33 @@ import { useNotification } from "../../../Notification";
 import "./scss/WriteAndUpvoteWeb3.scss";
 
 export default function WriteAndUpvoteWeb3(props) {
-  const { title, defaultText, imageUrl, projectNumber } = props;
+  const {
+    title,
+    defaultText,
+    imageUrl,
+    projectNumber,
+    totalUpvote,
+    userResponse,
+  } = props;
   const { successAlert, failedAlert } = useNotification();
+  const { upVoted, message } = userResponse;
 
-  return (
-    //     userApproval && userApproval.length > 0 ? (
-    //     <div className="web3-message-container">
-    //       <div className="web3-message-container__title">
-    //         <img
-    //           className="web3-message-container__title__image"
-    //           src="./check.svg"
-    //           alt="Checkmark"
-    //         />
-    //         Thanks for upvoting!
-    //       </div>
-    //       <div className="web3-message-container__upvoted">
-    //         <div> You Wrote: {userApproval} </div>
-    //         <div> Total Upvotes: {totalUpvote} </div>
-    //       </div>
-    //     </div>
-    //   ) : (
+  return upVoted ? (
+    <div className="web3-message-container">
+      <div className="web3-message-container__title">
+        <img
+          className="web3-message-container__title__image"
+          src="./check.svg"
+          alt="Checkmark"
+        />
+        Thanks for upvoting!
+      </div>
+      <div className="web3-message-container__upvoted">
+        <div> You Wrote: {message} </div>
+        <div> Total Upvotes: {totalUpvote} </div>
+      </div>
+    </div>
+  ) : (
     <div className="web3-message-container">
       <div className="web3-message-container__title"> {title} </div>
       <div className="web3-message-container__interactive">
