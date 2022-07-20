@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { useNotification } from "../../../Notification";
 import "./scss/WriteAndUpvoteWeb3.scss";
 
 export default function WriteAndUpvoteWeb3(props) {
@@ -13,7 +12,6 @@ export default function WriteAndUpvoteWeb3(props) {
   } = props;
 
   const [textInput, setTextInput] = useState();
-  const { successAlert, failedAlert } = useNotification();
   const { upVoted, message } = userResponse;
 
   return upVoted ? (

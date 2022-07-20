@@ -2,12 +2,14 @@ import React, { useMemo } from "react";
 import Loading from "./Loading";
 import WriteAndUpvoteWeb3 from "./WriteAndUpvoteWeb3";
 import { useWebsiteContract } from "./useWebsiteContract";
+import { useNotification } from "../../../Notification";
 
 export default function ProjectForm(props) {
   const { title, defaultText, imageUrl, projectNumber } = props;
   const { totalUpvote, userResponse, sendUserResponse } = useWebsiteContract(
     projectNumber
   );
+  const { successAlert, failedAlert } = useNotification();
 
   const loading = useMemo(() => {
     if (totalUpvote && userResponse) {
@@ -15,6 +17,14 @@ export default function ProjectForm(props) {
     }
     return true;
   }, [totalUpvote, userResponse]);
+
+  const wrappedSendUserResponse = (text) => {
+    console.log("Sending message...");
+    sendUserResponse(text)
+      .then((res) => successAlert(res))
+      .catch((error) => failedAlert(error));
+      console.log("Sending message success!");
+  };
 
   return (
     <Loading loading={loading}>
@@ -25,7 +35,7 @@ export default function ProjectForm(props) {
         projectNumber={projectNumber}
         totalUpvote={totalUpvote}
         userResponse={userResponse}
-        sendUserResponse={sendUserResponse}
+        sendUserResponse={wrappedSendUserResponse}
       />
     </Loading>
   );

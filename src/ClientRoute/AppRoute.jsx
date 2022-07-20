@@ -18,13 +18,7 @@ export default function AppRoute(props) {
       <Routes>
         <Route
           path="/website"
-          element={
-            <Layout
-              NotificationOverlay={
-                <NotificationOverlay id={"notification-root"} />
-              }
-            />
-          }
+          element={<Layout NotificationOverlay={<NotificationOverlay />} />}
         >
           <Route index element={<HomeContent />} />
           <Route element={<LoginRoute />}>
