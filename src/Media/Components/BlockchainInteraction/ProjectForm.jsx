@@ -5,7 +5,9 @@ import { useWebsiteContract } from "./useWebsiteContract";
 
 export default function ProjectForm(props) {
   const { title, defaultText, imageUrl, projectNumber } = props;
-  const { totalUpvote, userResponse } = useWebsiteContract(projectNumber);
+  const { totalUpvote, userResponse, sendUserResponse } = useWebsiteContract(
+    projectNumber
+  );
 
   const loading = useMemo(() => {
     if (totalUpvote && userResponse) {
@@ -23,6 +25,7 @@ export default function ProjectForm(props) {
         projectNumber={projectNumber}
         totalUpvote={totalUpvote}
         userResponse={userResponse}
+        sendUserResponse={sendUserResponse}
       />
     </Loading>
   );
