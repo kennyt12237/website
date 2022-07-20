@@ -1,9 +1,18 @@
-import React from "react";
+import React, { useState } from "react";
 import { useNotification } from "../../../Notification";
 import "./scss/WriteAndUpvoteWeb3.scss";
 
 export default function WriteAndUpvoteWeb3(props) {
-  const { title, defaultText, imageUrl, totalUpvote, userResponse } = props;
+  const {
+    title,
+    defaultText,
+    imageUrl,
+    totalUpvote,
+    userResponse,
+    sendUserResponse,
+  } = props;
+
+  const [textInput, setTextInput] = useState();
   const { successAlert, failedAlert } = useNotification();
   const { upVoted, message } = userResponse;
 
@@ -30,11 +39,11 @@ export default function WriteAndUpvoteWeb3(props) {
           className="web3-message-container__interactive__write"
           type="text"
           placeholder={defaultText}
-          //   onInput={(e) => setTextInput(e.target.value)}
+          onInput={(e) => setTextInput(e.target.value)}
         />
         <div
           className="web3-message-container__interactive__button"
-          //   onClick={() => addUserApprovalAPI(projectNumber, textInput)}
+          onClick={() => sendUserResponse(textInput)}
         >
           <img
             className="web3-message-container__interactive__button__image"

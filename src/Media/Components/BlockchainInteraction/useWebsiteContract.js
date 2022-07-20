@@ -1,4 +1,4 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useMemo } from "react";
 import { useEffect } from "react";
 import { Ethers, parseBigNumberToString, WalletContext } from "../../../Web3";
 import { websiteContract } from "../../../Contracts/websiteContract";
@@ -11,21 +11,21 @@ function useWebsiteContract(projectNumber) {
   const { walletProvider } = useContext(WalletContext);
   const { getWrappedProvider, getContract } = Ethers();
 
+  const contract = useMemo(() => {
+    if (walletProvider) {
+      const wrappedProvider = getWrappedProvider(walletProvider);
+      const signer = wrappedProvider.getSigner();
+      return getContract(websiteContract.address, websiteContract.abi, signer);
+    }
+  }, [walletProvider]);
+
   useEffect(() => {
     setTotalUpvote(null);
     setUserResponse(null);
   }, [projectNumber]);
 
   useEffect(() => {
-    if (walletProvider) {
-      const wrappedProvider = getWrappedProvider(walletProvider);
-      const signer = wrappedProvider.getSigner();
-      const contract = getContract(
-        websiteContract.address,
-        websiteContract.abi,
-        signer
-      );
-
+    if (contract) {
       contract
         .getNumberOfProjectApproval(projectNumber)
         .then((res) => {
@@ -40,11 +40,16 @@ function useWebsiteContract(projectNumber) {
         })
         .catch((error) => console.log(error));
     }
-  }, [walletProvider, projectNumber]);
+  }, [contract, projectNumber]);
+
+  const sendUserResponse = async (text) => {
+    return await contract.addUserApproval(projectNumber, text);
+  };
 
   return {
     totalUpvote,
     userResponse,
+    sendUserResponse,
   };
 }
 
