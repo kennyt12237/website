@@ -20,10 +20,14 @@ function WalletContextProvider(props) {
     return null;
   }, [walletProvider]);
 
+  const setOnAccountChanged = (callback) => {};
+
   useEffect(() => {
     if (walletProvider) {
-      console.log(walletProvider);
       walletProvider.on("chainChanged", (chainId) => {
+        window.location.reload();
+      });
+      walletProvider.on("accountsChanged", (accounts) => {
         window.location.reload();
       });
     }
@@ -35,6 +39,7 @@ function WalletContextProvider(props) {
         setWalletProvider,
         getAddresses,
         getChainId,
+        setOnAccountChanged,
       }}
     >
       {children}
