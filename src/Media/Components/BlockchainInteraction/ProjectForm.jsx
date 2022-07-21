@@ -19,7 +19,6 @@ export default function ProjectForm(props) {
   }, [totalUpvote, userResponse]);
 
   const wrappedSendUserResponse = (text) => {
-    console.log("Sending message...");
     sendUserResponse(text)
       .then((res) => {
         successAlert("Transaction successfully sent!");
@@ -27,7 +26,6 @@ export default function ProjectForm(props) {
       .catch((error) => {
         failedAlert(error.message);
       });
-    console.log("Sending message success!");
   };
 
   return (
