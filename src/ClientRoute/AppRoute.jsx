@@ -10,7 +10,7 @@ import LoginRoute from "./LoginRoute";
 import { ProjectContentList } from "../Media";
 import { NotificationOverlay } from "../Notification";
 import { Layout, HomeContent } from "../HomePage";
-import useLoginStatus from "./useLoginStatus";
+import useLoginStatus from "./LoginRoute/useLoginStatus";
 import useChainStatus from "./ChainRoute/useChainStatus";
 
 export default function AppRoute(props) {
