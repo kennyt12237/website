@@ -1,4 +1,4 @@
-import React, { useState, createContext, useCallback } from "react";
+import React, { useState, useEffect, createContext, useCallback } from "react";
 
 const WalletContext = createContext();
 
@@ -20,9 +20,22 @@ function WalletContextProvider(props) {
     return null;
   }, [walletProvider]);
 
+  useEffect(() => {
+    if (walletProvider) {
+      console.log(walletProvider);
+      walletProvider.on("chainChanged", (chainId) => {
+        window.location.reload();
+      });
+    }
+  }, [walletProvider]);
   return (
     <WalletContext.Provider
-      value={{ walletProvider, setWalletProvider, getAddresses, getChainId }}
+      value={{
+        walletProvider,
+        setWalletProvider,
+        getAddresses,
+        getChainId,
+      }}
     >
       {children}
     </WalletContext.Provider>
