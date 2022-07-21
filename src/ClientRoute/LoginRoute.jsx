@@ -1,19 +1,22 @@
-import React, { useContext, useMemo } from "react";
+import React, { useEffect } from "react";
+import { useRef } from "react";
 import { Navigate, Outlet } from "react-router-dom";
-import { WalletContext } from "../Web3";
+
 import { useNotification } from "../Notification";
 
-export default function LoginRoute() {
-  const { getAddresses } = useContext(WalletContext);
+export default function LoginRoute(props) {
+  const { isConnected } = props;
+  const initalConnection = useRef();
   const { successAlert, failedAlert } = useNotification();
-  
-  const isConnected = useMemo(() => {
-    if (getAddresses()) {
-      successAlert("Connected Successfully")
-      return true;
+
+  useEffect(() => {
+    if (isConnected) {
+      initalConnection.current = true;
+      successAlert("Connected successfully");
+    } else if (initalConnection.current) {
+      successAlert("Disconnected successfully");
     }
-    return false;
-  }, [getAddresses]);
+  }, [isConnected]);
 
   return isConnected ? <Outlet /> : <Navigate to="/website" />;
 }

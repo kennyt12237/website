@@ -10,9 +10,13 @@ import LoginRoute from "./LoginRoute";
 import { ProjectContentList } from "../Media";
 import { NotificationOverlay } from "../Notification";
 import { Layout, HomeContent } from "../HomePage";
+import useLoginStatus from "./useLoginStatus";
+import useChainStatus from "./ChainRoute/useChainStatus";
 
 export default function AppRoute(props) {
   const { projects } = props;
+  const { isConnected } = useLoginStatus();
+  const { validChainId, chainInText } = useChainStatus();
   return (
     <Router>
       <Routes>
@@ -21,8 +25,15 @@ export default function AppRoute(props) {
           element={<Layout NotificationOverlay={<NotificationOverlay />} />}
         >
           <Route index element={<HomeContent />} />
-          <Route element={<LoginRoute />}>
-            <Route element={<ChainRoute />}>
+          <Route element={<LoginRoute isConnected={isConnected} />}>
+            <Route
+              element={
+                <ChainRoute
+                  validChainId={validChainId}
+                  chainInText={chainInText}
+                />
+              }
+            >
               <Route
                 path="projects"
                 element={<ProjectContentList projects={projects} />}
