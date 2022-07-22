@@ -3,16 +3,16 @@ import ReactDOM from "react-dom";
 import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
-import { WithMetamask } from "./Web3";
 import { WithNotificationContextProvider } from "./Notification";
+import { WalletContextProvider } from "./Web3";
 
 ReactDOM.render(
   <React.StrictMode>
-    <WithMetamask>
-      <WithNotificationContextProvider>
-        <App />
-      </WithNotificationContextProvider>
-    </WithMetamask>
+    <WalletContextProvider>
+        <WithNotificationContextProvider>
+          <App />
+        </WithNotificationContextProvider>
+    </WalletContextProvider>
   </React.StrictMode>,
   document.getElementById("root")
 );
