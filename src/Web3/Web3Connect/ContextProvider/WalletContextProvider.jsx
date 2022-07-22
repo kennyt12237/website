@@ -20,7 +20,9 @@ function WalletContextProvider(props) {
     return null;
   }, [walletProvider]);
 
-  const setOnAccountChanged = (callback) => {};
+  const switchNetwork = (networkConfiguration) => {
+    walletProvider.request(networkConfiguration);
+  };
 
   useEffect(() => {
     if (walletProvider) {
@@ -39,7 +41,7 @@ function WalletContextProvider(props) {
         setWalletProvider,
         getAddresses,
         getChainId,
-        setOnAccountChanged,
+        switchNetwork,
       }}
     >
       {children}
