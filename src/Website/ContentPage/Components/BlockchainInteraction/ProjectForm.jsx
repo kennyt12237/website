@@ -2,7 +2,7 @@ import React, { useMemo } from "react";
 import Loading from "./Loading";
 import WriteAndUpvoteWeb3 from "./WriteAndUpvoteWeb3";
 import { useWebsiteContract } from "./useWebsiteContract";
-import { useNotification } from "../../../Notification";
+import { useNotification } from "../../../../Notification";
 
 export default function ProjectForm(props) {
   const { title, defaultText, imageUrl, projectNumber } = props;

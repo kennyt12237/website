@@ -1,6 +1,6 @@
-import React, { useState, useContext, useMemo } from "react";
+import { useState, useContext, useMemo } from "react";
 import { useEffect } from "react";
-import { Ethers, parseBigNumberToString, WalletContext } from "../../../Web3";
+import { Ethers, parseBigNumberToString, WalletContext } from "../../../../Web3";
 import { websiteContract } from "../../../Contracts/websiteContract";
 
 // Custom react hook to fetch website data from the blockchain through deployed smart contract.

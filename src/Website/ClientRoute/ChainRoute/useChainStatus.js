@@ -1,6 +1,6 @@
-import React, { useState, useEffect, useContext } from "react";
+import { useState, useEffect, useContext } from "react";
 import { chainList } from "./ChainList";
-import { WalletContext } from "../../Web3";
+import { WalletContext } from "../../../Web3";
 
 export default function useChainStatus() {
   const [validChainId, setValidChainId] = useState();
