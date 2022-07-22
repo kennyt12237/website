@@ -1,0 +1,22 @@
+.button-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    min-width: 30%;
+    align-items: center;
+    padding: 4px;
+    border: 2px solid rgb(84, 84, 141);
+    border-radius: 4px;
+    &--image-size {
+        width: 36px;
+        height: 36px;
+    }
+
+    &--text-color {
+        color: black;
+    }
+
+    &:hover {
+        cursor: pointer;
+    }
+}
