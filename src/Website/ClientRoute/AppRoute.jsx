@@ -7,9 +7,9 @@ import {
 } from "react-router-dom";
 import ChainRoute from "./ChainRoute";
 import LoginRoute from "./LoginRoute";
-import { ProjectContentList } from "../Media";
-import { NotificationOverlay } from "../Notification";
-import { Layout, HomeContent } from "../HomePage";
+import { ProjectContentList } from "../ContentPage";
+import { NotificationOverlay } from "../../Notification";
+import { Layout, HomeContent } from "../LandingPage";
 import useLoginStatus from "./LoginRoute/useLoginStatus";
 import useChainStatus from "./ChainRoute/useChainStatus";
 

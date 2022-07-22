@@ -55,6 +55,7 @@ export default function Modal(props) {
                 />
               );
             }
+            return null;
           })}
         </div>
       </div>

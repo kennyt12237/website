@@ -35,7 +35,7 @@ export default function HomeContent() {
           <div className="info-container__content__contact__social">
             <a
               href="https://www.linkedin.com/in/kenny-tang-340431171"
-              target="_blank"
+              target="blank"
               rel="noreferrer"
             >
               <img
@@ -45,7 +45,7 @@ export default function HomeContent() {
             </a>
             <a
               href="https://twitter.com/KennyTa06355885"
-              target="_blank"
+              target="blank"
               rel="noreferrer"
             >
               <img
@@ -53,7 +53,7 @@ export default function HomeContent() {
                 alt="twitter"
               />
             </a>
-            <a href="https://t.me/KennyT12237" target="_blank" rel="noreferrer">
+            <a href="https://t.me/KennyT12237" target="blank" rel="noreferrer">
               <img
                 src={process.env.PUBLIC_URL + "/telegram.svg"}
                 alt="telegram"
@@ -62,7 +62,7 @@ export default function HomeContent() {
 
             <a
               href="https://medium.com/@kennytang601"
-              target="_blank"
+              target="blank"
               rel="noreferrer"
             >
               <img src={process.env.PUBLIC_URL + "/medium.svg"} alt="medium" />
