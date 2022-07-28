@@ -14,8 +14,8 @@ export default function WalletButton(props) {
       .then((result) => {
         setWalletProvider(result);
       })
-      .catch((error) => console.log(error));
-    setShowModal(false);
+      .catch((error) => console.log(error))
+      .finally(() => setShowModal(false));
   };
 
   useEffect(() => {
@@ -28,7 +28,10 @@ export default function WalletButton(props) {
     <div>
       <Web3Modal showModal={showModal} onModalClose={onModalClose} />
       {walletProvider ? (
-        <div className="wallet-container" onClick={() => setWalletProvider(null)}>
+        <div
+          className="wallet-container"
+          onClick={() => setWalletProvider(null)}
+        >
           <img
             className="wallet-container__image"
             src={src}
