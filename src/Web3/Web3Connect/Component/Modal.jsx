@@ -3,6 +3,7 @@ import { useCallback } from "react";
 import { walletProviderMapper } from "../Utils/walletMapper";
 import Web3Button from "./Web3Button";
 import "./scss/Modal.scss";
+import { useMemo } from "react";
 
 export default function Modal(props) {
   const { showModal, onModalClose, options } = props;
@@ -33,6 +34,15 @@ export default function Modal(props) {
       }
     });
 
+  const providersEnabled = useMemo(() => {
+    return walletMapper.filter((provider) => {
+      if (provider.provider) {
+        return provider;
+      }
+      return null;
+    });
+  }, [walletMapper]);
+
   return (
     <div
       className="modal-background"
@@ -42,21 +52,25 @@ export default function Modal(props) {
       <div className="modal-container" onClick={(e) => e.stopPropagation()}>
         <div className="modal-container--text-size">Connect Wallet</div>
         <div className="modal-container__buttons">
-          {walletMapper.map((provider, index) => {
-            if (provider.provider) {
-              return (
-                <Web3Button
-                  text={provider.name}
-                  imageSrc={require(`../Assets/${provider.imageSrc}`)}
-                  onCustomButtonClick={() =>
-                    onModalClose(providerPromise(provider.provider))
-                  }
-                  key={index}
-                />
-              );
-            }
-            return null;
-          })}
+          {providersEnabled.length > 0 ? (
+            providersEnabled.map((provider, index) => {
+              if (provider.provider) {
+                return (
+                  <Web3Button
+                    text={provider.name}
+                    imageSrc={require(`../Assets/${provider.imageSrc}`)}
+                    onCustomButtonClick={() =>
+                      onModalClose(providerPromise(provider.provider))
+                    }
+                    key={index}
+                  />
+                );
+              }
+              return null;
+            })
+          ) : (
+            <div> No provider detected! Install metamask to connect. </div>
+          )}
         </div>
       </div>
     </div>
