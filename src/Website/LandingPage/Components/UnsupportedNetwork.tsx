@@ -4,8 +4,11 @@ import { WalletContext } from "../../../Web3";
 import { ropstenNetwork } from "../../ClientRoute/ChainRoute";
 import "../scss/UnsupportedNetwork.scss";
 
-export default function UnsupportedNetwork(props) {
-  const { chainInText } = props;
+interface UnsupportedNetworkProps {
+    chainInText : String,
+}
+
+export default function UnsupportedNetwork({ chainInText } : UnsupportedNetworkProps) : JSX.Element {
   const { switchNetwork } = useContext(WalletContext);
 
   return (
