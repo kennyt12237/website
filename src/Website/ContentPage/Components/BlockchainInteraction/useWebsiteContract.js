@@ -1,6 +1,10 @@
 import { useState, useContext, useMemo } from "react";
 import { useEffect } from "react";
-import { Ethers, parseBigNumberToString, WalletContext } from "../../../../Web3";
+import {
+  Ethers,
+  parseBigNumberToString,
+  WalletContext,
+} from "../../../../Web3";
 import { websiteContract } from "../../../Contracts/websiteContract";
 
 // Custom react hook to fetch website data from the blockchain through deployed smart contract.
@@ -22,6 +26,11 @@ function useWebsiteContract(projectNumber) {
   useEffect(() => {
     setTotalUpvote(null);
     setUserResponse(null);
+
+    return () => {
+      setTotalUpvote(null);
+      setUserResponse(null);
+    };
   }, [projectNumber]);
 
   useEffect(() => {
@@ -40,6 +49,11 @@ function useWebsiteContract(projectNumber) {
         })
         .catch((error) => console.log(error));
     }
+
+    return () => {
+      setTotalUpvote(null);
+      setUserResponse(null);
+    };
   }, [contract, projectNumber]);
 
   const sendUserResponse = async (text) => {
