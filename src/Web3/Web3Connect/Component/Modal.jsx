@@ -69,7 +69,17 @@ export default function Modal(props) {
               return null;
             })
           ) : (
-            <div> No provider detected! Install metamask to connect. </div>
+            <div>
+              <div> No provider detected! Install a wallet to connect. </div>
+              <div>
+                <a
+                  target="blank"
+                  href="https://chrome.google.com/webstore/detail/metamask/nkbihfbeogaeaoehlefnkodbefgpgknn?hl=en"
+                >
+                  Install Metamask
+                </a>
+              </div>
+            </div>
           )}
         </div>
       </div>
