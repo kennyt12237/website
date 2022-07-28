@@ -6,21 +6,25 @@ import ProviderResource from "../Utils/ProviderResource";
 
 function walletProviderMapper(options) {
   const ethereum = window.ethereum;
-  const injectedProviders = ethereum.providers;
+  const injectedProviders = ethereum ? ethereum.providers : null;
 
   const getMetamaskProvider = () => {
-    for (let i = 0; i < injectedProviders.length; i++) {
-      if (injectedProviders[i].isMetaMask) {
-        return injectedProviders[i];
+    if (injectedProviders) {
+      for (let i = 0; i < injectedProviders.length; i++) {
+        if (injectedProviders[i].isMetaMask) {
+          return injectedProviders[i];
+        }
       }
     }
     return null;
   };
 
   const getCoinbaseProvider = () => {
-    for (let i = 0; i < injectedProviders.length; i++) {
-      if (injectedProviders[i].isCoinbaseWallet) {
-        return injectedProviders[i];
+    if (injectedProviders) {
+      for (let i = 0; i < injectedProviders.length; i++) {
+        if (injectedProviders[i].isCoinbaseWallet) {
+          return injectedProviders[i];
+        }
       }
     }
     return null;
