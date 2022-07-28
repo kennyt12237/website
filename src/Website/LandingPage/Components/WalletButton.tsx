@@ -3,13 +3,15 @@ import { useNavigate } from "react-router-dom";
 import { Web3Modal } from "../../../Web3";
 import { WalletContext } from "../../../Web3";
 
-export default function WalletButton(props) {
-  const { src } = props;
-  const [showModal, setShowModal] = useState();
+interface WalletPuttonProps {
+    src : string,
+}
+export default function WalletButton({ src } : WalletPuttonProps) : JSX.Element {
+  const [showModal, setShowModal] = useState<Boolean>();
   const navigate = useNavigate();
   const { walletProvider, setWalletProvider } = useContext(WalletContext);
 
-  const onModalClose = (promise) => {
+  const onModalClose = (promise : Promise<void>) => {
     promise
       .then((result) => {
         setWalletProvider(result);
