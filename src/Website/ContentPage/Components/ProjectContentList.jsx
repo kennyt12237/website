@@ -17,7 +17,8 @@ export default function ProjectContentList(props) {
   return (
     <div className="project-list-container">
       <ProjectContent 
-        projectContent={projects[projectNum].projectContent}
+        title={projects[projectNum].title}
+        texts={projects[projectNum].texts}
         mediaSrc={projects[projectNum].mediaSrc}
         projectNumber={projectNum}
       />
