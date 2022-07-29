@@ -1,8 +1,11 @@
 import React from "react";
 import { NotificationContextProvider } from "../context/NotificationContextProvider";
 
-export function WithNotificationContextProvider(props) {
-  const { children } = props;
-
+interface Props {
+  children: JSX.Element;
+}
+export function WithNotificationContextProvider({
+  children,
+}: Props): JSX.Element {
   return <NotificationContextProvider>{children}</NotificationContextProvider>;
 }

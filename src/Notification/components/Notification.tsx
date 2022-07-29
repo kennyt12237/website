@@ -1,9 +1,14 @@
 import React, { useEffect, useState } from "react";
 import "../scss/Notification.scss";
 
-export function Notification(props) {
-  const { duration, color, message } = props;
-  const [display, setDisplay] = useState("block");
+interface Props {
+  duration: number;
+  color: string;
+  message: string;
+}
+
+export function Notification({ duration, color, message }: Props): JSX.Element {
+  const [display, setDisplay] = useState<String>("block");
 
   useEffect(() => {
     const timer = setTimeout(() => {

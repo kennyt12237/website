@@ -1,14 +1,21 @@
 import React, { createContext, useEffect, useState } from "react";
 import { Notification } from "../components/Notification";
 
-const NotificationContext = createContext();
+const NotificationContext: React.Context<any> = createContext<any>(undefined);
 
-function NotificationContextProvider(props) {
-  const { children } = props;
+interface Props {
+  children: JSX.Element;
+}
 
-  const [notificationAlert, setNotificationAlert] = useState();
-  const [alertRequest, setAlertRequest] = useState();
-  const [alertNumber, setAlertNumber] = useState(0);
+interface Alert {
+  duration: number;
+  message: string;
+  color: string;
+}
+function NotificationContextProvider({ children }: Props): JSX.Element {
+  const [notificationAlert, setNotificationAlert] = useState<JSX.Element>();
+  const [alertRequest, setAlertRequest] = useState<Alert>();
+  const [alertNumber, setAlertNumber] = useState<number>(0);
 
   useEffect(() => {
     if (alertRequest) {
