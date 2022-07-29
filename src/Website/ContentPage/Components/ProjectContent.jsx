@@ -5,15 +5,12 @@ import Media from "./Media.jsx";
 import "../scss/ProjectContent.scss";
 
 export default function ProjectContent(props) {
-  const { projectContent, mediaSrc, projectNumber } = props;
+  const { title, texts, mediaSrc, projectNumber } = props;
 
   return (
     <div className="project-content-container">
       <div className="project-content-container__text">
-        <ProjectText
-          title={projectContent.title}
-          texts={projectContent.texts}
-        />
+        <ProjectText title={title} texts={texts} />
         <ProjectForm
           title="Upvote and Write Message (optional)"
           defaultText="Write a Message"
