@@ -2,9 +2,18 @@ import React, { useState } from "react";
 import ProjectContent from "./ProjectContent";
 import "../scss/ProjectContentList.scss";
 
-export default function ProjectContentList(props) {
-  const { projects } = props;
-  const [projectNum, setProjectNum] = useState(0);
+interface Props {
+    projects : Array<Project>
+}
+
+interface Project {
+    title: string,
+    texts: Array<string>,
+    mediaSrc: string,
+}
+
+export default function ProjectContentList( {projects } : Props) : JSX.Element {
+  const [projectNum, setProjectNum] = useState<number>(0);
 
   const isPreviousDisabled = () => {
     return projectNum === 0;

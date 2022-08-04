@@ -1,12 +1,21 @@
 import React from "react";
-import ProjectText from "./ProjectText.jsx";
-import ProjectForm from "./BlockchainInteraction/ProjectForm.jsx";
-import Media from "./Media.jsx";
+import ProjectText from "./ProjectText";
+import ProjectForm from "./BlockchainInteraction/ProjectForm";
+import Media from "./Media";
 import "../scss/ProjectContent.scss";
 
-export default function ProjectContent(props) {
-  const { title, texts, mediaSrc, projectNumber } = props;
-
+interface Props {
+  title: string;
+  texts: Array<string>;
+  mediaSrc: string;
+  projectNumber: number;
+}
+export default function ProjectContent({
+  title,
+  texts,
+  mediaSrc,
+  projectNumber,
+}: Props): JSX.Element {
   return (
     <div className="project-content-container">
       <div className="project-content-container__text">
