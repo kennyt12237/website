@@ -3,7 +3,7 @@ import Header from "./Header";
 import { Outlet } from "react-router-dom";
 
 interface LayoutProps {
-  notificationOverlay?: React.ReactPortal;
+  notificationOverlay?: JSX.Element;
 }
 
 export default function Layout({

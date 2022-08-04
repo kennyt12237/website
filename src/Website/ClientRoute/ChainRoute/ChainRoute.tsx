@@ -2,9 +2,14 @@ import React from "react";
 import { Outlet } from "react-router-dom";
 import { UnsupportedNetwork } from "../../LandingPage";
 
-export default function ChainRoute(props) {
-  const { validChainId, chainInText } = props;
-
+interface Props {
+  validChainId: Boolean;
+  chainInText: String;
+}
+export default function ChainRoute({
+  validChainId,
+  chainInText,
+}: Props): JSX.Element {
   return validChainId ? (
     <Outlet />
   ) : (

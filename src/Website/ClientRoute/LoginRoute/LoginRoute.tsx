@@ -3,9 +3,11 @@ import { useRef } from "react";
 import { Navigate, Outlet } from "react-router-dom";
 import { useNotification } from "../../../Notification";
 
-export default function LoginRoute(props) {
-  const { isConnected } = props;
-  const initalConnection = useRef();
+interface Props {
+  isConnected: Boolean;
+}
+export default function LoginRoute({ isConnected }: Props): JSX.Element {
+  const initalConnection = useRef<Boolean>(false);
   const { successAlert } = useNotification();
 
   useEffect(() => {
