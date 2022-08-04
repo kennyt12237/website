@@ -1,10 +1,12 @@
 import React, { useState, useEffect, createContext, useCallback } from "react";
 
-const WalletContext = createContext();
+interface Props {
+  children: JSX.Element;
+}
+const WalletContext: React.Context<any> = createContext<any>(null);
 
-function WalletContextProvider(props) {
-  const { children } = props;
-  const [walletProvider, setWalletProvider] = useState();
+function WalletContextProvider({ children }: Props): JSX.Element {
+  const [walletProvider, setWalletProvider] = useState<any>();
 
   const getAddresses = useCallback(() => {
     if (walletProvider) {
@@ -20,16 +22,16 @@ function WalletContextProvider(props) {
     return null;
   }, [walletProvider]);
 
-  const switchNetwork = (networkConfiguration) => {
+  const switchNetwork = (networkConfiguration: any) => {
     walletProvider.request(networkConfiguration);
   };
 
   useEffect(() => {
     if (walletProvider) {
-      walletProvider.on("chainChanged", (chainId) => {
+      walletProvider.on("chainChanged", () => {
         window.location.reload();
       });
-      walletProvider.on("accountsChanged", (accounts) => {
+      walletProvider.on("accountsChanged", () => {
         window.location.reload();
       });
     }
