@@ -7,11 +7,11 @@ interface WalletPuttonProps {
     src : string,
 }
 export default function WalletButton({ src } : WalletPuttonProps) : JSX.Element {
-  const [showModal, setShowModal] = useState<Boolean>();
+  const [showModal, setShowModal] = useState<boolean>(false);
   const navigate = useNavigate();
   const { walletProvider, setWalletProvider } = useContext(WalletContext);
 
-  const onModalClose = (promise : Promise<void>) => {
+  const onModalClose = (promise : Promise<any>) => {
     promise
       .then((result) => {
         setWalletProvider(result);
