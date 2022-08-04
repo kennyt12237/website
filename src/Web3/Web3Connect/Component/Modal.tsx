@@ -5,10 +5,24 @@ import Web3Button from "./Web3Button";
 import "./scss/Modal.scss";
 import { useMemo } from "react";
 
-export default function Modal(props) {
-  const { showModal, onModalClose, options } = props;
+interface Props {
+  showModal: boolean;
+  onModalClose: (provider: any) => any;
+  options?: Array<String>;
+}
 
-  const walletMapper = walletProviderMapper(options);
+interface WalletDetails {
+  name: string;
+  imageSrc: string;
+  provider: any;
+}
+
+export default function Modal({
+  showModal,
+  onModalClose,
+  options,
+}: Props): JSX.Element {
+  const walletMapper: Array<WalletDetails> = walletProviderMapper(options);
 
   const getVisibility = useCallback(() => {
     if (showModal) {
@@ -21,7 +35,7 @@ export default function Modal(props) {
     };
   }, [showModal]);
 
-  const providerPromise = (provider) =>
+  const providerPromise = (provider: any): Promise<any> =>
     new Promise(async (resolve, reject) => {
       if (!provider) {
         reject("No Provider Selected");
