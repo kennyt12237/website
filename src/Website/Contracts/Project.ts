@@ -1,6 +1,6 @@
 interface Project {
     title: string,
-    texts: Array<String>,
+    texts: Array<string>,
     mediaSrc: string,
 }
 
