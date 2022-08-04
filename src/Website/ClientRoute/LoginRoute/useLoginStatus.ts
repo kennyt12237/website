@@ -1,8 +1,11 @@
 import { useState, useEffect, useContext } from "react";
 import { WalletContext } from "../../../Web3";
 
-export default function useLoginStatus() {
-  const [isConnected, setIsConnected] = useState();
+interface LoginStatus {
+    isConnected : Boolean
+}
+export default function useLoginStatus() : LoginStatus {
+  const [isConnected, setIsConnected] = useState<boolean>(false);
   const { getAddresses } = useContext(WalletContext);
 
   useEffect(() => {

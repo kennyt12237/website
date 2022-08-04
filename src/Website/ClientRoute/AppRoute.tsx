@@ -13,8 +13,17 @@ import { Layout, HomeContent } from "../LandingPage";
 import useLoginStatus from "./LoginRoute/useLoginStatus";
 import useChainStatus from "./ChainRoute/useChainStatus";
 
-export default function AppRoute(props) {
-  const { projects } = props;
+interface Project {
+  title: string;
+  texts: Array<String>;
+  mediaSrc: string;
+}
+
+interface Props {
+  projects: Array<Project>;
+}
+
+export default function AppRoute({ projects }: Props): JSX.Element {
   const { isConnected } = useLoginStatus();
   const { validChainId, chainInText } = useChainStatus();
   return (
