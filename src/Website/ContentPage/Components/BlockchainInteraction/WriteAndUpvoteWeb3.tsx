@@ -1,17 +1,27 @@
 import React, { useState } from "react";
 import "./scss/WriteAndUpvoteWeb3.scss";
 
-export default function WriteAndUpvoteWeb3(props) {
-  const {
-    title,
-    defaultText,
-    imageUrl,
-    totalUpvote,
-    userResponse,
-    sendUserResponse,
-  } = props;
-
-  const [textInput, setTextInput] = useState();
+interface UserResponse {
+  upVoted: boolean;
+  message: string;
+}
+interface Props {
+  title: string;
+  defaultText: string;
+  imageUrl: string;
+  totalUpvote: string;
+  userResponse: UserResponse;
+  sendUserResponse: (text: string) => boolean;
+}
+export default function WriteAndUpvoteWeb3({
+  title,
+  defaultText,
+  imageUrl,
+  totalUpvote,
+  userResponse,
+  sendUserResponse,
+}: Props): JSX.Element {
+  const [textInput, setTextInput] = useState<string>("");
   const { upVoted, message } = userResponse;
 
   return upVoted ? (
@@ -37,7 +47,10 @@ export default function WriteAndUpvoteWeb3(props) {
           className="web3-message-container__interactive__write"
           type="text"
           placeholder={defaultText}
-          onInput={(e) => setTextInput(e.target.value)}
+          onInput={(e) => {
+            const target = e.target as HTMLInputElement;
+            setTextInput(target.value);
+          }}
         />
         <div
           className="web3-message-container__interactive__button"
