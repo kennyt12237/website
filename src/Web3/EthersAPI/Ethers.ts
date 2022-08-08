@@ -5,8 +5,8 @@ function Ethers() {
     return new ethers.providers.Web3Provider(provider);
   };
 
-  const getContract = (contractAddress : string, contractAbi : ContractInterface, wrappedProvider : providers.Web3Provider) => {
-    return new ethers.Contract(contractAddress, contractAbi, wrappedProvider);
+  const getContract = (contractAddress : string, contractAbi : ContractInterface, providerOrSigner : providers.Provider | ethers.Signer) => {
+    return new ethers.Contract(contractAddress, contractAbi, providerOrSigner);
   };
 
   return {

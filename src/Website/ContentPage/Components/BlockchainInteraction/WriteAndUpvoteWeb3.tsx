@@ -11,7 +11,7 @@ interface Props {
   imageUrl: string;
   totalUpvote: string;
   userResponse: UserResponse;
-  sendUserResponse: (text: string) => boolean;
+  sendUserResponse: (text: string) => void;
 }
 export default function WriteAndUpvoteWeb3({
   title,

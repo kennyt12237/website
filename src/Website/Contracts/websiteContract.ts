@@ -1,5 +1,5 @@
 interface Contract {
-    abi : Array<String>,
+    abi : Array<string>,
     address : string,
 }
 
