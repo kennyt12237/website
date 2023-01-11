@@ -9,7 +9,7 @@ const websiteContract : Contract = {
    "function getNumberOfProjectApproval(uint256 projectNum) public view returns (uint256 num)",
    "function getUserApprovalForProject(uint256 projectNum) public view returns (tuple(bool upVoted, string message))",
   ],
-  address: "0x420dd7E76615c7A4Caf2D3aCC0a9DAD200E8CE87",
+  address: "0x4aeDc8F74296e5DcddC9a908A791224789bE927A",
 };
 
 export { websiteContract };
