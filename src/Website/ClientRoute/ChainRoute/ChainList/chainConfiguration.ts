@@ -3,13 +3,14 @@ interface Network {
     params: Array<Object>,
 }
 
-const ropstenNetwork: Network = {
+const goerliNetwork: Network = {
     method: "wallet_switchEthereumChain",
     params: [
         {
-            chainId: "0x3",
+            chainId: "0x5",
         },
     ],
 };
 
-export { ropstenNetwork };
+
+export { goerliNetwork };
