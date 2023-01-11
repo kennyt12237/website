@@ -1,7 +1,7 @@
 import React from "react";
 import { useContext } from "react";
 import { WalletContext } from "../../../Web3";
-import { ropstenNetwork } from "../../ClientRoute/ChainRoute";
+import { goerliNetwork } from "../../ClientRoute/ChainRoute";
 import "../scss/UnsupportedNetwork.scss";
 
 interface UnsupportedNetworkProps {
@@ -22,8 +22,8 @@ export default function UnsupportedNetwork({ chainInText } : UnsupportedNetworkP
         {`${chainInText} is not supported`}
       </div>
       <div className="invalid-network-container__body">
-        <button onClick={() => switchNetwork(ropstenNetwork)}>
-          Connect To Ropsten Testnet
+        <button onClick={() => switchNetwork(goerliNetwork)}>
+          Connect To Goerli Testnet
         </button>
       </div>
     </div>

@@ -19,7 +19,7 @@ export default function useChainStatus(): ChainStatus {
         return "Unfamiliar Network";
     };
 
-    const validChainList = [3];
+    const validChainList = [5];
 
     const checkSupportedChain = (chainId: string) => {
         if (chainId) {
