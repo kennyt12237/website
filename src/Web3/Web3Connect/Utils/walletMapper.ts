@@ -12,8 +12,7 @@ interface WalletDetails {
 
 function walletProviderMapper(options?: Array<String>): Array<WalletDetails> {
     const ethereum: any = window.ethereum;
-    const injectedProviders: any = ethereum ? ethereum.providers : null;
-
+    const injectedProviders: any = ethereum ? ethereum.providers ? ethereum.providers : new Array(ethereum) : null;
     const getMetamaskProvider = (): any => {
         if (injectedProviders) {
             for (let i = 0; i < injectedProviders.length; i++) {
