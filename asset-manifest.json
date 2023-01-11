@@ -1,16 +1,14 @@
 {
   "main.css": "https://kennyt12237.github.io/website/static/css/main.f368ee49.chunk.css",
-  "main.js": "https://kennyt12237.github.io/website/static/js/main.250d8678.chunk.js",
-  "main.js.map": "https://kennyt12237.github.io/website/static/js/main.250d8678.chunk.js.map",
-  "static/js/1.aa1ecd07.chunk.js": "https://kennyt12237.github.io/website/static/js/1.aa1ecd07.chunk.js",
-  "static/js/1.aa1ecd07.chunk.js.map": "https://kennyt12237.github.io/website/static/js/1.aa1ecd07.chunk.js.map",
-  "static/js/2.a800cd94.chunk.js": "https://kennyt12237.github.io/website/static/js/2.a800cd94.chunk.js",
-  "static/js/2.a800cd94.chunk.js.map": "https://kennyt12237.github.io/website/static/js/2.a800cd94.chunk.js.map",
-  "runtime~main.js": "https://kennyt12237.github.io/website/static/js/runtime~main.8d7d5788.js",
-  "runtime~main.js.map": "https://kennyt12237.github.io/website/static/js/runtime~main.8d7d5788.js.map",
+  "main.js": "https://kennyt12237.github.io/website/static/js/main.f86b1d59.chunk.js",
+  "main.js.map": "https://kennyt12237.github.io/website/static/js/main.f86b1d59.chunk.js.map",
+  "static/js/1.7a0e75d7.chunk.js": "https://kennyt12237.github.io/website/static/js/1.7a0e75d7.chunk.js",
+  "static/js/1.7a0e75d7.chunk.js.map": "https://kennyt12237.github.io/website/static/js/1.7a0e75d7.chunk.js.map",
+  "runtime~main.js": "https://kennyt12237.github.io/website/static/js/runtime~main.8470cd8a.js",
+  "runtime~main.js.map": "https://kennyt12237.github.io/website/static/js/runtime~main.8470cd8a.js.map",
   "static/media/coinbase.svg": "https://kennyt12237.github.io/website/static/media/coinbase.2e6a764a.svg",
   "static/css/main.f368ee49.chunk.css.map": "https://kennyt12237.github.io/website/static/css/main.f368ee49.chunk.css.map",
   "index.html": "https://kennyt12237.github.io/website/index.html",
-  "precache-manifest.95cfb635eecda0294fd39f1a0c9d17c9.js": "https://kennyt12237.github.io/website/precache-manifest.95cfb635eecda0294fd39f1a0c9d17c9.js",
+  "precache-manifest.ed21245bc84ae1cc8a8cdb3881baf426.js": "https://kennyt12237.github.io/website/precache-manifest.ed21245bc84ae1cc8a8cdb3881baf426.js",
   "service-worker.js": "https://kennyt12237.github.io/website/service-worker.js"
 }
