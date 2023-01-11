@@ -7,6 +7,7 @@ const chainList: Chain = {
     1: "Ethereum",
     2: "Expanse",
     3: "Ropsten Testnet",
+    5: "Goerli Testnet",
     8: "Ubiq",
     10: "Optimism",
     19: "Songbird",
