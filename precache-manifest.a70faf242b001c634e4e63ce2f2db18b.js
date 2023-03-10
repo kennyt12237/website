@@ -20,7 +20,7 @@ self.__precacheManifest = [
     "url": "https://kennyt12237.github.io/website/static/media/coinbase.2e6a764a.svg"
   },
   {
-    "revision": "0dde4ec05814f4e74545bd4d8eafa418",
+    "revision": "a5988a81d88e7c9e81b3756978d09373",
     "url": "https://kennyt12237.github.io/website/index.html"
   }
 ];
