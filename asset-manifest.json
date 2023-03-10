@@ -1,7 +1,7 @@
 {
   "main.css": "https://kennyt12237.github.io/website/static/css/main.be91c9e2.chunk.css",
-  "main.js": "https://kennyt12237.github.io/website/static/js/main.985d30be.chunk.js",
-  "main.js.map": "https://kennyt12237.github.io/website/static/js/main.985d30be.chunk.js.map",
+  "main.js": "https://kennyt12237.github.io/website/static/js/main.0e940ef8.chunk.js",
+  "main.js.map": "https://kennyt12237.github.io/website/static/js/main.0e940ef8.chunk.js.map",
   "static/js/1.bdc21c01.chunk.js": "https://kennyt12237.github.io/website/static/js/1.bdc21c01.chunk.js",
   "static/js/1.bdc21c01.chunk.js.map": "https://kennyt12237.github.io/website/static/js/1.bdc21c01.chunk.js.map",
   "runtime~main.js": "https://kennyt12237.github.io/website/static/js/runtime~main.8470cd8a.js",
@@ -9,6 +9,6 @@
   "static/media/coinbase.svg": "https://kennyt12237.github.io/website/static/media/coinbase.2e6a764a.svg",
   "static/css/main.be91c9e2.chunk.css.map": "https://kennyt12237.github.io/website/static/css/main.be91c9e2.chunk.css.map",
   "index.html": "https://kennyt12237.github.io/website/index.html",
-  "precache-manifest.2766bdc49cea2081c8c38a2a33e66e60.js": "https://kennyt12237.github.io/website/precache-manifest.2766bdc49cea2081c8c38a2a33e66e60.js",
+  "precache-manifest.4c3223cd78f53e11e60e5f7f3d8c44db.js": "https://kennyt12237.github.io/website/precache-manifest.4c3223cd78f53e11e60e5f7f3d8c44db.js",
   "service-worker.js": "https://kennyt12237.github.io/website/service-worker.js"
 }
