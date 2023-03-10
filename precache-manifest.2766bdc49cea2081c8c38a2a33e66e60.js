@@ -1,11 +1,11 @@
 self.__precacheManifest = [
   {
-    "revision": "6670148b4718239b0d9a",
+    "revision": "985d30be703610e9f456",
     "url": "https://kennyt12237.github.io/website/static/css/main.be91c9e2.chunk.css"
   },
   {
-    "revision": "6670148b4718239b0d9a",
-    "url": "https://kennyt12237.github.io/website/static/js/main.6670148b.chunk.js"
+    "revision": "985d30be703610e9f456",
+    "url": "https://kennyt12237.github.io/website/static/js/main.985d30be.chunk.js"
   },
   {
     "revision": "bdc21c017c348023923f",
@@ -20,7 +20,7 @@ self.__precacheManifest = [
     "url": "https://kennyt12237.github.io/website/static/media/coinbase.2e6a764a.svg"
   },
   {
-    "revision": "746d7ed586ca178e7141a7e824fbd7fc",
+    "revision": "4eaf58d40c17622aa4cd506ccb90b0aa",
     "url": "https://kennyt12237.github.io/website/index.html"
   }
 ];
