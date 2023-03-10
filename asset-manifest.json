@@ -1,14 +1,14 @@
 {
-  "main.css": "https://kennyt12237.github.io/website/static/css/main.be91c9e2.chunk.css",
-  "main.js": "https://kennyt12237.github.io/website/static/js/main.ddf1ec49.chunk.js",
-  "main.js.map": "https://kennyt12237.github.io/website/static/js/main.ddf1ec49.chunk.js.map",
-  "static/js/1.bdc21c01.chunk.js": "https://kennyt12237.github.io/website/static/js/1.bdc21c01.chunk.js",
-  "static/js/1.bdc21c01.chunk.js.map": "https://kennyt12237.github.io/website/static/js/1.bdc21c01.chunk.js.map",
-  "runtime~main.js": "https://kennyt12237.github.io/website/static/js/runtime~main.8470cd8a.js",
-  "runtime~main.js.map": "https://kennyt12237.github.io/website/static/js/runtime~main.8470cd8a.js.map",
-  "static/media/coinbase.svg": "https://kennyt12237.github.io/website/static/media/coinbase.2e6a764a.svg",
-  "static/css/main.be91c9e2.chunk.css.map": "https://kennyt12237.github.io/website/static/css/main.be91c9e2.chunk.css.map",
-  "index.html": "https://kennyt12237.github.io/website/index.html",
-  "precache-manifest.311e3fa8d7dc5f2f50af960a145ee59c.js": "https://kennyt12237.github.io/website/precache-manifest.311e3fa8d7dc5f2f50af960a145ee59c.js",
-  "service-worker.js": "https://kennyt12237.github.io/website/service-worker.js"
+  "main.css": "/static/css/main.be91c9e2.chunk.css",
+  "main.js": "/static/js/main.f241a615.chunk.js",
+  "main.js.map": "/static/js/main.f241a615.chunk.js.map",
+  "static/js/1.bdc21c01.chunk.js": "/static/js/1.bdc21c01.chunk.js",
+  "static/js/1.bdc21c01.chunk.js.map": "/static/js/1.bdc21c01.chunk.js.map",
+  "runtime~main.js": "/static/js/runtime~main.229c360f.js",
+  "runtime~main.js.map": "/static/js/runtime~main.229c360f.js.map",
+  "static/media/coinbase.svg": "/static/media/coinbase.2e6a764a.svg",
+  "static/css/main.be91c9e2.chunk.css.map": "/static/css/main.be91c9e2.chunk.css.map",
+  "index.html": "/index.html",
+  "precache-manifest.a077b296ea0e14bf77e5e725d8146033.js": "/precache-manifest.a077b296ea0e14bf77e5e725d8146033.js",
+  "service-worker.js": "/service-worker.js"
 }
