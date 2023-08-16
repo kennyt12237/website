@@ -30,7 +30,7 @@ export default function HomeContent() : JSX.Element {
               src={process.env.PUBLIC_URL + "/metamask.png"}
               alt="Metamask Logo"
             />
-            Wallet address: 0x57D00be01919157c3AdDC62Eca14cE7c05A71EE8
+            Wallet address: ***REMOVED***
           </div>
           <div className="info-container__content__contact__social">
             <a
