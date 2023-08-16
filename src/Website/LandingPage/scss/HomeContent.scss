@@ -32,25 +32,8 @@
       flex-direction: column;
       justify-content: space-between;
 
-      &__wallet {
-        display: grid;
-        grid-template-columns: auto 80%;
-        justify-content: start;
-        align-items: center;
-        margin-bottom: 2rem;
-        justify-self: center;
-        font-size: 1rem;
-        font-weight: bold;
-        word-wrap: break-word;
-
-        &__image {
-          width: 100%;
-          height: 100%;
-        }
-
-      }
-
       &__social {
+        padding-top:4em;
         display: flex;
         flex-direction: row;
         justify-content: space-between;

@@ -1,14 +1,13 @@
 import React from "react";
 import "../scss/HomeContent.scss";
 
-export default function HomeContent() : JSX.Element {
+export default function HomeContent(): JSX.Element {
   return (
     <div className="info-container">
-      
-      <div className="info-container__image">
-      </div>
+      <div className="info-container__image"></div>
       <div className="info-container__content">
         <div className="info-container__content__greeting">Hello!</div>
+
         <div className="info-container__content__statement">
           <p>
             Welcome to my personal website showcasing my previous projects
@@ -24,13 +23,6 @@ export default function HomeContent() : JSX.Element {
           </p>
         </div>
         <div className="info-container__content__contact">
-          <div className="info-container__content__contact__wallet">
-            <img
-              className="info-container__content__contact__wallet__image"
-              src={process.env.PUBLIC_URL + "/metamask.png"}
-              alt="Metamask Logo"
-            />
-          </div>
           <div className="info-container__content__contact__social">
             <a
               href="https://www.linkedin.com/in/kenny-tang-340431171"
