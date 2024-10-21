@@ -44,13 +44,6 @@ export default function HomeContent(): JSX.Element {
                 alt="twitter"
               />
             </a>
-            <a href="https://t.me/KennyT12237" target="blank" rel="noreferrer">
-              <img
-                src={process.env.PUBLIC_URL + "/icons/telegram.svg"}
-                alt="telegram"
-              />
-            </a>
-
             <a
               href="https://medium.com/@kennytang601"
               target="blank"
