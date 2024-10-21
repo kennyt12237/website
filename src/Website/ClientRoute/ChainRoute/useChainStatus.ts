@@ -12,18 +12,18 @@ export default function useChainStatus(): ChainStatus {
     const { getChainId } = useContext(WalletContext);
 
     const getChainInText = (chainId: string) => {
-        const chainWithoutHex: number = parseInt(chainId.replace("0x", ""));
-        if (chainList[chainWithoutHex]) {
-            return chainList[chainWithoutHex];
-        }
+        const chainToDecimal: number = parseInt(chainId)
+        if (chainList[chainToDecimal]) {
+            return chainList[chainToDecimal];
+        }   
         return "Unfamiliar Network";
     };
 
-    const validChainList = [5];
+    const validChainList = [11155111];
 
     const checkSupportedChain = (chainId: string) => {
         if (chainId) {
-            const chainWithoutHex: number = parseInt(chainId.replace("0x", ""));
+            const chainWithoutHex: number = parseInt(chainId);
             return validChainList.includes(chainWithoutHex);
         }
         return false;
