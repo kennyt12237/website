@@ -23,7 +23,7 @@ export default function ProjectContent({
         <ProjectForm
           title="Upvote and Write Message (optional)"
           defaultText="Write a Message"
-          imageUrl="./hand-thumbs-up-fill.svg"
+          imageUrl={process.env.PUBLIC_URL + "/hand-thumbs-up-fill.svg"}
           projectNumber={projectNumber}
         />
       </div>

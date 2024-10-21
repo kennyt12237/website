@@ -16,8 +16,8 @@ export default function UnsupportedNetwork({ chainInText } : UnsupportedNetworkP
       <div className="invalid-network-container__title">
         <img
           className="invalid-network-container__title__image"
-          src="./exclamation-circle.svg"
-          alt="Exclamation Mark"
+          src={process.env.PUBLIC_URL + "/exclamation-circle.svg"}
+          alt="X"
         />
         {`${chainInText} is not supported`}
       </div>

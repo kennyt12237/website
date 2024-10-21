@@ -12,7 +12,7 @@ const projects: Array<Project> = [
             "Full functionality implemented of the application requirements",
             "Modularised code for reusability and maintainability of similar components",
         ],
-        mediaSrc: "tatworks_landing_page.png",
+        mediaSrc: process.env.PUBLIC_URL + "/projectImg/tatworks_landing_page.png",
     },
     {
         title: "Are We There Yet",
@@ -21,7 +21,7 @@ const projects: Array<Project> = [
             "Development using modern web development tools; the MERN stack and external APIs.",
             "Successfully handled and extracted data from external API that linked with multiple components.",
         ],
-        mediaSrc: "awty-map.png",
+        mediaSrc: process.env.PUBLIC_URL + "/projectImg/awty-map.png",
     },
     {
         title: "Mello",
@@ -30,7 +30,7 @@ const projects: Array<Project> = [
             "Integration of Spotify API with a Pomodoro Technique Timer mechanism",
             "Sofware development using modern web development tools and frameworks.",
         ],
-        mediaSrc: "mello_homepage.png",
+        mediaSrc: process.env.PUBLIC_URL + "/projectImg/mello_homepage.png",
     },
 ];
 
