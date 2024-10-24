@@ -6,9 +6,8 @@
   margin: 2rem 0;
 
   &__image {
-    width: 100%;
-    height: 100%;
-    background-color: lightgray;
+    max-width: 100%;
+    max-height: 100%;
     grid-column-start: 1;
     grid-column-end: 2;
   }
@@ -16,15 +15,19 @@
   &__content {
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
     grid-column-start: 3;
 
-    &__greeting {
-      font-size: 5rem;
-    }
+    &__greeting-container {
+      display: flex;
+      flex-direction: column;
+      &__title {
+        text-align: center;
+        font-size: 5rem;
+      }
 
-    &__statement {
-      font-size: 1rem;
+      &__message {
+        font-size: 1rem;
+      }
     }
 
     &__contact {
@@ -33,7 +36,7 @@
       justify-content: space-between;
 
       &__social {
-        padding-top:4em;
+        padding-top: 4em;
         display: flex;
         flex-direction: row;
         justify-content: space-between;
