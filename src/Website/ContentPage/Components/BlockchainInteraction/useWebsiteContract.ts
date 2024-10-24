@@ -1,3 +1,4 @@
+import { BigNumber } from "ethers";
 import { useState, useContext, useMemo } from "react";
 import { useEffect } from "react";
 import {
@@ -6,7 +7,6 @@ import {
     WalletContext,
 } from "../../../../Web3";
 import { websiteContract } from "../../../Contracts/websiteContract";
-import { Contract } from "ethers";
 
 interface UserResponse {
     upVoted: boolean,
@@ -33,19 +33,13 @@ function useWebsiteContract(projectNumber: number): WebsiteData {
     const { walletProvider } = useContext(WalletContext);
     const { getWrappedProvider, getContract } = Ethers();
 
-    const [contract, setContract] = useState<Contract>()
-
-    useEffect(() => {
-        const setUpContract = async () => {
-            if (walletProvider) {
-                const wrappedProvider = getWrappedProvider(walletProvider);
-                const signer = await wrappedProvider.getSigner();
-                const contract = getContract(websiteContract.address, websiteContract.abi, signer);
-                setContract(contract)
-            }
+    const contract = useMemo(() => {
+        if (walletProvider) {
+            const wrappedProvider = getWrappedProvider(walletProvider);
+            const signer = wrappedProvider.getSigner();
+            return getContract(websiteContract.address, websiteContract.abi, signer);
         }
-        setUpContract()
-    }, [walletProvider])
+    }, [walletProvider]);
 
     useEffect(() => {
         setTotalUpvote(EMPTY_STRING);
@@ -61,7 +55,7 @@ function useWebsiteContract(projectNumber: number): WebsiteData {
         if (contract) {
             contract
                 .getNumberOfProjectApproval(projectNumber)
-                .then((res: BigInt) => {
+                .then((res: BigNumber) => {
                     setTotalUpvote(parseBigNumberToString(res));
                 })
                 .catch((error: Error) => console.log(error));

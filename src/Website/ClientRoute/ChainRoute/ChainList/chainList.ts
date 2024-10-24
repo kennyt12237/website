@@ -66,7 +66,6 @@ const chainList: Chain = {
     71402: "Godwoken",
     200625: "Akroma",
     333999: "Polis",
-    11155111 : "Sepolia",
     1313161554: "Aurora",
     1666600000: "Harmony",
     0x11297108109: "Palm",
