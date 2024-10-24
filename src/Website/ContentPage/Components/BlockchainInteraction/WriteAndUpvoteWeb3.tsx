@@ -29,7 +29,7 @@ export default function WriteAndUpvoteWeb3({
       <div className="web3-message-container__title">
         <img
           className="web3-message-container__title__image"
-          src="./check.svg"
+          src= {process.env.PUBLIC_URL + "/check.svg"}
           alt="Checkmark"
         />
         Thanks for upvoting!
