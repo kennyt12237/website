@@ -1,7 +1,7 @@
 import React from "react";
 import { useContext } from "react";
 import { WalletContext } from "../../../Web3";
-import { SepoliaNetwork } from "../../ClientRoute/ChainRoute";
+import { goerliNetwork } from "../../ClientRoute/ChainRoute";
 import "../scss/UnsupportedNetwork.scss";
 
 interface UnsupportedNetworkProps {
@@ -16,14 +16,14 @@ export default function UnsupportedNetwork({ chainInText } : UnsupportedNetworkP
       <div className="invalid-network-container__title">
         <img
           className="invalid-network-container__title__image"
-          src={process.env.PUBLIC_URL + "/exclamation-circle.svg"}
-          alt="X"
+          src="./exclamation-circle.svg"
+          alt="Exclamation Mark"
         />
         {`${chainInText} is not supported`}
       </div>
       <div className="invalid-network-container__body">
-        <button onClick={() => switchNetwork(SepoliaNetwork)}>
-          Connect To Sepolia Testnet
+        <button onClick={() => switchNetwork(goerliNetwork)}>
+          Connect To Goerli Testnet
         </button>
       </div>
     </div>

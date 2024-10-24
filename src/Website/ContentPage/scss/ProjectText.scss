@@ -1,11 +1,10 @@
 .project-text-container {
   display: flex;
   flex-direction: column;
-  margin-bottom: 40px;
 
   &__title {
     margin: 0;
-    margin-bottom: 0.25rem;
+    margin-bottom: 1rem;
     font-size: 4rem;
   }
 

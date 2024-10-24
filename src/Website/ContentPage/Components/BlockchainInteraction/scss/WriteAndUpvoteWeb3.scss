@@ -80,15 +80,16 @@
     align-items: center;
 
     &__write {
-      font-size: 1.25rem;
+      font-size: 1rem;
+      margin-right: 1rem;
     }
 
     &__button {
       display: flex;
       flex-direction: row;
-      width: 25%;
-      height: 10%;
-      justify-content:center;
+      width: 50%;
+      padding: 4px;
+      justify-content: space-around;
       align-items: center;
       border-radius: 4px;
 
@@ -136,8 +137,7 @@
       }
 
       &__image {
-        width: 2vw;
-        height: 5vh;
+        width: 48px;
       }
       &:hover {
         cursor: pointer;
