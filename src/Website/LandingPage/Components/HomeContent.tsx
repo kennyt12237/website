@@ -30,7 +30,7 @@ export default function HomeContent(): JSX.Element {
               rel="noreferrer"
             >
               <img
-                src={process.env.PUBLIC_URL + "/linkedin.svg"}
+                src={process.env.PUBLIC_URL + "/icons/linkedin.svg"}
                 alt="linkedIn"
               />
             </a>
@@ -40,23 +40,16 @@ export default function HomeContent(): JSX.Element {
               rel="noreferrer"
             >
               <img
-                src={process.env.PUBLIC_URL + "/twitter.svg"}
+                src={process.env.PUBLIC_URL + "/icons/twitter.svg"}
                 alt="twitter"
               />
             </a>
-            <a href="https://t.me/KennyT12237" target="blank" rel="noreferrer">
-              <img
-                src={process.env.PUBLIC_URL + "/telegram.svg"}
-                alt="telegram"
-              />
-            </a>
-
             <a
               href="https://medium.com/@kennytang601"
               target="blank"
               rel="noreferrer"
             >
-              <img src={process.env.PUBLIC_URL + "/medium.svg"} alt="medium" />
+              <img src={process.env.PUBLIC_URL + "/icons/medium.svg"} alt="medium" />
             </a>
           </div>
         </div>
