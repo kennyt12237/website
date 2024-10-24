@@ -1,14 +1,14 @@
 {
   "files": {
-    "main.css": "https://kennyt12237.github.io/website/static/css/main.fcb2debb.css",
-    "main.js": "https://kennyt12237.github.io/website/static/js/main.7221ca75.js",
+    "main.css": "https://kennyt12237.github.io/website/static/css/main.3b24405d.css",
+    "main.js": "https://kennyt12237.github.io/website/static/js/main.ef63832d.js",
     "static/media/coinbase.svg": "https://kennyt12237.github.io/website/static/media/coinbase.602e7d2f02ded45c80ca.svg",
     "index.html": "https://kennyt12237.github.io/website/index.html",
-    "main.fcb2debb.css.map": "https://kennyt12237.github.io/website/static/css/main.fcb2debb.css.map",
-    "main.7221ca75.js.map": "https://kennyt12237.github.io/website/static/js/main.7221ca75.js.map"
+    "main.3b24405d.css.map": "https://kennyt12237.github.io/website/static/css/main.3b24405d.css.map",
+    "main.ef63832d.js.map": "https://kennyt12237.github.io/website/static/js/main.ef63832d.js.map"
   },
   "entrypoints": [
-    "static/css/main.fcb2debb.css",
-    "static/js/main.7221ca75.js"
+    "static/css/main.3b24405d.css",
+    "static/js/main.ef63832d.js"
   ]
 }
