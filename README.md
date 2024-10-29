@@ -1,10 +1,16 @@
 # Personal Website 
 ## Summary
-This is an experimental personal website using the current state-of-the-art web3 technology with my web technologies knowledge. <br>
-The web3 technologies used are: <br>
+This is an experimental personal website using the current state-of-the-art web3 technology with my web technologies knowledge. <br><br>
+The web3 development tools used are:
 - Solidity Programming Language
 - Ether.js library
-- Metamask Wallet Provider <br>
+- Metamask Wallet Provider
+  
+The web development tools used are:
+- React.js
+- Javascript/Typescript
+- HTML/SCSS
+
 
 **Note: The current web3 technologies are not exactly user-friendly, to navigate the website you have to be technologically savvy!**
 
